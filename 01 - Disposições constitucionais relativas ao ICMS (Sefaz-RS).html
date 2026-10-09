@@ -1,0 +1,772 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guia ICMS na CF/88</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: coluna única de leitura (máx. 920px), barra de capítulos fixa no topo, placar fixo no rodapé.
+   Cada capítulo usa uma cor própria (--c / --cl) definida pela classe .s-<cor>. */
+:root{
+  --bg:#f5f6f8; --fg:#1a1d24; --muted:#586070; --card:#ffffff; --line:#dcdfe6;
+  --quote-bg:#eceef2; --quote-fg:#2b3039;
+  --blue:#1f5fd1; --blue-l:#e2ecfc;
+  --green:#18814a; --green-l:#dff2e7;
+  --olive:#68771a; --olive-l:#eceed3;
+  --amber:#b06800; --amber-l:#fbebcc;
+  --purple:#7739c2; --purple-l:#eadff8;
+  --red:#c2302a; --red-l:#fbe1df;
+  --pink:#a3154f; --pink-l:#fde3ed;
+  --ok:#18814a; --ok-l:#dff2e7; --bad:#c2302a; --bad-l:#fbe1df;
+  --f-title:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12141a; --fg:#e8eaf0; --muted:#9aa2b1; --card:#1b1e27; --line:#2d313c;
+    --quote-bg:#242833; --quote-fg:#d7dbe4;
+    --blue:#6ea2ff; --blue-l:#1b2a47;
+    --green:#4fd08a; --green-l:#15301f;
+    --olive:#bccd4c; --olive-l:#2a3010;
+    --amber:#f0a63a; --amber-l:#3a2a0c;
+    --purple:#b98cf0; --purple-l:#2c1d44;
+    --red:#ff7a72; --red-l:#40191a;
+    --pink:#ff86b1; --pink-l:#3d1527;
+    --ok:#4fd08a; --ok-l:#15301f; --bad:#ff7a72; --bad-l:#40191a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12141a; --fg:#e8eaf0; --muted:#9aa2b1; --card:#1b1e27; --line:#2d313c;
+  --quote-bg:#242833; --quote-fg:#d7dbe4;
+  --blue:#6ea2ff; --blue-l:#1b2a47;
+  --green:#4fd08a; --green-l:#15301f;
+  --olive:#bccd4c; --olive-l:#2a3010;
+  --amber:#f0a63a; --amber-l:#3a2a0c;
+  --purple:#b98cf0; --purple-l:#2c1d44;
+  --red:#ff7a72; --red-l:#40191a;
+  --pink:#ff86b1; --pink-l:#3d1527;
+  --ok:#4fd08a; --ok-l:#15301f; --bad:#ff7a72; --bad-l:#40191a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 96px}
+.wrap{max-width:920px;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-title);line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0 0 .8em}
+strong{font-weight:700}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* navegação */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-16px;padding:8px 16px}
+.nav-in{max-width:920px;margin-inline:auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.chip{flex:none;text-decoration:none;font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--cl);color:var(--c);border:1px solid var(--c)}
+.chip:focus-visible,.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.c-blue{--c:var(--blue);--cl:var(--blue-l)}
+.c-green{--c:var(--green);--cl:var(--green-l)}
+.c-olive{--c:var(--olive);--cl:var(--olive-l)}
+.c-amber{--c:var(--amber);--cl:var(--amber-l)}
+.c-purple{--c:var(--purple);--cl:var(--purple-l)}
+.c-red{--c:var(--red);--cl:var(--red-l)}
+.c-pink{--c:var(--pink);--cl:var(--pink-l)}
+
+/* cabeçalho */
+.hero{padding-block:32px 8px}
+.seal{display:inline-block;font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.04em;padding:5px 11px;border-radius:6px;background:var(--blue-l);color:var(--blue);border:1px solid var(--blue)}
+.hero h1{font-size:clamp(34px,7vw,60px);font-weight:800;margin-block:14px 12px;letter-spacing:-.01em}
+.grad{background:linear-gradient(90deg,var(--blue),var(--green),var(--amber),var(--purple),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .how{max-width:62ch;color:var(--muted);font-size:18px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:14px}
+.lg{padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+.lg.up{background:var(--ok-l);color:var(--ok);border-color:var(--ok);font-weight:700}
+.lg.down{background:var(--bad-l);color:var(--bad);border-color:var(--bad);font-weight:700}
+.lg.cn{border:2px solid var(--blue)}
+.lg.pg{background:var(--pink-l);color:var(--pink);border-color:var(--pink)}
+.lg.qt{background:var(--quote-bg);color:var(--quote-fg);font-style:italic}
+
+/* 12 pontos */
+.pts-h{margin-top:36px}
+.pts-h h2{font-size:clamp(26px,4.5vw,36px)}
+.pts{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;min-width:0}
+.pt .v{font-family:var(--f-mono);font-weight:600;font-size:28px;line-height:1.1;color:var(--c);overflow-wrap:anywhere}
+.pt p{margin:6px 0 0;font-size:15px;line-height:1.45}
+
+/* capítulos */
+.sec{margin-top:56px;scroll-margin-top:72px}
+.sec-h{display:flex;gap:14px;align-items:flex-start;border-bottom:3px solid var(--c);padding-bottom:12px}
+.num{font-family:var(--f-title);font-weight:800;font-size:clamp(52px,10vw,84px);line-height:.85;color:var(--c)}
+.sec-h h2{font-size:clamp(25px,4.5vw,36px);font-weight:800}
+.ref{font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:6px;overflow-wrap:anywhere}
+.one{margin-top:16px;padding:14px 16px;border-radius:10px;background:var(--cl);color:var(--fg);border:1px solid var(--c)}
+.one b{font-family:var(--f-title);color:var(--c);letter-spacing:.04em;text-transform:uppercase;font-size:13px;display:block;margin-bottom:2px}
+.concept{margin-top:14px;padding:14px 16px;border:2px solid var(--c);border-radius:10px;background:var(--card)}
+.concept h3{font-size:19px;color:var(--c);margin-bottom:6px}
+.concept ol,.concept ul{margin:0 0 .6em;padding-left:1.3em}
+.concept li{margin-bottom:.3em}
+.quote{margin-top:14px;padding:12px 16px;border-left:6px solid var(--c);background:var(--quote-bg);color:var(--quote-fg);border-radius:0 8px 8px 0;font-style:italic}
+.quote .qr{display:block;font-style:normal;font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--c);margin-bottom:4px}
+.quote q,.quote span.t{quotes:"“" "”"}
+.pega{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--pink-l);border:1px solid var(--pink);color:var(--fg)}
+.pega h3{font-size:18px;color:var(--pink);margin-bottom:6px}
+.pega ul{margin:0;padding-left:1.2em}
+.pega li{margin-bottom:.35em}
+.ok{color:var(--ok);font-weight:700}
+.no{color:var(--bad);font-weight:700}
+.tw{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-title);font-size:14px;background:var(--cl,var(--quote-bg));color:var(--c,var(--fg))}
+tr:last-child td{border-bottom:0}
+td.n,th.n{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* barras */
+.bars{margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.bars h4{margin:0 0 8px;font-family:var(--f-title);font-size:15px}
+.br{display:grid;grid-template-columns:minmax(96px,160px) 1fr 64px;gap:8px;align-items:center;margin-bottom:6px;font-size:14px}
+.br .tr{height:18px;background:var(--quote-bg);border-radius:4px;overflow:hidden}
+.br .fl{height:100%;background:var(--c);border-radius:4px}
+.br .fl.alt{background:var(--red)}
+.br .vv{font-family:var(--f-mono);font-weight:600;text-align:right}
+.cap{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* contas */
+.conta{margin-top:14px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.conta h3{font-size:18px;margin-bottom:6px;color:var(--c)}
+.conta ol{margin:0 0 .6em;padding-left:1.3em}
+.conta li{margin-bottom:.25em}
+.erro{margin:8px 0 0;padding:8px 12px;border-radius:8px;background:var(--bad-l);color:var(--fg);border-left:5px solid var(--bad);font-size:15px}
+.erro b{color:var(--bad)}
+.res{display:inline-block;font-family:var(--f-mono);font-weight:600;padding:2px 8px;border-radius:6px;background:var(--ok-l);color:var(--ok)}
+
+/* glossário */
+.gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:14px}
+.gl div{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);min-width:0}
+.gl dt{font-family:var(--f-title);font-weight:800;color:var(--c)}
+.gl dd{margin:2px 0 0;font-size:15px}
+dl{margin:0}
+
+/* simulado */
+.q{margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.q .src{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin-bottom:4px}
+.q .qt{font-weight:700;margin-bottom:10px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;text-align:left;width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt .l{font-family:var(--f-mono);font-weight:600;color:var(--muted);flex:none}
+.opt.right{background:var(--ok-l);border-color:var(--ok)}
+.opt.wrong{background:var(--bad-l);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.exp{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--quote-bg);font-size:15px}
+.exp b.v{color:var(--ok)} .exp b.x{color:var(--bad)}
+
+/* placar */
+.score{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:2px solid var(--blue);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.score-in{max-width:920px;margin-inline:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}
+.score .st{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums}
+.score .pb{flex:1;min-width:120px;height:10px;border-radius:6px;background:var(--quote-bg);overflow:hidden}
+.score .pb i{display:block;height:100%;width:0;background:var(--ok);transition:width .25s}
+.btn{font:inherit;font-weight:700;color:var(--blue);background:var(--blue-l);border:1.5px solid var(--blue);border-radius:8px;padding:6px 14px;cursor:pointer}
+.foot{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:520px){
+  body{font-size:16px}
+  .br{grid-template-columns:84px 1fr 56px}
+  .sec-h{gap:10px}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.score .pb i{transition:none}}
+</style>
+
+<nav class="nav" aria-label="Capítulos"><div class="nav-in">
+  <a class="chip c-blue" href="#s1">1 Campo</a>
+  <a class="chip c-green" href="#s2">2 Alíquotas</a>
+  <a class="chip c-olive" href="#s3">3 DIFAL</a>
+  <a class="chip c-amber" href="#s4">4 Incidência</a>
+  <a class="chip c-purple" href="#s5">5 Não incidência</a>
+  <a class="chip c-red" href="#s6">6 Lei Comp.</a>
+  <a class="chip c-blue" href="#contas">Contas</a>
+  <a class="chip c-green" href="#comparar">Comparar</a>
+  <a class="chip c-olive" href="#glossario">Glossário</a>
+  <a class="chip c-red" href="#simulado">Simulado</a>
+</div></nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="seal">LTF SEFAZ RS · Aula 01 · Prof. Rabelo</span>
+  <h1>ICMS na <span class="grad">Constituição de 1988</span></h1>
+  <p class="how">Leia os capítulos na ordem da aula, confira as pegadinhas em rosa e feche com o simulado no fim da página. O placar fica fixo no rodapé.</p>
+  <div class="legend" aria-label="Legenda das cores">
+    <span class="lg up">verde = subiu / correto</span>
+    <span class="lg down">vermelho = caiu / errado</span>
+    <span class="lg cn">caixa com borda = conceito</span>
+    <span class="lg pg">caixa rosa = pegadinha</span>
+    <span class="lg qt">caixa cinza com aspas = texto da norma</span>
+  </div>
+</header>
+
+<section class="pts-h" aria-labelledby="pts-t">
+  <h2 id="pts-t">Os 12 pontos para decorar</h2>
+  <div class="pts">
+    <div class="pt c-blue"><div class="v">3</div><p>Impostos estaduais: ITCMD, ICMS e IPVA.</p></div>
+    <div class="pt c-green"><div class="v">cobrado</div><p>Não cumulatividade compensa o montante <strong>cobrado</strong> antes, não o "pago".</p></div>
+    <div class="pt c-olive"><div class="v">sem crédito</div><p>Isenção ou não incidência: não gera crédito adiante e anula o crédito anterior.</p></div>
+    <div class="pt c-amber"><div class="v">poderá</div><p>ICMS "poderá" ser seletivo. O IPI "será".</p></div>
+    <div class="pt c-purple"><div class="v">1/3</div><p>Iniciativa (ou Presidente) para a resolução do Senado sobre alíquotas interestaduais. Aprovação: maioria absoluta.</p></div>
+    <div class="pt c-red"><div class="v">12%</div><p>Piso das alíquotas internas, salvo deliberação dos Estados e do DF (convênio).</p></div>
+    <div class="pt c-blue"><div class="v">7%</div><p>Só de Sul e Sudeste (sem o ES) para Norte, Nordeste, Centro-Oeste e ES.</p></div>
+    <div class="pt c-green"><div class="v">DIFAL</div><p>Alíquota interna do destino menos a interestadual. Contribuinte recolhe; remetente recolhe se o destinatário não for contribuinte.</p></div>
+    <div class="pt c-olive"><div class="v">destino</div><p>ICMS na importação: Estado do domicílio ou estabelecimento do destinatário.</p></div>
+    <div class="pt c-amber"><div class="v">3 de 3</div><p>IPI fica fora da base só com os três requisitos juntos.</p></div>
+    <div class="pt c-purple"><div class="v">4</div><p>Não incidência: exportação, saída interestadual de petróleo e energia, ouro financeiro, comunicação livre e gratuita.</p></div>
+    <div class="pt c-red"><div class="v">2 pp</div><p>Fundo de pobreza: até 2 pontos sobre supérfluos, sem repartir com Municípios.</p></div>
+  </div>
+</section>
+
+<!-- CAP 1 -->
+<section class="sec c-blue" id="s1">
+  <div class="sec-h"><div class="num">1</div><div><h2>Campo do ICMS, não cumulatividade e seletividade</h2><div class="ref">Art. 155, II, e § 2º, I, II e III · Art. 153, § 3º, I</div></div></div>
+  <div class="one"><b>Em uma frase</b>O ICMS é o maior imposto dos Estados, incide sobre mercadorias, transporte interestadual e intermunicipal e comunicação, compensa o que foi cobrado antes e só pode ser seletivo se o Estado quiser.</div>
+
+  <div class="concept"><h3>Quem pode cobrar o quê</h3>
+    <p>A CF dá três impostos aos Estados e ao DF: ITCMD, ICMS e IPVA. O DF acumula também os três municipais.</p>
+    <ul>
+      <li><strong>Circulação física</strong>: a mercadoria sai de um lugar para outro (geladeira entregue em Caxias do Sul).</li>
+      <li><strong>Circulação jurídica</strong>: muda o dono sem a mercadoria sair do lugar (500 garrafões comprados e deixados no depósito do vendedor).</li>
+      <li><strong>Transporte interestadual</strong> (Porto Alegre → Florianópolis) e <strong>intermunicipal</strong> (Santa Maria → Porto Alegre): ICMS.</li>
+      <li><strong>Transporte intramunicipal</strong> (dentro do mesmo Município): não é ICMS, é ISS. O DF cobra ISS nesse caso, usando a competência municipal.</li>
+    </ul>
+  </div>
+  <div class="quote"><span class="qr">Art. 155</span>Compete aos Estados e ao Distrito Federal instituir impostos sobre: I - transmissão causa mortis e doação, de quaisquer bens ou direitos; II - operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação, ainda que as operações e as prestações se iniciem no exterior; III - propriedade de veículos automotores.</div>
+
+  <div class="concept"><h3>Não cumulatividade, passo a passo</h3>
+    <p>Sem ela o imposto vira cascata: cada venda é tributada de novo sobre o que já pagou imposto. Exemplo da aula, saca de arroz com alíquota de 20%.</p>
+    <ol>
+      <li>Produtor vende por R$ 100: imposto de R$ 20.</li>
+      <li>Indústria vende por R$ 200: imposto de R$ 40, menos o crédito de R$ 20 = paga R$ 20.</li>
+      <li>Mercado vende por R$ 300: imposto de R$ 60, menos o crédito de R$ 40 = paga R$ 20.</li>
+    </ol>
+    <p>Total: R$ 60, igual ao imposto sobre o preço final, não importa quantas etapas existam.</p>
+    <div class="bars c-blue"><h4>Imposto total recolhido (R$)</h4>
+      <div class="br"><span>Cumulativo, 3 vendas</span><div class="tr"><div class="fl alt" style="width:100%"></div></div><span class="vv">120</span></div>
+      <div class="br"><span>Não cumulativo, 3 vendas</span><div class="tr"><div class="fl" style="width:50%"></div></div><span class="vv">60</span></div>
+      <div class="br"><span>Isenção na venda 2</span><div class="tr"><div class="fl" style="width:66.7%;background:var(--amber)"></div></div><span class="vv">80</span></div>
+      <div class="cap">Barras em escala, 120 = 100%. Com a isenção no meio, a indústria não gera crédito para o mercado e o imposto sobe de 60 para 80 (20 + 60).</div>
+    </div>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, I e II</span>I - será não-cumulativo, compensando-se o que for devido em cada operação relativa à circulação de mercadorias ou prestação de serviços com o montante cobrado nas anteriores pelo mesmo ou outro Estado ou pelo Distrito Federal; II - a isenção ou não-incidência, salvo determinação em contrário da legislação: a) não implicará crédito para compensação com o montante devido nas operações ou prestações seguintes; b) acarretará a anulação do crédito relativo às operações anteriores;</div>
+
+  <div class="concept"><h3>Seletividade: ICMS "poderá", IPI "será"</h3>
+    <p>Seletividade é cobrar mais dos bens menos essenciais (bebidas, cigarros, perfumes) e menos dos essenciais (arroz, feijão, pão). Para o ICMS a CF diz <strong>poderá</strong> ser seletivo. Para o IPI diz <strong>será</strong>. Se o enunciado trouxer lei estadual específica, ela pode ter tornado a seletividade obrigatória naquele Estado.</p>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, III · Art. 153, § 3º, I</span>III - poderá ser seletivo, em função da essencialidade das mercadorias e dos serviços; (ICMS) · I - será seletivo, em função da essencialidade do produto; (IPI)</div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>"Pago" no lugar de "cobrado"</strong>: a CF fala em montante cobrado nas operações anteriores. "Pago", "restituído" e "efetivamente pago" estão errados.</li>
+    <li><strong>"Será seletivo"</strong> para o ICMS ou "sempre seletivo": errado. É faculdade.</li>
+    <li><strong>Compensação só com o mesmo Estado</strong> ou só com convênio: errado. Vale o montante cobrado pelo mesmo ou outro Estado ou pelo DF, e a CF garante o direito direto.</li>
+    <li><strong>Exceção para substituição tributária</strong> na não cumulatividade: não existe.</li>
+    <li><strong>Crédito vinculado à mesma mercadoria</strong>: a CF não exige. Crédito de arroz compensa débito de feijão.</li>
+    <li><strong>Seletividade confundida com progressividade</strong>: seletividade varia pela essencialidade, não pelo tamanho da base de cálculo nem pelo volume de operações.</li>
+    <li>O DF cobrando <strong>ICMS</strong> sobre transporte intramunicipal: errado. Cobra ISS.</li>
+  </ul></div>
+</section>
+
+<!-- CAP 2 -->
+<section class="sec c-green" id="s2">
+  <div class="sec-h"><div class="num">2</div><div><h2>Alíquotas e o Senado Federal</h2><div class="ref">Art. 155, § 2º, IV, V e VI · EC 42/2003</div></div></div>
+  <div class="one"><b>Em uma frase</b>O Senado deve fixar as alíquotas interestaduais por resolução, pode fixar mínimas e máximas internas, e as internas não podem ficar abaixo das interestaduais sem deliberação dos Estados e do DF.</div>
+
+  <div class="concept"><h3>Três tipos de operação</h3>
+    <ul>
+      <li><strong>Interna</strong>: dentro do mesmo Estado (sofá de Bento Gonçalves para Porto Alegre).</li>
+      <li><strong>Interestadual</strong>: entre Estados (videogame do Paraná para o Rio Grande do Sul).</li>
+      <li><strong>Exportação</strong>: saída para o exterior. Hoje é imune ao ICMS, então a alíquota prevista para ela perdeu aplicação prática.</li>
+    </ul>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, IV e V</span>IV - resolução do Senado Federal, de iniciativa do Presidente da República ou de um terço dos Senadores, aprovada pela maioria absoluta de seus membros, estabelecerá as alíquotas aplicáveis às operações e prestações, interestaduais e de exportação; V - é facultado ao Senado Federal: a) estabelecer alíquotas mínimas nas operações internas, mediante resolução de iniciativa de um terço e aprovada pela maioria absoluta de seus membros; b) fixar alíquotas máximas nas mesmas operações para resolver conflito específico que envolva interesse de Estados, mediante resolução de iniciativa da maioria absoluta e aprovada por dois terços de seus membros;</div>
+
+  <div class="tw"><table>
+    <tr><th>Natureza</th><th>Alíquota</th><th>Iniciativa</th><th>Aprovação</th></tr>
+    <tr><td><strong>Obrigatória</strong></td><td>Interestaduais e de exportação</td><td>Presidente da República ou 1/3 do Senado</td><td>Maioria absoluta</td></tr>
+    <tr><td><strong>Facultativa</strong></td><td>Internas mínimas</td><td>1/3 do Senado</td><td>Maioria absoluta</td></tr>
+    <tr><td><strong>Facultativa</strong></td><td>Internas máximas (conflito específico entre Estados)</td><td>Maioria absoluta</td><td>2/3 do Senado</td></tr>
+  </table></div>
+  <p class="cap">Macete: a máxima é mais difícil, então os quóruns são mais altos. O Senado tem 81 membros: 1/3 são 27 senadores, e uma proposta com 28 assinaturas cumpre a iniciativa.</p>
+
+  <div class="bars"><h4>Alíquotas definidas por resolução do Senado (% em escala, 13 = 100%)</h4>
+    <div class="br"><span>4%</span><div class="tr"><div class="fl" style="width:30.8%"></div></div><span class="vv">4%</span></div>
+    <div class="br"><span>7%</span><div class="tr"><div class="fl" style="width:53.8%"></div></div><span class="vv">7%</span></div>
+    <div class="br"><span>12%</span><div class="tr"><div class="fl" style="width:92.3%"></div></div><span class="vv">12%</span></div>
+    <div class="br"><span>13% (exportação)</span><div class="tr"><div class="fl alt" style="width:100%"></div></div><span class="vv">13%</span></div>
+  </div>
+  <div class="tw"><table>
+    <tr><th class="n">Alíquota</th><th>Quando se aplica</th></tr>
+    <tr><td class="n">4%</td><td>Transporte aéreo interestadual de passageiro, carga e mala postal; operações interestaduais com bens importados do exterior ou com conteúdo de importação superior a 40%.</td></tr>
+    <tr><td class="n">7%</td><td>Operações das Regiões Sul e Sudeste destinadas às Regiões Norte, Nordeste e Centro-Oeste e ao Espírito Santo.</td></tr>
+    <tr><td class="n">12%</td><td>Entre Sul e Sudeste (exceto o ES); e de Norte, Nordeste, Centro-Oeste e ES para qualquer outra região.</td></tr>
+    <tr><td class="n">13%</td><td>Exportação (sem efeito prático, pela imunidade).</td></tr>
+  </table></div>
+
+  <div class="concept"><h3>Como decorar o 7% sem desenhar o mapa</h3>
+    <p>O 7% só aparece quando a mercadoria sai das regiões "mais ricas" (Sul e Sudeste, sem o ES) e vai para as demais. Qualquer outra rota cai na regra geral de 12%.</p>
+    <div class="tw"><table>
+      <tr><th>Origem \ Destino</th><th>Norte, Nordeste, Centro-Oeste e ES</th><th>Sul e Sudeste (sem ES)</th></tr>
+      <tr><td><strong>Sul e Sudeste (sem ES)</strong></td><td class="n">7%</td><td class="n">12%</td></tr>
+      <tr><td><strong>Norte, Nordeste, Centro-Oeste e ES</strong></td><td class="n">12%</td><td class="n">12%</td></tr>
+    </table></div>
+    <p class="cap">SP → ES = 7%. ES → SP = 12%.</p>
+  </div>
+
+  <div class="concept"><h3>Alíquota interna: piso pela interestadual</h3>
+    <p>Enquanto o Senado não fixa mínimas, a própria CF impede que a alíquota interna seja menor que a interestadual. Só os Estados e o DF, em conjunto, podem abrir exceção, por convênio. Como há duas interestaduais (7% e 12%), o STF (ADI-MC 2021/SP, conforme a aula) adotou a geral de 12% como referência.</p>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, VI</span>salvo deliberação em contrário dos Estados e do Distrito Federal, nos termos do disposto no inciso XII, "g", as alíquotas internas, nas operações relativas à circulação de mercadorias e nas prestações de serviços, não poderão ser inferiores às previstas para as operações interestaduais;</div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>Um só senador</strong> com iniciativa: errado. É o Presidente ou 1/3 dos senadores.</li>
+    <li><strong>Quóruns trocados</strong>: mínima = iniciativa de 1/3 e aprovação por maioria absoluta. Máxima = iniciativa por maioria absoluta e aprovação por 2/3.</li>
+    <li><strong>Câmara, Congresso, decreto, CONFAZ ou governadores</strong> fixando alíquota interestadual: errado. É resolução do Senado.</li>
+    <li><strong>Alíquota "mínima ou máxima" de exportação</strong>: o Senado fixa uma alíquota única, e ela é inócua pela imunidade. Dizer que ele "não pode" fixá-la é errado.</li>
+    <li><strong>Alíquota interna inferior à interestadual</strong>: só por deliberação dos Estados e do DF. A aula registra que o CEBRASPE (AGU 2012) deu como errada a afirmação genérica de que Estados "podem" fazê-lo.</li>
+    <li><strong>Resolução que aumenta alíquota</strong> respeita a anterioridade tributária (FGV, SEFAZ-ES 2021).</li>
+    <li><strong>Outros impostos estaduais</strong>: o Senado fixa alíquotas <strong>mínimas</strong> do IPVA e <strong>máximas</strong> do ITCMD. ISS não é por resolução do Senado.</li>
+  </ul></div>
+</section>
+
+<!-- CAP 3 -->
+<section class="sec c-olive" id="s3">
+  <div class="sec-h"><div class="num">3</div><div><h2>Operações interestaduais e DIFAL</h2><div class="ref">Art. 155, § 2º, VII e VIII · EC 87/2015 · RE 1.287.019 (Tema 1.093) · LC 190/2022</div></div></div>
+  <div class="one"><b>Em uma frase</b>Em venda interestadual a consumidor final, contribuinte ou não, vale a alíquota interestadual para a origem e o diferencial até a alíquota interna fica com o Estado de destino.</div>
+
+  <div class="concept"><h3>Antes e depois da EC 87/2015</h3>
+    <ul>
+      <li><strong>Antes</strong>: se o destinatário não fosse contribuinte, aplicava-se a alíquota <em>interna</em> e todo o ICMS ficava com o Estado de origem. O comércio pela internet concentrou a arrecadação nos Estados produtores.</li>
+      <li><strong>Depois</strong>: aplica-se sempre a alíquota interestadual. O Estado de destino recebe o <strong>DIFAL</strong> (alíquota interna do destino menos a interestadual). A emenda ficou conhecida como PEC do comércio eletrônico.</li>
+    </ul>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, VII e VIII (redação da EC 87/2015)</span>VII - nas operações e prestações que destinem bens e serviços a consumidor final, contribuinte ou não do imposto, localizado em outro Estado, adotar-se-á a alíquota interestadual e caberá ao Estado de localização do destinatário o imposto correspondente à diferença entre a alíquota interna do Estado destinatário e a alíquota interestadual; VIII - a responsabilidade pelo recolhimento do imposto correspondente à diferença entre a alíquota interna e a interestadual de que trata o inciso VII será atribuída: a) ao destinatário, quando este for contribuinte do imposto; b) ao remetente, quando o destinatário não for contribuinte do imposto;</div>
+
+  <div class="concept"><h3>Exemplo da aula (TV de R$ 5.000, SP → RS)</h3>
+    <ol>
+      <li>Interestadual SP → RS: 12%. Interna do RS: 17%. DIFAL = 17% − 12% = 5%.</li>
+      <li>Para São Paulo: 12% × 5.000 = <span class="mono">R$ 600</span>.</li>
+      <li>Para o Rio Grande do Sul: 5% × 5.000 = <span class="mono">R$ 250</span>.</li>
+      <li>Total recolhido: <span class="mono">R$ 850</span>.</li>
+    </ol>
+    <div class="bars"><h4>Repartição do ICMS (R$)</h4>
+      <div class="br"><span>São Paulo (origem)</span><div class="tr"><div class="fl" style="width:70.6%"></div></div><span class="vv">600</span></div>
+      <div class="br"><span>RS (DIFAL)</span><div class="tr"><div class="fl" style="width:29.4%;background:var(--amber)"></div></div><span class="vv">250</span></div>
+      <div class="cap">Escala sobre o total de R$ 850.</div>
+    </div>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Destinatário</th><th>Finalidade</th><th>Há DIFAL?</th><th>Quem recolhe o DIFAL</th></tr>
+    <tr><td>Contribuinte</td><td>Uso ou consumo final</td><td class="ok">Sim</td><td>O destinatário</td></tr>
+    <tr><td>Contribuinte</td><td>Industrialização ou comercialização</td><td class="no">Não</td><td>—</td></tr>
+    <tr><td>Não contribuinte</td><td>Consumo final</td><td class="ok">Sim</td><td>O remetente</td></tr>
+  </table></div>
+
+  <div class="concept"><h3>STF: precisa de lei complementar</h3>
+    <p>No RE 1.287.019 (Tema 1.093), o STF decidiu que a cobrança do DIFAL pressupõe lei complementar com normas gerais. Convênio (o Convênio ICMS 93/15) não supre essa falta. A regulamentação veio em 2022, com a LC 190/2022, que alterou a Lei Kandir (LC 87/96).</p>
+    <p>No RE 970.821/RS, o STF considerou constitucional exigir o DIFAL de optante pelo Simples Nacional, independentemente da posição na cadeia ou da possibilidade de compensar créditos.</p>
+    <p class="cap">A aula terá um capítulo próprio sobre DIFAL, com a Lei Kandir e a LC 190/2022.</p>
+  </div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>ICMS todo para o destino</strong> em operação interestadual: errado. Origem fica com a interestadual, destino com o DIFAL.</li>
+    <li><strong>Diferença calculada sobre a alíquota interna da origem</strong>: errado. É a alíquota interna do Estado <em>destinatário</em> (bicicleta de Osasco/SP para Vila Velha/ES: o DIFAL é do ES, calculado pela interna do ES).</li>
+    <li><strong>O critério "destinatário contribuinte ou não" decidir a alíquota</strong>: era assim antes da EC 87. Hoje decide apenas quem recolhe o DIFAL.</li>
+    <li><strong>DIFAL na compra para revenda ou industrialização</strong>: não há. O pressuposto é uso ou consumo final.</li>
+    <li><strong>Convênio</strong> instituindo o DIFAL sem lei complementar: o STF declarou inconstitucional.</li>
+    <li><strong>"Nenhuma das partes contribuinte"</strong> com responsável escolhido de forma fantasiosa (CEBRASPE, SEFAZ-AC 2024): a CF só prevê destinatário contribuinte ou remetente quando o destinatário não é contribuinte.</li>
+  </ul></div>
+</section>
+
+<!-- CAP 4 -->
+<section class="sec c-amber" id="s4">
+  <div class="sec-h"><div class="num">4</div><div><h2>Incidência: importação e mercadoria com serviço</h2><div class="ref">Art. 155, § 2º, IX · LC 116/2003 (lista do ISS)</div></div></div>
+  <div class="one"><b>Em uma frase</b>Quem importa paga ICMS ao Estado do destinatário, e nas operações mistas a lista da LC 116 decide se o ISS ou o ICMS leva o valor todo ou só uma parte.</div>
+
+  <div class="concept"><h3>ICMS na importação</h3>
+    <ul>
+      <li>Pessoa física ou jurídica, habitual ou não, qualquer finalidade: importou, paga.</li>
+      <li>O imposto vai para o Estado do domicílio ou estabelecimento do destinatário, não para o do porto.</li>
+      <li><strong>Carolina</strong>, de Caxias do Sul, importou um notebook que entrou por Itajaí/SC: ICMS ao RS.</li>
+      <li><strong>Kichute Ltda.</strong>, de Novo Hamburgo, importou uma máquina que desembarcou em Guarulhos/SP: ICMS ao RS.</li>
+      <li>O STF fixou que o sujeito ativo é o Estado do <strong>destinatário legal</strong> da operação que deu causa à circulação, com transferência de domínio.</li>
+    </ul>
+    <div class="tw"><table>
+      <tr><th>Modalidade</th><th>Destinatário legal</th></tr>
+      <tr><td>Por conta própria</td><td>O próprio importador, que usa a mercadoria na cadeia dele</td></tr>
+      <tr><td>Por conta e ordem de terceiro</td><td>Quem contrata o serviço de despacho aduaneiro (a importadora só presta o serviço)</td></tr>
+      <tr><td>Por conta própria, sob encomenda</td><td>A importadora (trading), que revende depois da internalização</td></tr>
+    </table></div>
+    <p class="cap">Caso FGV (SEFAZ-ES 2021): Alfa (ES) contratou a importadora WW (MG) para o despacho, desembaraço no RJ. Era conta e ordem, então o sujeito ativo é o ES.</p>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, IX, a</span>incidirá também: a) sobre a entrada de bem ou mercadoria importados do exterior por pessoa física ou jurídica, ainda que não seja contribuinte habitual do imposto, qualquer que seja a sua finalidade, assim como sobre o serviço prestado no exterior, cabendo o imposto ao Estado onde estiver situado o domicílio ou o estabelecimento do destinatário da mercadoria, bem ou serviço;</div>
+
+  <div class="concept"><h3>Mercadoria fornecida junto com serviço</h3>
+    <ol>
+      <li>O serviço <strong>não está</strong> na lista de serviços do ISS: ICMS sobre o valor total.</li>
+      <li>O serviço está na lista, <strong>sem exceção</strong>: ISS sobre tudo.</li>
+      <li>O serviço está na lista, <strong>com exceção</strong> para o material: ICMS sobre o material e ISS sobre o serviço.</li>
+    </ol>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, IX, b</span>b) sobre o valor total da operação, quando mercadorias forem fornecidas com serviços não compreendidos na competência tributária dos Municípios;</div>
+
+  <div class="tw"><table>
+    <tr><th class="n">Item LC 116</th><th>Serviço</th><th>ICMS incide sobre…</th></tr>
+    <tr><td class="n">7.02</td><td>Obras de construção civil, hidráulica ou elétrica</td><td>Mercadoria produzida pelo prestador fora do local da obra</td></tr>
+    <tr><td class="n">7.05</td><td>Reparação, conservação e reforma de edifícios, estradas, pontes, portos</td><td>Mercadoria produzida pelo prestador fora do local da prestação</td></tr>
+    <tr><td class="n">14.01</td><td>Lubrificação, limpeza, revisão, conserto, manutenção de máquinas e veículos</td><td>Peças e partes empregadas</td></tr>
+    <tr><td class="n">14.03</td><td>Recondicionamento de motores</td><td>Peças e partes empregadas</td></tr>
+    <tr><td class="n">17.11</td><td>Organização de festas e recepções; bufê</td><td>Alimentação e bebidas</td></tr>
+    <tr><td class="n">9.01</td><td>Hospedagem</td><td>Alimentação fora da diária (a incluída na diária é ISS)</td></tr>
+    <tr><td class="n">13.05</td><td>Composição gráfica</td><td>Impressos destinados a comercialização ou industrialização (embalagens, rótulos, bulas)</td></tr>
+    <tr><td class="n">1.09</td><td>Conteúdo de áudio, vídeo, imagem e texto pela internet</td><td>Distribuição por prestadoras de Serviço de Acesso Condicionado (Lei 12.485/2011, TV por assinatura)</td></tr>
+  </table></div>
+
+  <div class="concept"><h3>Três itens em que quem fornece o material decide</h3>
+    <p>Itens 7.06 (carpetes, cortinas, vidros, divisórias), 14.09 (alfaiataria e costura, exceto aviamento) e 39.01 (ourivesaria e lapidação):</p>
+    <ul>
+      <li>Material fornecido pelo <strong>tomador</strong>: ISS sobre o valor do serviço.</li>
+      <li>Material fornecido pelo <strong>contratado</strong>: ICMS sobre o valor total.</li>
+    </ul>
+  </div>
+
+  <div class="concept"><h3>Exemplos da aula</h3>
+    <ul>
+      <li><strong>Construtora</strong> que fabrica cimento no próprio estabelecimento e o leva às obras: ICMS sobre o cimento e ISS sobre a construção. Se o cimento é produzido no local da obra, tudo é ISS. Para o STJ, o construtor é em regra contribuinte só do ISS, e a base do ISS não deduz o material.</li>
+      <li><strong>Oficina</strong> que recondiciona o motor e troca peças: ICMS nas peças, ISS no serviço.</li>
+      <li><strong>Buffet de festa</strong>: ICMS na comida e bebida, ISS na organização.</li>
+      <li><strong>Hotel em Gramado</strong>: café da manhã incluído na diária é ISS. Jantar pedido à parte é ICMS.</li>
+      <li><strong>Streaming</strong> (Netflix, Spotify, Kindle Unlimited): ISS. <strong>TV por assinatura</strong>: ICMS.</li>
+      <li><strong>Propaganda e publicidade</strong> inseridas em qualquer meio (item 17.25): ISS, e o STF considerou constitucional (ADI 6.034). Livros, jornais, periódicos e radiodifusão livre ficam fora.</li>
+      <li><strong>Impresso gráfico</strong>: se a destinação é a venda ou industrialização, ICMS, mesmo sob encomenda. Se é para uso do próprio encomendante, ISS.</li>
+    </ul>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Tema STF/STJ</th><th>Tese</th></tr>
+    <tr><td>Software (RE 688223, Tema 590; ADIs 1.945 e 5.659)</td><td>ISS no licenciamento e na cessão de uso, sem distinguir prateleira de encomenda.</td></tr>
+    <tr><td>Farmácia de manipulação (RE 605552, Tema 379)</td><td>ISS no medicamento sob encomenda. ICMS no medicamento de prateleira.</td></tr>
+    <tr><td>Montagem de pneus (STJ, REsp 1.307.824)</td><td>ISS, pelo item 14.01. Não incide ICMS.</td></tr>
+  </table></div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>"Contribuinte habitual"</strong> na importação: irrelevante. Quem importa paga, inclusive pessoa física, e para empresa vale a mesma regra.</li>
+    <li><strong>Estado do porto</strong> ou do desembaraço: errado. É o do destinatário legal.</li>
+    <li><strong>Software de prateleira = ICMS</strong>: era o entendimento antigo. Hoje é ISS.</li>
+    <li><strong>Loteria, bingo e apostas</strong>: ISS, não ICMS (aula, comentário da questão CEBRASPE PGE-MS 2021).</li>
+    <li><strong>Impresso personalizado sob encomenda</strong> sempre ICMS ou sempre ISS: depende da destinação.</li>
+    <li><strong>Lista da LC 116</strong> aceita interpretação extensiva (STJ), por isso montagem de pneus entra na manutenção de veículos.</li>
+  </ul></div>
+</section>
+
+<!-- CAP 5 -->
+<section class="sec c-purple" id="s5">
+  <div class="sec-h"><div class="num">5</div><div><h2>Não incidência, IPI na base e impostos exclusivos</h2><div class="ref">Art. 155, § 2º, X e XI, e § 3º</div></div></div>
+  <div class="one"><b>Em uma frase</b>A CF livra do ICMS quatro situações, tira o IPI da base em três condições simultâneas e limita quais impostos podem atingir energia, telecomunicações, derivados de petróleo, combustíveis e minerais.</div>
+
+  <div class="concept"><h3>As quatro não incidências (imunidades)</h3>
+    <ol>
+      <li><strong>Exportação</strong> de mercadorias e serviços para o exterior, com manutenção e aproveitamento do crédito das etapas anteriores. Exemplo: o comerciante compra 10 tablets por R$ 20.000 (alíquota 20%, crédito de R$ 4.000) e exporta por R$ 28.000. Não paga ICMS e mantém os R$ 4.000.</li>
+      <li><strong>Saída interestadual</strong> de petróleo, lubrificantes, combustíveis líquidos e gasosos <em>derivados dele</em> e energia elétrica. Etanol e GNV não são derivados de petróleo, então a regra não vale para eles.</li>
+      <li><strong>Ouro</strong> definido em lei como ativo financeiro ou instrumento cambial (vai para o IOF). Barra de investimento: IOF. Joia: mercadoria, ICMS.</li>
+      <li><strong>Comunicação de rádio e TV de recepção livre e gratuita</strong>. TV por assinatura é tributada.</li>
+    </ol>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, X</span>X - não incidirá: a) sobre operações que destinem mercadorias para o exterior, nem sobre serviços prestados a destinatários no exterior, assegurada a manutenção e o aproveitamento do montante do imposto cobrado nas operações e prestações anteriores; b) sobre operações que destinem a outros Estados petróleo, inclusive lubrificantes, combustíveis líquidos e gasosos dele derivados, e energia elétrica; c) sobre o ouro, nas hipóteses definidas no art. 153, § 5º; d) nas prestações de serviço de comunicação nas modalidades de radiodifusão sonora e de sons e imagens de recepção livre e gratuita;</div>
+
+  <div class="concept"><h3>IPI fora da base do ICMS: três requisitos juntos</h3>
+    <ol>
+      <li>Operação entre <strong>contribuintes</strong>. Exemplo contrário: indústria de carteiras vende à Escola Aprender, que é contribuinte do ISS. O IPI integra a base.</li>
+      <li>Produto destinado à <strong>industrialização ou comercialização</strong>. Exemplo contrário: a concessionária compra um carro da fábrica para o gerente. O IPI integra a base.</li>
+      <li>A operação é <strong>fato gerador dos dois impostos</strong>. Se não há fato gerador do ICMS, não há o que incluir ou excluir.</li>
+    </ol>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, XI</span>XI - não compreenderá, em sua base de cálculo, o montante do imposto sobre produtos industrializados, quando a operação, realizada entre contribuintes e relativa a produto destinado à industrialização ou à comercialização, configure fato gerador dos dois impostos;</div>
+
+  <div class="concept"><h3>Quais impostos podem incidir</h3>
+    <div class="tw"><table>
+      <tr><th>Operações com…</th><th>Só estes impostos</th></tr>
+      <tr><td><strong>Energia elétrica e serviços de telecomunicações</strong></td><td>ICMS, II, IE e IBS</td></tr>
+      <tr><td><strong>Derivados de petróleo, combustíveis e minerais do País</strong></td><td>ICMS, II, IE, IBS e IS (Imposto Seletivo)</td></tr>
+    </table></div>
+    <p class="cap">A vedação é para outros <em>impostos</em>. Taxas e contribuições continuam possíveis. O IPI, por exemplo, não pode incidir sobre energia elétrica.</p>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 3º</span>À exceção dos impostos de que tratam o inciso II (ICMS) do caput deste artigo e os arts. 153, I (Imposto de Importação) e II (Imposto de Exportação), e 156-A (IBS), nenhum outro imposto poderá incidir sobre operações relativas a energia elétrica e serviços de telecomunicações e, à exceção destes e do previsto no art. 153, VIII, nenhum outro imposto poderá incidir sobre operações relativas a derivados de petróleo, combustíveis e minerais do País.</div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>Verbo trocado</strong>: "<em>incidirá</em> sobre saída interestadual de petróleo e energia" e "<em>compreenderá</em> o IPI na base" estão errados.</li>
+    <li><strong>"Álcool carburante"</strong> ou "combustíveis líquidos ou gasosos" em geral na imunidade interestadual: só os derivados de petróleo (e a energia elétrica).</li>
+    <li><strong>Exportação "vedada a manutenção do crédito"</strong>: errado. A CF assegura manutenção e aproveitamento.</li>
+    <li><strong>Essencialidade</strong> decidindo a base do IPI: não existe. Valem os três requisitos.</li>
+    <li><strong>"O ICMS é o único tributo"</strong> sobre energia e combustíveis: errado. Podem incidir II, IE, IBS e (derivados) IS.</li>
+    <li><strong>Joias e anéis de ouro</strong>: ICMS normal na saída interestadual.</li>
+    <li><strong>Imunidade de templo</strong> e conta de luz: o templo é contribuinte de fato, não de direito. Ainda assim o STF (ADI 3421) dispensa deliberação dos Estados para o benefício a templos nas contas de água, luz, telefone e gás, e exige estimativa de impacto orçamentário (ADI 5.816).</li>
+  </ul></div>
+</section>
+
+<!-- CAP 6 -->
+<section class="sec c-red" id="s6">
+  <div class="sec-h"><div class="num">6</div><div><h2>Lei complementar, ICMS monofásico e fundo de pobreza</h2><div class="ref">Art. 155, § 2º, XII, §§ 4º e 5º · ADCT, art. 82, § 1º</div></div></div>
+  <div class="one"><b>Em uma frase</b>Nove assuntos do ICMS exigem lei complementar, o ICMS de combustíveis pode ser cobrado uma única vez com regras por convênio, e o fundo de combate à pobreza pode ter até 2 pontos de adicional.</div>
+
+  <div class="concept"><h3>O que é matéria de lei complementar (art. 155, § 2º, XII)</h3>
+    <div class="tw"><table>
+      <tr><th class="n">Alínea</th><th>Matéria</th></tr>
+      <tr><td class="n">a</td><td>Definir contribuintes</td></tr>
+      <tr><td class="n">b</td><td>Dispor sobre substituição tributária</td></tr>
+      <tr><td class="n">c</td><td>Disciplinar o regime de compensação</td></tr>
+      <tr><td class="n">d</td><td>Fixar o local das operações, para cobrança e definição do estabelecimento responsável</td></tr>
+      <tr><td class="n">e</td><td>Excluir da incidência, nas exportações, serviços e outros produtos além dos do inciso X, "a"</td></tr>
+      <tr><td class="n">f</td><td>Prever casos de manutenção de crédito na remessa para outro Estado e na exportação</td></tr>
+      <tr><td class="n">g</td><td>Regular como isenções, incentivos e benefícios fiscais são concedidos e revogados, mediante deliberação dos Estados e do DF (LC 24/1975, convênios)</td></tr>
+      <tr><td class="n">h</td><td>Definir os combustíveis e lubrificantes tributados uma única vez</td></tr>
+      <tr><td class="n">i</td><td>Fixar a base de cálculo, de modo que o imposto a integre, inclusive na importação</td></tr>
+    </table></div>
+    <p class="cap">Exemplo do local da operação: passagem de ônibus São Paulo → interior do ES. Pela Lei Kandir, no transporte interestadual o local é o Estado onde começa a prestação, então São Paulo.</p>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 2º, XII, i</span>i) fixar a base de cálculo, de modo que o montante do imposto a integre, também na importação do exterior de bem, mercadoria ou serviço.</div>
+
+  <div class="concept"><h3>Imposto "por dentro"</h3>
+    <p>O ICMS faz parte da própria base de cálculo. Detalhes na seção de contas. Cálculo na importação: base = valor da mercadoria ÷ (1 − alíquota).</p>
+  </div>
+
+  <div class="concept"><h3>ICMS monofásico de combustíveis (cobrado uma única vez)</h3>
+    <div class="tw"><table>
+      <tr><th>Produto e destinatário</th><th>Para quem vai o imposto</th></tr>
+      <tr><td>Lubrificantes e combustíveis <strong>derivados de petróleo</strong></td><td>Estado onde ocorrer o <strong>consumo</strong></td></tr>
+      <tr><td>Gás natural e seus derivados, lubrificantes e combustíveis <strong>não derivados de petróleo</strong>, entre contribuintes (interestadual)</td><td><strong>Repartido</strong> entre origem e destino, na mesma proporção das demais mercadorias</td></tr>
+      <tr><td>Os mesmos, destinados a <strong>não contribuinte</strong> (interestadual)</td><td><strong>Estado de origem</strong>, integral</td></tr>
+    </table></div>
+    <ul>
+      <li>Alíquotas definidas por <strong>deliberação dos Estados e do DF</strong> (convênio), uniformes em todo o território nacional e podendo variar por produto.</li>
+      <li>Podem ser <strong>específicas</strong> (por unidade de medida) ou <strong>ad valorem</strong>.</li>
+      <li>Podem ser reduzidas e restabelecidas sem anterioridade (art. 150, III, "b"). O restabelecimento tem como limite a alíquota inicial. Aumentar acima dela exige respeitar a anterioridade.</li>
+      <li>As regras de aplicação, apuração e destinação também saem de convênio.</li>
+    </ul>
+  </div>
+  <div class="quote"><span class="qr">Art. 155, § 4º, I a III</span>I - nas operações com os lubrificantes e combustíveis derivados de petróleo, o imposto caberá ao Estado onde ocorrer o consumo; II - nas operações interestaduais, entre contribuintes, com gás natural e seus derivados, e lubrificantes e combustíveis não incluídos no inciso I deste parágrafo, o imposto será repartido entre os Estados de origem e de destino, mantendo-se a mesma proporcionalidade que ocorre nas operações com as demais mercadorias; III - nas operações interestaduais com gás natural e seus derivados, e lubrificantes e combustíveis não incluídos no inciso I deste parágrafo, destinadas a não contribuinte, o imposto caberá ao Estado de origem;</div>
+
+  <div class="concept"><h3>Fundo de combate à pobreza</h3>
+    <ul>
+      <li>Adicional de <strong>até dois pontos percentuais</strong> na alíquota do ICMS.</li>
+      <li>Só sobre produtos e serviços <strong>supérfluos</strong>, nas condições definidas em lei complementar.</li>
+      <li>O produto <strong>não é repartido</strong> com os Municípios (a regra dos 25% do art. 158, IV não se aplica).</li>
+    </ul>
+  </div>
+  <div class="quote"><span class="qr">ADCT, art. 82, § 1º</span>Para o financiamento dos fundos Estaduais e Distrital, poderá ser criado adicional de até dois pontos percentuais na alíquota do Imposto sobre Circulação de Mercadorias e Serviços - ICMS, sobre os produtos e serviços supérfluos e nas condições definidas na lei complementar de que trata o art. 155, § 2º, XII, da Constituição, não se aplicando, sobre este percentual, o disposto no art. 158, IV, da Constituição.</div>
+
+  <div class="pega"><h3>Pegadinhas</h3><ul>
+    <li><strong>Itens que não exigem lei complementar</strong>: fixação das alíquotas (basta lei ordinária estadual, respeitados os limites da CF), datas e prazos de pagamento, juros de mora e penalidades.</li>
+    <li><strong>Troca de órgão</strong>: o Senado "disciplina compensação" ou "define combustíveis monofásicos": errado, é lei complementar. Resolução do Congresso regulando benefícios: errado.</li>
+    <li><strong>Lei complementar estadual</strong> alterando a base de cálculo: errado. É a lei complementar nacional (Lei Kandir).</li>
+    <li><strong>Cálculo por dentro</strong> como inconstitucional: errado. É previsto pela CF, inclusive na importação.</li>
+    <li><strong>Benefício unilateral</strong> por regime especial ou termo de acordo: depende de convênio. Só a concessão a templos, nos termos acima, foi tratada como exceção pelo STF.</li>
+    <li><strong>Derivados de petróleo</strong> com repartição entre origem e destino: errado. Vai para o Estado do consumo.</li>
+    <li><strong>Só ad valorem</strong> para combustíveis: errado. Também pode ser específica.</li>
+    <li><strong>Fundo de pobreza</strong> sobre todos os produtos, ou repartido com Municípios: errado.</li>
+  </ul></div>
+</section>
+
+<!-- CONTAS -->
+<section class="sec c-blue" id="contas">
+  <div class="sec-h"><div class="num">%</div><div><h2>Contas no estilo da banca, resolvidas</h2><div class="ref">Todos os números vêm dos exemplos da aula</div></div></div>
+
+  <div class="conta c-blue"><h3>1. Compensação entre duas etapas</h3>
+    <p>Indústria Alpha vende máquina à loja Beta por R$ 1.000 (20%). Beta revende por R$ 2.500 (20%). Quanto Beta recolhe?</p>
+    <ol><li>Débito de Beta: 20% × 2.500 = 500.</li><li>Crédito da compra: 20% × 1.000 = 200.</li><li>Recolhe 500 − 200 = <span class="res">R$ 300</span>.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> recolher os R$ 500 inteiros e esquecer o crédito da operação anterior.</div>
+  </div>
+
+  <div class="conta c-green"><h3>2. Isenção no meio da cadeia (arroz)</h3>
+    <p>Produtor vende por R$ 100, indústria vende por R$ 200 com isenção, mercado vende por R$ 300. Alíquota de 20%. Imposto total?</p>
+    <ol><li>Venda 1: 20% × 100 = 20 (nada a compensar).</li><li>Venda 2: isenta, 0.</li><li>Venda 3: 20% × 300 = 60, sem crédito da venda 2, paga 60.</li><li>Total: 20 + 60 = <span class="res">R$ 80</span>.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> compensar R$ 40 na venda 3 como se a venda 2 tivesse sido tributada, chegando a R$ 60.</div>
+  </div>
+
+  <div class="conta c-olive"><h3>3. DIFAL (TV de R$ 5.000, SP → RS)</h3>
+    <p>Interestadual 12%, interna do RS 17%.</p>
+    <ol><li>DIFAL = 17% − 12% = 5%.</li><li>Origem (SP): 12% × 5.000 = R$ 600.</li><li>Destino (RS): 5% × 5.000 = <span class="res">R$ 250</span>.</li><li>Total: R$ 850.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> aplicar 17% sobre R$ 5.000 para o destino, ou dar tudo a São Paulo. Observação: um quadro da aula escreve "5.000 x 12% = 6000", mas a conta correta é R$ 600, e o texto do exemplo usa R$ 600.</div>
+  </div>
+
+  <div class="conta c-amber"><h3>4. ICMS na importação, por dentro</h3>
+    <p>Perfume e relógio do Canadá: US$ 300, dólar a R$ 5, alíquota de 25%, sem outros tributos.</p>
+    <ol><li>Valor em reais: 300 × 5 = R$ 1.500.</li><li>Base de cálculo = 1.500 ÷ (1 − 0,25) = 1.500 ÷ 0,75 = R$ 2.000.</li><li>ICMS = 25% × 2.000 = <span class="res">R$ 500</span>.</li><li>Conferência: ICMS = base − valor da mercadoria = 2.000 − 1.500.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> calcular 25% × 1.500 = R$ 375, esquecendo que o imposto integra a própria base.</div>
+  </div>
+
+  <div class="conta c-purple"><h3>5. Exportação com crédito mantido</h3>
+    <p>Comerciante compra 10 tablets por R$ 20.000 (20%) e exporta por R$ 28.000.</p>
+    <ol><li>Crédito da compra: 20% × 20.000 = R$ 4.000.</li><li>Exportação não tem ICMS na saída.</li><li>Crédito de <span class="res">R$ 4.000</span> mantido e aproveitável.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> anular o crédito por a saída ser "não tributada". Na exportação a CF assegura a manutenção.</div>
+  </div>
+
+  <div class="conta c-red"><h3>6. Quórum de iniciativa no Senado</h3>
+    <p>O Senado tem 81 membros. Quantas assinaturas bastam para a iniciativa de resolução sobre alíquotas interestaduais?</p>
+    <ol><li>1/3 de 81 = 27.</li><li>Com 28 assinaturas, a iniciativa está atendida.</li><li>A aprovação exige maioria absoluta: 41 votos.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> usar maioria simples na aprovação, ou 2/3 (esse é o quórum de aprovação das máximas internas).</div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="sec c-green" id="comparar">
+  <div class="sec-h"><div class="num">≠</div><div><h2>Quadros comparativos</h2><div class="ref">Conceitos que as bancas misturam</div></div></div>
+
+  <div class="tw"><table>
+    <tr><th>Tema</th><th>Regra A</th><th>Regra B</th></tr>
+    <tr><td><strong>Seletividade</strong></td><td>ICMS: <em>poderá</em> ser seletivo</td><td>IPI: <em>será</em> seletivo</td></tr>
+    <tr><td><strong>Crédito: isenção e não incidência</strong></td><td>Sem crédito adiante e anula o anterior (regra geral)</td><td>Exportação: mantém e aproveita o crédito</td></tr>
+    <tr><td><strong>Alíquotas do Senado</strong></td><td>Interestaduais e exportação: obrigatória, iniciativa Presidente ou 1/3, aprovação maioria absoluta</td><td>Internas: facultativa. Mínimas: 1/3 e maioria absoluta. Máximas: maioria absoluta e 2/3</td></tr>
+    <tr><td><strong>Alíquota 7% x 12%</strong></td><td>7%: de Sul e Sudeste (sem ES) para N, NE, CO e ES</td><td>12%: todas as demais rotas</td></tr>
+    <tr><td><strong>DIFAL: quem recolhe</strong></td><td>Destinatário contribuinte</td><td>Remetente, se o destinatário não é contribuinte</td></tr>
+    <tr><td><strong>DIFAL: quando há</strong></td><td>Uso ou consumo final (contribuinte ou não)</td><td>Não há na revenda ou industrialização</td></tr>
+    <tr><td><strong>Transporte</strong></td><td>Inter e intermunicipal: ICMS</td><td>Intramunicipal: ISS (inclusive no DF)</td></tr>
+    <tr><td><strong>Hospedagem</strong></td><td>Alimentação na diária: ISS</td><td>Alimentação à parte: ICMS</td></tr>
+    <tr><td><strong>Material no serviço</strong></td><td>Do tomador: ISS (itens 7.06, 14.09, 39.01)</td><td>Do contratado: ICMS sobre o total</td></tr>
+    <tr><td><strong>Impresso gráfico</strong></td><td>Para comercialização ou industrialização: ICMS</td><td>Para uso do encomendante: ISS</td></tr>
+    <tr><td><strong>Rádio e TV</strong></td><td>Livre e gratuita: não incide</td><td>Por assinatura: ICMS</td></tr>
+    <tr><td><strong>Ouro</strong></td><td>Ativo financeiro ou instrumento cambial: IOF, sem ICMS</td><td>Mercadoria (joia): ICMS</td></tr>
+    <tr><td><strong>Combustível, saída interestadual</strong></td><td>Derivados de petróleo: não incide ICMS (consumo no destino)</td><td>Etanol, GNV: incide, sem a imunidade</td></tr>
+    <tr><td><strong>Monofásico, interestadual</strong></td><td>Entre contribuintes: repartido</td><td>Para não contribuinte: origem</td></tr>
+  </table></div>
+</section>
+
+<!-- GLOSSARIO -->
+<section class="sec c-olive" id="glossario">
+  <div class="sec-h"><div class="num">A–Z</div><div><h2>Glossário rápido</h2><div class="ref">Termo e definição curta</div></div></div>
+  <dl class="gl">
+    <div><dt>Ad valorem</dt><dd>Alíquota em percentual sobre o valor.</dd></div>
+    <div><dt>Alíquota específica</dt><dd>Valor em dinheiro por unidade de medida (litro, quilo, metro).</dd></div>
+    <div><dt>Circulação jurídica</dt><dd>Mudança de propriedade sem deslocar a mercadoria.</dd></div>
+    <div><dt>Contribuinte de fato</dt><dd>Quem suporta o ônus econômico do imposto, sem ser o sujeito passivo legal.</dd></div>
+    <div><dt>Convênio (CONFAZ)</dt><dd>Deliberação dos Estados e do DF para conceder benefícios do ICMS.</dd></div>
+    <div><dt>DIFAL</dt><dd>Diferencial entre a alíquota interna do destino e a interestadual.</dd></div>
+    <div><dt>Hipótese de incidência</dt><dd>Situação descrita em lei que, ao ocorrer, gera a obrigação tributária.</dd></div>
+    <div><dt>Imposto por dentro</dt><dd>O imposto integra a própria base de cálculo.</dd></div>
+    <div><dt>Interestadual / intermunicipal / intramunicipal</dt><dd>Entre Estados / entre Municípios / dentro do mesmo Município.</dd></div>
+    <div><dt>Monofásico</dt><dd>Imposto cobrado uma única vez na cadeia (certos combustíveis e lubrificantes).</dd></div>
+    <div><dt>Não cumulatividade</dt><dd>Compensar o devido com o montante cobrado nas etapas anteriores.</dd></div>
+    <div><dt>Operação mista</dt><dd>Fornecimento de mercadoria com serviço.</dd></div>
+    <div><dt>Plurifásico</dt><dd>Imposto cobrado em cada etapa da circulação (regra do ICMS).</dd></div>
+    <div><dt>Seletividade</dt><dd>Alíquota graduada pela essencialidade do bem ou serviço.</dd></div>
+    <div><dt>Sujeito ativo</dt><dd>O ente que tem direito de cobrar o tributo.</dd></div>
+    <div><dt>Tributação por conta e ordem</dt><dd>Importadora presta o despacho; o contratante é o destinatário legal.</dd></div>
+  </dl>
+</section>
+
+<!-- SIMULADO -->
+<section class="sec c-red" id="simulado">
+  <div class="sec-h"><div class="num">Q</div><div><h2>Simulado interativo</h2><div class="ref">18 questões · clique na alternativa para ver o gabarito e a explicação</div></div></div>
+  <div id="quiz"></div>
+</section>
+
+<footer class="foot">Origem do material: apostila LTF SEFAZ RS, Aula 01, Disposições constitucionais relativas ao ICMS (Prof. Rabelo, Rabelo Concursos). Os trechos da CF foram transcritos da própria apostila. Questões marcadas com banca e ano são as da aula, com alternativas resumidas. As demais foram escritas a partir do conteúdo da aula.</footer>
+
+</div>
+
+<div class="score" role="status" aria-live="polite"><div class="score-in">
+  <span class="st" id="st">Acertos 0 · respondidas 0 de 18</span>
+  <div class="pb" aria-hidden="true"><i id="pb"></i></div>
+  <button class="btn" id="reset" type="button">Recomeçar</button>
+</div></div>
+
+<script>
+(function(){
+  var Q=[
+   {s:"CEBRASPE 2024 · SEFAZ-AC",q:"Pela CF/88, o recolhimento do imposto correspondente à diferença entre a alíquota interna e a interestadual (DIFAL) cabe:",
+    o:["a ambos, destinatário e remetente, com glosa pela metade se os dois forem contribuintes","ao responsável previsto na legislação do ente de residência do destinatário","ao remetente, quando o destinatário não for contribuinte do imposto","ao remetente, quando nenhuma das partes for contribuinte","ao destinatário, quando nenhuma das partes for contribuinte"],a:2,
+    e:"Art. 155, § 2º, VIII: o destinatário recolhe quando é contribuinte. O remetente recolhe quando o destinatário não é contribuinte."},
+   {s:"CEBRASPE 2024 · SEFAZ-AC",q:"Segundo a CF, o ICMS monofásico sobre lubrificantes e combustíveis derivados de petróleo caberá ao(s) Estado(s):",
+    o:["titular dos royalties de exploração da matéria-prima","de origem e de destino, mediante repartição","onde ocorrer o consumo","de domicílio do produtor","onde ocorrer o refino do produto"],a:2,
+    e:"Art. 155, § 4º, I. A repartição entre origem e destino vale para gás natural e combustíveis não derivados de petróleo, entre contribuintes."},
+   {s:"Resolução do Senado",q:"A resolução do Senado que estabelece as alíquotas interestaduais do ICMS exige:",
+    o:["iniciativa de qualquer senador e aprovação por maioria simples","iniciativa do Presidente da República ou de 1/3 dos senadores e aprovação por maioria absoluta","iniciativa da maioria absoluta e aprovação por 2/3","iniciativa de nove governadores e aprovação por maioria absoluta"],a:1,
+    e:"Art. 155, § 2º, IV. O quórum de maioria absoluta na iniciativa com 2/3 na aprovação é o das alíquotas máximas internas."},
+   {s:"Seletividade",q:"Sobre a seletividade na CF/88:",
+    o:["o ICMS será seletivo e o IPI poderá ser","o ICMS poderá ser seletivo e o IPI será","ambos serão seletivos","ambos poderão ser seletivos"],a:1,
+    e:"Art. 155, § 2º, III (ICMS: poderá) e art. 153, § 3º, I (IPI: será)."},
+   {s:"Não cumulatividade",q:"A indústria vende à rede de mercados com isenção. Salvo determinação em contrário da legislação, o efeito é:",
+    o:["o mercado ganha crédito presumido do imposto que seria devido","não gera crédito para as operações seguintes e anula o crédito relativo às operações anteriores","o crédito anterior permanece integral","apenas anula o crédito anterior, sem efeito para as operações seguintes"],a:1,
+    e:"Art. 155, § 2º, II, a e b. Isenção e não incidência não geram crédito adiante e anulam o anterior."},
+   {s:"Exportação",q:"Um exportador adquiriu insumos tributados pelo ICMS. Sobre o crédito dessas aquisições:",
+    o:["é estornado integralmente por a exportação não ser tributada","é mantido e pode ser aproveitado","só é mantido se um convênio autorizar","é transferido ao Estado de destino"],a:1,
+    e:"Art. 155, § 2º, X, a: não incide ICMS na exportação, assegurada a manutenção e o aproveitamento do imposto cobrado nas etapas anteriores."},
+   {s:"Alíquotas interestaduais",q:"Uma mercadoria sai de São Paulo para o Espírito Santo. Qual a alíquota interestadual?",
+    o:["12%","7%","4%","13%"],a:1,
+    e:"O ES é equiparado a Norte, Nordeste e Centro-Oeste. De Sul e Sudeste para eles é 7%. Do ES para SP seria 12%."},
+   {s:"Alíquotas internas",q:"Um Estado quer fixar alíquota interna de 5%, abaixo da interestadual. Isso é possível:",
+    o:["por lei estadual ordinária","por resolução do Senado Federal","apenas por deliberação dos Estados e do DF, por convênio","por emenda à Constituição estadual"],a:2,
+    e:"Art. 155, § 2º, VI. A regra é o piso pela interestadual, salvo deliberação conjunta dos Estados e do DF."},
+   {s:"DIFAL (cálculo)",q:"Uma família do RS compra uma TV de R$ 5.000 de loja de SP. Interestadual de 12% e interna do RS de 17%. O DIFAL devido ao RS é:",
+    o:["R$ 600","R$ 850","R$ 250","R$ 5.000"],a:2,
+    e:"DIFAL = 17% − 12% = 5% × R$ 5.000 = R$ 250. São Paulo fica com R$ 600 (12%)."},
+   {s:"Importação",q:"Carolina, de Caxias do Sul/RS, importou um notebook que entrou no Brasil pelo porto de Itajaí/SC. O ICMS é devido:",
+    o:["a Santa Catarina, Estado do porto de entrada","ao Rio Grande do Sul, Estado do domicílio da destinatária","à União, por ser importação","a SC e ao RS, divididos"],a:1,
+    e:"Art. 155, § 2º, IX, a: o imposto cabe ao Estado do domicílio ou estabelecimento do destinatário."},
+   {s:"IPI na base",q:"Em qual hipótese o IPI integra a base de cálculo do ICMS?",
+    o:["Indústria vende insumo a outra indústria, ambas contribuintes, para industrialização","Atacadista contribuinte compra da indústria para revender","Concessionária compra da fábrica um carro para uso do gerente","Indústria vende a distribuidora contribuinte produto para comercialização"],a:2,
+    e:"Falta o requisito de destinação à industrialização ou comercialização: é uso e consumo. Nas demais, os três requisitos estão presentes."},
+   {s:"Não incidência",q:"Sobre qual bem não incide ICMS na saída interestadual?",
+    o:["etanol","gás natural veicular (GNV)","energia elétrica","joia de ouro"],a:2,
+    e:"Art. 155, § 2º, X, b: petróleo, lubrificantes e combustíveis derivados dele, e energia elétrica. Etanol e GNV não são derivados de petróleo."},
+   {s:"Ouro",q:"Compra de uma barra de ouro como ativo financeiro e compra de uma joia de ouro:",
+    o:["ambas sofrem ICMS","a barra sofre IOF e a joia sofre ICMS","ambas sofrem IOF","a barra sofre ICMS e a joia sofre IOF"],a:1,
+    e:"Art. 155, § 2º, X, c: o ouro definido como ativo financeiro ou instrumento cambial vai para o IOF. A joia é mercadoria."},
+   {s:"ISS x ICMS",q:"Um hotel em Gramado inclui o café da manhã na diária e o hóspede pede um jantar à parte. A tributação é:",
+    o:["café pelo ICMS e jantar pelo ISS","ambos pelo ISS","café pelo ISS e jantar pelo ICMS","ambos pelo ICMS"],a:2,
+    e:"Item 9.01 da LC 116: a alimentação incluída na diária é ISS. A cobrada à parte é fornecimento de mercadoria, ICMS."},
+   {s:"Software",q:"Segundo o entendimento atual do STF, o licenciamento ou a cessão de uso de software:",
+    o:["é ICMS se for de prateleira e ISS se for por encomenda","é ISS, sem distinção entre prateleira e encomenda","é sempre ICMS","não sofre ISS nem ICMS"],a:1,
+    e:"Subitem 1.05 da LC 116, confirmado nas ADIs 1.945 e 5.659 e no Tema 590."},
+   {s:"Lei complementar",q:"Qual matéria do ICMS NÃO depende de lei complementar?",
+    o:["definir os contribuintes","fixar as alíquotas, respeitados os limites da CF","disciplinar o regime de compensação","dispor sobre substituição tributária"],a:1,
+    e:"Contribuintes, compensação e substituição tributária estão no art. 155, § 2º, XII. As alíquotas são fixadas por lei ordinária de cada Estado, observados os limites constitucionais."},
+   {s:"Fundo de pobreza",q:"O adicional do ICMS para o fundo estadual de combate à pobreza:",
+    o:["pode chegar a 4 pontos, sobre todos os produtos","é de até 2 pontos sobre supérfluos, com repartição de 25% aos Municípios","depende de resolução do Senado","é de até 2 pontos sobre supérfluos, sem repartição com os Municípios"],a:3,
+    e:"ADCT, art. 82, § 1º: até dois pontos percentuais sobre produtos e serviços supérfluos, e não se aplica o art. 158, IV."},
+   {s:"ICMS por dentro",q:"Mercadoria importada de R$ 1.500, alíquota de 25%, sem outros tributos. Qual o ICMS?",
+    o:["R$ 375","R$ 500","R$ 625","R$ 2.000"],a:1,
+    e:"Base = 1.500 ÷ 0,75 = 2.000. ICMS = 25% × 2.000 = R$ 500. R$ 375 é o erro de não incluir o imposto na base."}
+  ];
+  var L="ABCDE",done=0,hits=0,box=document.getElementById("quiz");
+  function build(){
+    var h="";
+    Q.forEach(function(x,i){
+      h+='<div class="q" id="q'+i+'"><div class="src">'+(i+1)+' · '+x.s+'</div><div class="qt">'+x.q+'</div><div class="opts">';
+      x.o.forEach(function(t,j){h+='<button type="button" class="opt" data-q="'+i+'" data-o="'+j+'"><span class="l">'+L[j]+')</span><span>'+t+'</span></button>';});
+      h+='</div><div class="exp" hidden></div></div>';
+    });
+    box.innerHTML=h;
+  }
+  function upd(){
+    document.getElementById("st").textContent="Acertos "+hits+" · respondidas "+done+" de "+Q.length;
+    document.getElementById("pb").style.width=(done?Math.round(hits/Q.length*100):0)+"%";
+  }
+  box.addEventListener("click",function(ev){
+    var b=ev.target.closest(".opt");if(!b||b.disabled)return;
+    var i=+b.dataset.q,j=+b.dataset.o,x=Q[i],q=document.getElementById("q"+i);
+    var all=q.querySelectorAll(".opt");
+    all.forEach(function(o){o.disabled=true;});
+    all[x.a].classList.add("right");
+    var ok=(j===x.a);
+    if(!ok)b.classList.add("wrong");
+    done++;if(ok)hits++;
+    var e=q.querySelector(".exp");
+    e.innerHTML=(ok?'<b class="v">Certo.</b> ':'<b class="x">Errado.</b> Gabarito: letra '+L[x.a]+'. ')+x.e;
+    e.hidden=false;upd();
+  });
+  document.getElementById("reset").addEventListener("click",function(){
+    done=0;hits=0;build();upd();
+    document.getElementById("simulado").scrollIntoView({behavior:"smooth"});
+  });
+  build();upd();
+})();
+</script>
+
+</body></html>

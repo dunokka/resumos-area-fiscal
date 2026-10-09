@@ -1,0 +1,756 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guia Lei Kandir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: coluna única de leitura (até 860px) com barra de chips fixa no topo e placar fixo no rodapé.
+   Cada capítulo ganha uma cor própria (--c / --cl) herdada pelos componentes internos. */
+:root{
+  --bg:#F5F6F9; --surface:#FFFFFF; --fg:#16202E; --muted:#566275; --line:#D9DEE7; --quote-bg:#ECEEF2;
+  --blue:#1A56B0;   --blue-l:#E1EBFA;
+  --green:#17703F;  --green-l:#DDF2E6;
+  --olive:#5A6817;  --olive-l:#EAEFCF;
+  --amber:#94550A;  --amber-l:#FBEACB;
+  --purple:#6139AD; --purple-l:#EAE2F8;
+  --red:#B52B27;    --red-l:#FADEDC;
+  --pink:#B8325F;   --pink-l:#FBE3EB;
+  --f-display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --f-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11141B; --surface:#1A1F29; --fg:#E8EBF1; --muted:#9AA3B2; --line:#2B3241; --quote-bg:#202632;
+    --blue:#7AABFF;   --blue-l:#1B2A47;
+    --green:#52CF8D;  --green-l:#14352A;
+    --olive:#BACB5A;  --olive-l:#2C3314;
+    --amber:#F3A94A;  --amber-l:#3B2A10;
+    --purple:#BA9CF5; --purple-l:#2B2242;
+    --red:#FF8480;    --red-l:#3D1D1E;
+    --pink:#F590B4;   --pink-l:#3A1D2A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11141B; --surface:#1A1F29; --fg:#E8EBF1; --muted:#9AA3B2; --line:#2B3241; --quote-bg:#202632;
+  --blue:#7AABFF;   --blue-l:#1B2A47;
+  --green:#52CF8D;  --green-l:#14352A;
+  --olive:#BACB5A;  --olive-l:#2C3314;
+  --amber:#F3A94A;  --amber-l:#3B2A10;
+  --purple:#BA9CF5; --purple-l:#2B2242;
+  --red:#FF8480;    --red-l:#3D1D1E;
+  --pink:#F590B4;   --pink-l:#3A1D2A;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;padding-inline:16px;padding-block:78px 120px;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6}
+.wrap{max-width:860px;margin-inline:auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+.b{--c:var(--blue);--cl:var(--blue-l)}
+.g{--c:var(--green);--cl:var(--green-l)}
+.o{--c:var(--olive);--cl:var(--olive-l)}
+.a{--c:var(--amber);--cl:var(--amber-l)}
+.p{--c:var(--purple);--cl:var(--purple-l)}
+.r{--c:var(--red);--cl:var(--red-l)}
+
+/* barra de navegação */
+.top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;gap:8px;overflow-x:auto;white-space:nowrap;
+  padding:calc(9px + env(safe-area-inset-top,0px)) 16px 9px;background:var(--surface);border-bottom:1px solid var(--line);scrollbar-width:thin}
+.chip{flex:none;text-decoration:none;font-weight:700;font-size:.82rem;padding:6px 12px;border-radius:999px;border:1.5px solid var(--c);background:var(--cl);color:var(--c)}
+.chip:hover{background:var(--c);color:var(--surface)}
+
+/* cabeçalho */
+.hero{display:flex;flex-direction:column;gap:18px}
+.seal{align-self:flex-start;font:600 .74rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border:1.5px solid var(--fg);border-radius:6px}
+h1{font-size:clamp(2.1rem,7vw,3.7rem);line-height:1.04;font-weight:800;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,var(--blue),var(--green),var(--amber),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.lead{max-width:62ch;color:var(--muted);font-size:1.05rem}
+.legend{display:flex;flex-wrap:wrap;gap:10px}
+.lg{display:flex;align-items:center;gap:8px;font-size:.84rem;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.sw{width:18px;height:18px;border-radius:4px;flex:none;border:1.5px solid var(--line)}
+.sw.ok{background:var(--green-l);border-color:var(--green)}
+.sw.no{background:var(--red-l);border-color:var(--red)}
+.sw.cn{background:var(--surface);border-color:var(--blue);border-width:2px}
+.sw.pg{background:var(--pink-l);border-color:var(--pink)}
+.sw.qt{background:var(--quote-bg);border-left:4px solid var(--muted)}
+
+/* 12 pontos */
+.sec-title{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.sec-title h2{font-size:clamp(1.6rem,4.6vw,2.2rem);font-weight:800;letter-spacing:-.01em}
+.sec-title .ref{font:500 .82rem var(--f-mono);color:var(--muted)}
+.pts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.pt{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pt .v{font:800 1.75rem/1.1 var(--f-display);color:var(--c)}
+.pt .t{font-size:.92rem}
+.pt .n{font:600 .72rem var(--f-mono);color:var(--muted)}
+
+/* capítulos */
+.chap{display:flex;flex-direction:column;gap:18px;scroll-margin-top:84px}
+section[id]{scroll-margin-top:84px}
+.head{display:flex;gap:16px;align-items:flex-end;border-bottom:3px solid var(--c);padding-bottom:12px}
+.big{font:800 clamp(3.6rem,13vw,5.6rem)/.85 var(--f-display);color:var(--c);flex:none}
+.head h2{font-size:clamp(1.55rem,4.6vw,2.2rem);font-weight:800;line-height:1.1}
+.head .ref{font:500 .8rem var(--f-mono);color:var(--muted);margin-top:6px}
+.one{background:var(--cl);border-radius:10px;padding:14px 16px}
+.one b.lab{display:block;font:600 .72rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin-bottom:4px}
+.concept{border:2px solid var(--c);border-radius:10px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column;gap:8px;min-width:0}
+.concept h3{font-size:1.15rem;color:var(--c);font-weight:700}
+.concept ul,.concept ol,.trap ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.ex{font-size:.95rem;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
+blockquote{margin:0;background:var(--quote-bg);border-left:5px solid var(--c);border-radius:0 8px 8px 0;padding:12px 16px;font-style:italic;display:flex;flex-direction:column;gap:4px;min-width:0}
+blockquote .art{font:600 .76rem var(--f-mono);font-style:normal;color:var(--c);letter-spacing:.03em}
+blockquote p::before{content:"\201C"}
+blockquote p::after{content:"\201D"}
+.trap{background:var(--pink-l);border:2px solid var(--pink);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.trap h3{font-size:1.1rem;color:var(--pink);font-weight:700}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--cl);color:var(--c);font:700 .8rem var(--f-body);letter-spacing:.03em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+td.yes{background:var(--green-l);color:var(--green);font-weight:700}
+td.no{background:var(--red-l);color:var(--red);font-weight:700}
+td.k{font:600 .86rem var(--f-mono);white-space:nowrap}
+.tag{display:inline-block;font:600 .7rem var(--f-mono);padding:2px 6px;border-radius:4px;background:var(--cl);color:var(--c);white-space:nowrap}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.duo>*{min-width:0}
+
+/* contas */
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:10px}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--c);color:var(--surface);font:700 .9rem var(--f-mono);display:grid;place-items:center;margin-top:2px}
+.steps li>div{min-width:0}
+.bars{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.bar-row{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:center}
+.bar-row .nm{font-weight:700;font-size:.9rem}
+.tracks{display:flex;flex-direction:column;gap:4px;min-width:0}
+.trk{position:relative;height:20px;background:var(--quote-bg);border-radius:4px;overflow:hidden}
+.fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:6px;font:600 .72rem var(--f-mono);white-space:nowrap}
+.fill.iss{background:var(--blue);color:var(--surface)}
+.fill.icms{background:var(--amber);color:var(--surface)}
+.val{position:absolute;right:6px;top:0;line-height:20px;font:600 .72rem var(--f-mono);color:var(--fg)}
+.axis{display:grid;grid-template-columns:76px 1fr;gap:10px}
+.axis div:last-child{display:flex;justify-content:space-between;font:500 .7rem var(--f-mono);color:var(--muted)}
+.key{display:flex;gap:16px;flex-wrap:wrap;font-size:.85rem}
+.key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.erro{background:var(--red-l);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:10px 14px;font-size:.95rem}
+.erro b{color:var(--red)}
+
+/* glossário */
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.gl div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:0}
+.gl dt{font-weight:700;color:var(--c)}
+.gl dd{margin:2px 0 0;font-size:.93rem}
+dl.gl{margin:0}
+
+/* simulado */
+.quiz{display:flex;flex-direction:column;gap:16px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:84px}
+.qh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:600 .74rem var(--f-mono);color:var(--muted)}
+.stmt{font-weight:700}
+.opts{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.opt{width:100%;text-align:left;display:flex;gap:10px;align-items:flex-start;font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--c)}
+.opt .l{flex:none;font:700 .85rem var(--f-mono);width:24px;height:24px;border-radius:50%;border:1.5px solid var(--muted);display:grid;place-items:center;margin-top:1px}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--green-l);border-color:var(--green)}
+.opt.right .l{background:var(--green);border-color:var(--green);color:var(--surface)}
+.opt.wrong{background:var(--red-l);border-color:var(--red)}
+.opt.wrong .l{background:var(--red);border-color:var(--red);color:var(--surface)}
+.opt.dim{opacity:.6}
+.exp{border-radius:8px;padding:10px 14px;font-size:.95rem;background:var(--quote-bg);border-left:4px solid var(--muted)}
+.exp.ok{background:var(--green-l);border-color:var(--green)}
+.exp.bad{background:var(--red-l);border-color:var(--red)}
+.exp b.v{display:block;margin-bottom:2px}
+.score{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:2px solid var(--c);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px}
+.score .in{max-width:860px;width:100%;margin-inline:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.score .num{font:700 1rem var(--f-mono)}
+.score .pr{flex:1;min-width:90px;height:10px;border-radius:5px;background:var(--quote-bg);overflow:hidden;display:flex}
+.score .pr i{display:block;height:100%;transition:width .25s}
+.score .pr .gi{background:var(--green)}
+.score .pr .ri{background:var(--red)}
+.score button{font:700 .85rem var(--f-body);color:var(--c);background:var(--cl);border:1.5px solid var(--c);border-radius:8px;padding:8px 14px;cursor:pointer}
+footer{border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.88rem;display:flex;flex-direction:column;gap:6px}
+.note{font-size:.88rem;color:var(--muted)}
+</style>
+
+<nav class="top" aria-label="Seções">
+  <a class="chip b" href="#pontos">12 pontos</a>
+  <a class="chip b" href="#base">ICMS</a>
+  <a class="chip g" href="#incid">Incidência</a>
+  <a class="chip o" href="#isserv">ISS × ICMS</a>
+  <a class="chip a" href="#nao">Não incidência</a>
+  <a class="chip p" href="#sujeito">Contribuinte</a>
+  <a class="chip r" href="#contas">Casos resolvidos</a>
+  <a class="chip b" href="#quadro">Quadro</a>
+  <a class="chip g" href="#gloss">Glossário</a>
+  <a class="chip r" href="#simulado">Simulado</a>
+</nav>
+
+<main class="wrap">
+
+<header class="hero">
+  <span class="seal">Rabelo Concursos · LTF SEFAZ RS · Aula 02</span>
+  <h1>Lei Kandir: <span class="grad">quando o ICMS incide, quando não incide e quem paga</span></h1>
+  <p class="lead">Use de cima para baixo: leia os 12 pontos, estude um capítulo por vez, confira o quadro ISS × ICMS e faça o simulado no fim. As caixas seguem as cores abaixo.</p>
+  <div class="legend">
+    <span class="lg"><i class="sw ok"></i>verde = subiu / correto</span>
+    <span class="lg"><i class="sw no"></i>vermelho = caiu / errado</span>
+    <span class="lg"><i class="sw cn"></i>caixa com borda = conceito</span>
+    <span class="lg"><i class="sw pg"></i>caixa rosa = pegadinha</span>
+    <span class="lg"><i class="sw qt"></i>caixa cinza com aspas = texto da norma</span>
+  </div>
+</header>
+
+<section id="pontos">
+  <div class="sec-title b"><h2>Os 12 pontos para decorar</h2><span class="ref">o que mais cai nesta aula</span></div>
+  <div class="pts">
+    <div class="pt b"><span class="v">Real</span><span class="t">ICMS é real, fiscal, indireto, lançado por homologação, não cumulativo e pode ser seletivo.</span><span class="n">cap. 1</span></div>
+    <div class="pt g"><span class="v">Art. 1º</span><span class="t">Estados e DF instituem o ICMS. A Kandir só dá as normas gerais.</span><span class="n">cap. 1</span></div>
+    <div class="pt o"><span class="v">Valor total</span><span class="t">Restaurante: ICMS sobre o valor total, comida e serviço (Súm. 163 STJ).</span><span class="n">cap. 2</span></div>
+    <div class="pt a"><span class="v">Inter</span><span class="t">Transporte interestadual e intermunicipal é ICMS. Dentro do município é ISS.</span><span class="n">cap. 2</span></div>
+    <div class="pt p"><span class="v">Onerosa</span><span class="t">Só a comunicação paga entra no ICMS. TV aberta e gratuita fica de fora.</span><span class="n">cap. 2</span></div>
+    <div class="pt r"><span class="v">Sempre</span><span class="t">Importou, pagou: pessoa física ou jurídica, habitual ou não, qualquer finalidade.</span><span class="n">cap. 2 e 5</span></div>
+    <div class="pt b"><span class="v">Destino</span><span class="t">Petróleo, derivados e energia: na entrada interestadual só incide se for uso ou consumo, e o imposto fica com o Estado do adquirente.</span><span class="n">cap. 2</span></div>
+    <div class="pt g"><span class="v">5 exceções</span><span class="t">Serviço da lista da LC 116 é ISS sobre tudo, menos 7.02, 7.05, 14.01, 14.03 e 17.11.</span><span class="n">cap. 3</span></div>
+    <div class="pt o"><span class="v">Quem forneceu</span><span class="t">Itens 7.06, 14.09 e 39.01: material do cliente é ISS, material do prestador é ICMS sobre o total.</span><span class="n">cap. 3</span></div>
+    <div class="pt a"><span class="v">Diária</span><span class="t">Alimentação dentro da diária é ISS. Alimentação cobrada à parte é ICMS.</span><span class="n">cap. 3</span></div>
+    <div class="pt p"><span class="v">Art. 3º</span><span class="t">Não incide: livros, exportação, energia e petróleo interestaduais para revenda ou indústria, ouro financeiro, estabelecimento, alienação fiduciária, leasing, salvados.</span><span class="n">cap. 4</span></div>
+    <div class="pt r"><span class="v">4 + regra</span><span class="t">Contribuinte é quem opera com habitualidade ou intuito comercial. Mais quatro casos que valem sem isso: importador, tomador de serviço do exterior, arrematante e comprador interestadual de combustível ou energia para uso.</span><span class="n">cap. 5</span></div>
+  </div>
+</section>
+
+<!-- CAPÍTULO 1 -->
+<section class="chap b" id="base">
+  <div class="head"><span class="big">1</span><div><h2>O ICMS e a Lei Kandir</h2><div class="ref">Introdução · LC 87/96 · art. 1º</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>O ICMS é um imposto real, fiscal e indireto, lançado em regra por homologação; a LC 87/96 traz as normas gerais, mas quem institui o imposto é cada Estado e o DF.</div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Característica</th><th>O que significa</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td><b>Real</b></td><td>Olha a mercadoria ou o serviço, não a pessoa. Renda e condição pessoal não mudam o valor.</td><td>Mesmo ICMS no arroz para qualquer comprador.</td></tr>
+      <tr><td><b>Fiscal</b></td><td>Serve para arrecadar para os Estados. Pode ser usado com função extrafiscal, como atrair investimentos.</td><td>Financia saúde, educação, segurança.</td></tr>
+      <tr><td><b>Indireto</b></td><td>O contribuinte de direito repassa o ônus ao contribuinte de fato, o consumidor.</td><td>O supermercado recolhe, você paga no preço.</td></tr>
+      <tr><td><b>Homologação</b></td><td>O contribuinte declara e paga; o Fisco confere depois. Se declarar menos, o Fisco lança de ofício.</td><td>Auditor que acha declaração a menor faz lançamento de ofício.</td></tr>
+      <tr><td><b>Não cumulativo</b></td><td>Evita imposto sobre imposto: a carga é a mesma, não importa quantas operações haja.</td><td>Efeito cascata afastado.</td></tr>
+      <tr><td><b>Seletivo (pode)</b></td><td>A CF faculta a seletividade: menos imposto para o essencial. A lei estadual pode tornar obrigatória.</td><td>Veja sempre o texto da lei do Estado.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="concept">
+    <h3>O que a Lei Complementar precisa regular</h3>
+    <p>A Constituição manda a lei complementar tratar de vários temas do ICMS. A Kandir cobre a maioria. Dois ficaram de fora.</p>
+    <ul>
+      <li>Benefícios fiscais (como são concedidos e revogados): <b>LC 24/75</b>.</li>
+      <li>Combustíveis e lubrificantes com incidência única, o ICMS monofásico: <b>LC 192/2022</b>.</li>
+    </ul>
+    <p class="ex">A Kandir recebeu esse nome por causa do então ministro do Planejamento, Antônio Kandir.</p>
+  </div>
+
+  <blockquote><span class="art">LC 87/96, art. 1º</span><p>Compete aos Estados e ao Distrito Federal instituir o imposto sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual e intermunicipal e de comunicação, ainda que as operações e as prestações se iniciem no exterior.</p></blockquote>
+
+  <div class="trap">
+    <h3>Pegadinhas</h3>
+    <ul>
+      <li>A banca troca "indireto e real" por "direto e pessoal". Fique com <b>indireto e real, poderá ser seletivo</b>.</li>
+      <li>"Lançamento direto" é sinônimo de lançamento de ofício. O ICMS, em regra, é lançado por homologação.</li>
+      <li>A Kandir não institui o imposto, só atribui a competência. A lei estadual que institui <b>não precisa ser complementar</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAPÍTULO 2 -->
+<section class="chap g" id="incid">
+  <div class="head"><span class="big">2</span><div><h2>Incidência</h2><div class="ref">LC 87/96, art. 2º, incisos I a V e §§ 1º e 2º</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>O ICMS incide na circulação de mercadorias, no transporte interestadual e intermunicipal, na comunicação onerosa e no fornecimento de mercadoria com serviço fora do ISS; e também na importação e na entrada interestadual de petróleo ou energia para uso e consumo.</div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Art. 2º</th><th>Incide sobre</th><th>Para lembrar</th></tr></thead>
+    <tbody>
+      <tr><td class="k">I</td><td>Circulação de mercadorias, inclusive alimentação e bebidas em bares, restaurantes e similares</td><td>Vale mesmo sem venda: doação é circulação (§ 2º)</td></tr>
+      <tr><td class="k">II</td><td>Transporte interestadual e intermunicipal, por qualquer via, de pessoas, bens, mercadorias ou valores</td><td>Dentro do município é ISS</td></tr>
+      <tr><td class="k">III</td><td>Comunicação <b>onerosa</b>, por qualquer meio</td><td>Gratuita fica fora</td></tr>
+      <tr><td class="k">IV</td><td>Mercadoria com serviço <b>não compreendido</b> na competência dos Municípios</td><td>ICMS sobre tudo</td></tr>
+      <tr><td class="k">V</td><td>Mercadoria com serviço sujeito ao ISS, <b>quando a lei complementar aplicável expressamente mandar</b></td><td>Só se a LC 116/03 disser</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="concept">
+    <h3>Alimentação em bares e restaurantes</h3>
+    <p>Havia dúvida se o ICMS recaía só sobre a comida ou sobre a conta inteira, com o serviço de mesa. Duas súmulas fecham o assunto:</p>
+    <ul>
+      <li><b>Súmula 163 STJ:</b> o fornecimento de mercadorias com a simultânea prestação de serviços em bares, restaurantes e similares é fato gerador do ICMS sobre o <b>valor total</b> da operação.</li>
+      <li><b>Súmula 574 STF:</b> sem lei estadual que a estabeleça, é ilegítima a cobrança sobre o fornecimento de alimentação e bebidas em restaurante ou similar.</li>
+    </ul>
+  </div>
+
+  <div class="concept">
+    <h3>Serviço prestado ou iniciado no exterior</h3>
+    <p>O § 1º, II, abre a porta para o ICMS em transporte e comunicação com origem fora do país. A parte "iniciado no exterior" é a mais intuitiva: começa fora e termina aqui. A parte "prestado no exterior" é mais controversa, e a lei a alcança quando o tomador está no Brasil.</p>
+    <p class="ex">Rinaldo volta de Buenos Aires para Porto Alegre num ônibus que parte de Buenos Aires. O transporte começou no exterior e termina no Brasil: incide ICMS.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Comunicação onerosa</h3>
+    <p>Pagou para assistir, incide. TV por assinatura é serviço de comunicação e entra no ICMS. Canais abertos de recepção livre e gratuita não pagam nada e ficam fora. Já o streaming pela internet (Netflix, Spotify) é ISS, pelo item 1.09 da LC 116 (capítulo 3).</p>
+  </div>
+
+  <div class="concept">
+    <h3>Petróleo, derivados e energia elétrica entre Estados</h3>
+    <p>A CF não deixa incidir ICMS na <b>saída</b> interestadual desses produtos. A Kandir complementa: na <b>entrada</b>, só incide se não forem para comercialização ou industrialização, ou seja, se forem para uso e consumo. O imposto cabe ao Estado onde está o adquirente.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Operação interestadual</th><th>Comercialização</th><th>Industrialização</th><th>Uso ou consumo</th></tr></thead>
+      <tbody>
+        <tr><td><b>Saída</b> (Estado de origem)</td><td class="no">não incide</td><td class="no">não incide</td><td class="no">não incide</td></tr>
+        <tr><td><b>Entrada</b> (Estado de destino)</td><td class="no">não incide</td><td class="no">não incide</td><td class="yes">incide</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ex">Distribuidora do Paraná vende gasolina a uma transportadora do Rio Grande do Sul, que a usará na própria frota. Na saída do PR não incide ICMS. Na entrada no RS incide, porque é consumo, e o imposto é do RS.</p>
+  </div>
+
+  <blockquote><span class="art">LC 87/96, art. 2º, § 1º, I</span><p>sobre a entrada de mercadoria ou bem importados do exterior, por pessoa física ou jurídica, ainda que não seja contribuinte habitual do imposto, qualquer que seja a sua finalidade;</p></blockquote>
+  <blockquote><span class="art">LC 87/96, art. 2º, § 1º, III</span><p>sobre a entrada, no território do Estado destinatário, de petróleo, inclusive lubrificantes e combustíveis líquidos e gasosos dele derivados, e de energia elétrica, quando não destinados à comercialização ou à industrialização, decorrentes de operações interestaduais, cabendo o imposto ao Estado onde estiver localizado o adquirente.</p></blockquote>
+  <blockquote><span class="art">LC 87/96, art. 2º, § 2º</span><p>A caracterização do fato gerador independe da natureza jurídica da operação que o constitua.</p></blockquote>
+
+  <div class="trap">
+    <h3>Pegadinhas</h3>
+    <ul>
+      <li><b>Doação:</b> a fábrica que doa linguiça a uma entidade beneficente paga ICMS. O fato gerador é a circulação, e a natureza jurídica da operação não conta.</li>
+      <li>"<b>Ainda que</b> não seja contribuinte habitual" vira "<b>exceto quando</b> não seja contribuinte habitual". Na importação, não vale a exceção.</li>
+      <li>A lei fala em <b>derivados de petróleo</b>. A banca escreve "quaisquer combustíveis", "sólidos" ou "todos os lubrificantes" para derrubar a alternativa.</li>
+      <li>Comunicação <b>gratuita</b> não incide. Música ou show ao vivo não são requisito para cobrar ICMS de restaurante.</li>
+      <li>O imposto da entrada de petróleo e energia vai para o Estado do <b>adquirente</b>, não do vendedor e não dividido em partes iguais.</li>
+      <li>Transporte dentro do mesmo município não é ICMS.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAPÍTULO 3 -->
+<section class="chap o" id="isserv">
+  <div class="head"><span class="big">3</span><div><h2>ISS × ICMS na mesma operação</h2><div class="ref">LC 87/96, art. 2º, IV e V · lista de serviços da LC 116/03</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>Quando mercadoria e serviço vêm juntos, olhe se o serviço consta da lista da LC 116/03: se não consta, ICMS sobre tudo; se consta, ISS sobre tudo, salvo as exceções que a própria lista traz.</div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Material + serviço</th><th>Resultado</th></tr></thead>
+    <tbody>
+      <tr><td>Serviço <b>fora</b> da competência dos Municípios</td><td>ICMS sobre tudo (mercadoria + serviço)</td></tr>
+      <tr><td>Serviço da lista da LC 116, <b>sem exceção</b></td><td>ISS sobre tudo</td></tr>
+      <tr><td>Serviço da lista da LC 116, <b>com exceção</b></td><td>ISS sobre o serviço e ICMS sobre o material</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="concept">
+    <h3>Grupo 1: o material fica com o ICMS (bipartição)</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Item</th><th>Serviço (ISS)</th><th>ICMS sobre</th></tr></thead>
+      <tbody>
+        <tr><td class="k">7.02</td><td>Construção civil, hidráulica ou elétrica, por administração, empreitada ou subempreitada</td><td>Mercadorias produzidas pelo prestador <b>fora do local</b> da obra</td></tr>
+        <tr><td class="k">7.05</td><td>Reparação, conservação e reforma de edifícios, estradas, pontes, portos</td><td>Mercadorias produzidas pelo prestador <b>fora do local</b> do serviço</td></tr>
+        <tr><td class="k">14.01</td><td>Lubrificação, limpeza, revisão, conserto, manutenção de máquinas, veículos, elevadores e outros</td><td>Peças e partes empregadas</td></tr>
+        <tr><td class="k">14.03</td><td>Recondicionamento de motores</td><td>Peças e partes empregadas</td></tr>
+        <tr><td class="k">17.11</td><td>Organização de festas e recepções; bufê</td><td>Fornecimento de alimentação e bebidas</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ex">Se o cimento é produzido no próprio canteiro de obras, incide só ISS sobre o valor total. Se a construtora o produz na sede e leva para a obra, o cimento paga ICMS.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Grupo 2: depende de quem forneceu o material</h3>
+    <p>Itens <b>7.06</b> (instalação de carpetes, cortinas, vidros, divisórias), <b>14.09</b> (alfaiataria e costura) e <b>39.01</b> (ourivesaria e lapidação). Aqui a tributação é inteira por um imposto só.</p>
+    <div class="duo">
+      <div class="one" style="--c:var(--green);--cl:var(--green-l)"><b class="lab">Cliente forneceu o material</b>ISS sobre o valor do serviço.</div>
+      <div class="one" style="--c:var(--amber);--cl:var(--amber-l)"><b class="lab">Prestador forneceu o material</b>ICMS sobre o valor total.</div>
+    </div>
+    <p class="ex">Você leva o tecido à costureira: só ISS sobre a mão de obra. A costureira fornece o tecido e faz o vestido: ICMS sobre o valor total.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Hospedagem (item 9.01)</h3>
+    <p>A diária é sempre ISS. O que muda é a comida. Café da manhã incluído na diária fica com o ISS. Um jantar cobrado à parte é fornecimento de mercadoria e paga ICMS.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Três mudanças recentes na lista da LC 116/03</h3>
+    <ul>
+      <li><b>1.09, conteúdo pela internet:</b> streaming (áudio, vídeo, imagem, texto, sem cessão definitiva) é ISS. A exceção expressa é a distribuição por prestadoras de Serviço de Acesso Condicionado (Lei 12.485/2011), a TV por assinatura, que fica no ICMS.</li>
+      <li><b>13.05, serviços gráficos:</b> o divisor é o destino do impresso. Personalizado, sob encomenda e para uso do próprio encomendante (convite, cartão de visita, cardápio): ISS. Destinado a comercialização ou industrialização (rótulo, bula, embalagem, manual que acompanha o produto): ICMS.</li>
+      <li><b>17.25, propaganda e publicidade:</b> inserir texto, desenho ou material publicitário em qualquer meio (site, outdoor, painel) é ISS. Ficam de fora livros, jornais, periódicos e rádio e TV de recepção livre e gratuita.</li>
+    </ul>
+    <div class="tw"><table>
+      <thead><tr><th>Impresso gráfico</th><th>Destinação</th><th>Imposto</th></tr></thead>
+      <tbody>
+        <tr><td>Personalizado, sob encomenda</td><td>Uso próprio, consumo final do encomendante</td><td class="k">ISS</td></tr>
+        <tr><td>Personalizado ou não</td><td>Comercialização ou industrialização (insumo, embalagem, rótulo)</td><td class="k">ICMS</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <blockquote><span class="art">LC 116/03, lista, item 14.03</span><p>Recondicionamento de motores (exceto peças e partes empregadas, que ficam sujeitas ao ICMS).</p></blockquote>
+  <blockquote><span class="art">LC 116/03, lista, item 17.11</span><p>Organização de festas e recepções; bufê (exceto o fornecimento de alimentação e bebidas, que fica sujeito ao ICMS).</p></blockquote>
+  <blockquote><span class="art">LC 116/03, lista, item 9.01 (trecho final)</span><p>o valor da alimentação e gorjeta, quando incluído no preço da diária, fica sujeito ao Imposto Sobre Serviços</p></blockquote>
+
+  <div class="trap">
+    <h3>Pegadinhas</h3>
+    <ul>
+      <li>No item 7.02, a exceção é a mercadoria produzida pelo prestador <b>fora</b> do local da obra. Produzida no canteiro, é ISS.</li>
+      <li>Café da manhã dentro da diária é <b>ISS</b>, mesmo que o hóspede nem tome o café. O que paga ICMS é a refeição cobrada à parte.</li>
+      <li>Ingresso de festa com show ao vivo é ISS. As bebidas cobradas avulsas na festa são ICMS.</li>
+      <li>Serviço médico: ISS sobre o valor do serviço, sem bipartição para medicamentos e materiais (como a banca cobrou na SEFAZ-SP 2026).</li>
+      <li>Software: na resolução da questão SEFAZ-SP 2026, a apostila diz que o STF superou a distinção entre software de prateleira e sob encomenda, e o licenciamento sujeita-se ao ISS.</li>
+      <li>A lei estadual e a lei municipal <b>não resolvem</b> o conflito ISS × ICMS. Quem resolve é a lei complementar (LC 116/03).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAPÍTULO 4 -->
+<section class="chap a" id="nao">
+  <div class="head"><span class="big">4</span><div><h2>Não incidência</h2><div class="ref">LC 87/96, art. 3º, incisos I a X e parágrafo único</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>O art. 3º lista o que fica fora do ICMS: quatro hipóteses vêm da Constituição (livros, exportação, energia e petróleo interestaduais, ouro financeiro) e as demais foram criadas pela Kandir (mercadoria usada em serviço do ISS, estabelecimento, alienação fiduciária, leasing, salvados e energia).</div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Art. 3º</th><th>Não incide sobre</th><th>Origem</th></tr></thead>
+    <tbody>
+      <tr><td class="k">I</td><td>Livros, jornais, periódicos e o papel destinado à sua impressão</td><td><span class="tag">CF</span></td></tr>
+      <tr><td class="k">II</td><td>Operações e prestações que destinem ao exterior mercadorias (inclusive produtos primários e semielaborados) ou serviços</td><td><span class="tag">CF</span></td></tr>
+      <tr><td class="k">III</td><td>Operações interestaduais com energia elétrica e petróleo (e derivados) destinados a industrialização ou comercialização</td><td><span class="tag">CF</span></td></tr>
+      <tr><td class="k">IV</td><td>Ouro definido em lei como ativo financeiro ou instrumento cambial</td><td><span class="tag">CF</span></td></tr>
+      <tr><td class="k">V</td><td>Mercadorias usadas, pelo próprio autor da saída, em serviço sujeito ao ISS, ressalvadas as hipóteses da LC do ISS</td><td><span class="tag">Kandir</span></td></tr>
+      <tr><td class="k">VI</td><td>Transferência de propriedade de estabelecimento industrial, comercial ou de outra espécie</td><td><span class="tag">Kandir</span></td></tr>
+      <tr><td class="k">VII</td><td>Alienação fiduciária em garantia, inclusive a operação do credor após inadimplemento</td><td><span class="tag">Kandir</span></td></tr>
+      <tr><td class="k">VIII</td><td>Arrendamento mercantil, exceto a venda do bem ao arrendatário</td><td><span class="tag">Kandir</span></td></tr>
+      <tr><td class="k">IX</td><td>Transferência de bens móveis salvados de sinistro a seguradoras</td><td><span class="tag">Kandir</span></td></tr>
+      <tr><td class="k">X</td><td>Transmissão e distribuição de energia e encargos setoriais (<b>suspenso pelo STF</b>)</td><td><span class="tag">LC 194/22</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="concept">
+    <h3>Livros: imunidade e e-book</h3>
+    <p>O art. 150, VI, "d", da CF imuniza livros, jornais, periódicos e o papel de impressão. No RE 330817, o STF estendeu a imunidade ao livro eletrônico (e-book), inclusive aos suportes usados exclusivamente para fixá-lo. Livros em branco ou apenas pautados, agendas e livros de escrituração continuam pagando ICMS.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Exportação e o caminho até ela</h3>
+    <p>Exportar não paga ICMS, para o produto brasileiro não sair com imposto embutido. A Kandir equipara à exportação a saída feita com <b>fim específico de exportação</b> para:</p>
+    <ul><li>empresa comercial exportadora, inclusive trading ou outro estabelecimento da mesma empresa;</li><li>armazém alfandegado ou entreposto aduaneiro.</li></ul>
+    <p>Pela Súmula 649 do STJ, não incide ICMS sobre o transporte interestadual de mercadorias destinadas ao exterior. Exemplo: o frete da soja do Mato Grosso até o porto de Santos.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Ouro: joia ou ativo financeiro?</h3>
+    <div class="duo">
+      <div class="one" style="--c:var(--red);--cl:var(--red-l)"><b class="lab">Joia, anel, cordão</b>É mercadoria: incide ICMS.</div>
+      <div class="one" style="--c:var(--green);--cl:var(--green-l)"><b class="lab">Ativo financeiro ou instrumento cambial</b>Não incide ICMS. Incide IOF.</div>
+    </div>
+    <p>A Lei 7.766/89 define o ouro financeiro: em qualquer estado de pureza, em bruto ou refinado, destinado ao mercado financeiro ou à política cambial, em operações com instituições do Sistema Financeiro Nacional, nas condições do Banco Central.</p>
+  </div>
+
+  <div class="concept">
+    <h3>Operações societárias e de garantia</h3>
+    <ul>
+      <li><b>Estabelecimento (VI):</b> é um complexo de bens organizado para a empresa (CC, art. 1.142), e não uma mercadoria. Clodoaldo pode comprar a sorveteria da vizinha, estoque incluído, sem ICMS.</li>
+      <li><b>Alienação fiduciária (VII):</b> o devedor transfere a propriedade ao credor como garantia e fica com a posse. Nem a transferência inicial nem a consolidação da propriedade pelo banco, se você não pagar, geram ICMS.</li>
+      <li><b>Leasing (VIII):</b> o operacional parece aluguel e o financeiro parece financiamento. Nenhum paga ICMS. A exceção é o financeiro em que o arrendatário paga o valor residual e fica com o bem: essa venda incide.</li>
+      <li><b>Salvados (IX):</b> a transferência do bem sinistrado à seguradora não incide e, pela Súmula Vinculante 32, a venda posterior dos salvados pela seguradora (a sucatas, por exemplo) também não.</li>
+    </ul>
+  </div>
+
+  <div class="concept">
+    <h3>Inciso X: energia elétrica, transmissão e distribuição</h3>
+    <p>A LC 194/2022 incluiu o inciso X para tirar do ICMS os serviços de transmissão e distribuição e os encargos setoriais. Segundo a apostila, o STF suspendeu todo o inciso na ADI 7195, e por isso o ICMS voltou a incidir sobre TUST, TUSD e encargos. A questão FGV SEFAZ-RS 2025 que cobrou o tema foi anulada.</p>
+  </div>
+
+  <blockquote><span class="art">LC 87/96, art. 3º, parágrafo único</span><p>Equipara-se às operações de que trata o inciso II a saída de mercadoria realizada com o fim específico de exportação para o exterior, destinada a: I - empresa comercial exportadora, inclusive tradings ou outro estabelecimento da mesma empresa; II - armazém alfandegado ou entreposto aduaneiro.</p></blockquote>
+  <blockquote><span class="art">LC 87/96, art. 3º, VIII</span><p>operações de arrendamento mercantil, não compreendida a venda do bem arrendado ao arrendatário;</p></blockquote>
+
+  <div class="trap">
+    <h3>Pegadinhas</h3>
+    <ul>
+      <li>"Não incide sobre operações com ouro": errado. Só o ouro <b>ativo financeiro ou instrumento cambial</b>.</li>
+      <li>Leasing: a alternativa que diz "incluindo a venda do bem arrendado" está errada. A venda ao arrendatário <b>incide</b>.</li>
+      <li>Alienação fiduciária: a banca inventa "salvo a operação do credor por inadimplemento". O texto diz <b>inclusive</b> essa operação.</li>
+      <li>Exportação por trading: <b>não incide</b>. Não se trata de isenção nem de "incidência se for trading".</li>
+      <li>Transferência de estabelecimento não incide mesmo que a operação seja interestadual.</li>
+      <li>Papel para impressão de <b>rótulo de remédio</b> não é papel de livro, jornal ou periódico: incide ICMS.</li>
+      <li>A Kandir não repetiu todas as hipóteses constitucionais. A alínea "d" (radiodifusão sonora e de sons e imagens de recepção livre e gratuita) não está no art. 3º. A comunicação gratuita fica fora do ICMS porque o art. 2º, III, só alcança prestações onerosas.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAPÍTULO 5 -->
+<section class="chap p" id="sujeito">
+  <div class="head"><span class="big">5</span><div><h2>Sujeito passivo</h2><div class="ref">LC 87/96, arts. 4º e 5º · CTN, arts. 121 e 122</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>Contribuinte do ICMS é quem realiza operações com habitualidade ou em volume que mostre intuito comercial, e também quem importa, recebe serviço do exterior, arremata bem apreendido ou compra combustível e energia de outro Estado para uso, mesmo sem habitualidade.</div>
+
+  <div class="concept">
+    <h3>Contribuinte × responsável</h3>
+    <ul>
+      <li><b>Contribuinte:</b> tem relação pessoal e direta com a situação que é o fato gerador.</li>
+      <li><b>Responsável:</b> não é contribuinte, mas a obrigação decorre de disposição expressa de lei.</li>
+      <li><b>Obrigação acessória</b> (art. 122 do CTN): quem deve cumprir prestações como escriturar livros fiscais.</li>
+    </ul>
+  </div>
+
+  <blockquote><span class="art">LC 87/96, art. 4º</span><p>Contribuinte é qualquer pessoa, física ou jurídica, que realize, com habitualidade ou em volume que caracterize intuito comercial, operações de circulação de mercadoria ou prestações de serviços de transporte interestadual e intermunicipal e de comunicação, ainda que as operações e as prestações se iniciem no exterior.</p></blockquote>
+  <div class="duo">
+    <div class="concept"><h3>Habitualidade</h3><p class="ex">Maria tem uma loja de roupas no Mercado Público e vende o ano todo. É contribuinte.</p></div>
+    <div class="concept"><h3>Volume com intuito comercial</h3><p class="ex">Maria compra centenas de peças na 25 de Março para revender em dezembro. É contribuinte, mesmo numa compra única.</p></div>
+  </div>
+
+  <blockquote><span class="art">LC 87/96, art. 4º, § 1º</span><p>É também contribuinte a pessoa física ou jurídica que, mesmo sem habitualidade ou intuito comercial: I – importe mercadorias ou bens do exterior, qualquer que seja a sua finalidade; II - seja destinatária de serviço prestado no exterior ou cuja prestação se tenha iniciado no exterior; III – adquira em licitação mercadorias ou bens apreendidos ou abandonados; IV – adquira lubrificantes e combustíveis líquidos e gasosos derivados de petróleo e energia elétrica oriundos de outro Estado, quando não destinados à comercialização ou à industrialização.</p></blockquote>
+
+  <div class="tw"><table>
+    <thead><tr><th>§ 1º</th><th>Quem é contribuinte</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td class="k">I</td><td>Importador, qualquer que seja a finalidade</td><td>Paulinho importa cinco potes de whey: consome dois, revende três. É contribuinte pelo simples fato de importar.</td></tr>
+      <tr><td class="k">II</td><td>Destinatário de serviço prestado ou iniciado no exterior</td><td>Marinalva compra no Paraguai e contrata transportadora que inicia o transporte lá.</td></tr>
+      <tr><td class="k">III</td><td>Quem adquire em licitação bens apreendidos ou abandonados</td><td>João arremata um videogame em leilão da Receita Federal.</td></tr>
+      <tr><td class="k">IV</td><td>Quem adquire derivados de petróleo ou energia de outro Estado para uso</td><td>Tio Juca, do transporte escolar de Porto Alegre, abastece em Chapecó. É contribuinte do ISS pelo transporte e do ICMS por essa compra.</td></tr>
+    </tbody>
+  </table></div>
+
+  <blockquote><span class="art">LC 87/96, art. 5º</span><p>Lei poderá atribuir a terceiros a responsabilidade pelo pagamento do imposto e acréscimos devidos pelo contribuinte ou responsável, quando os atos ou omissões daqueles concorrerem para o não recolhimento do tributo.</p></blockquote>
+  <div class="concept">
+    <h3>Responsabilidade de terceiros (art. 5º)</h3>
+    <p>"Lei" aqui é a lei estadual ou distrital que institui o ICMS, porque a Kandir é lei geral. A condição indispensável é que o ato ou a omissão do terceiro tenha <b>concorrido</b> para o não recolhimento.</p>
+  </div>
+
+  <div class="trap">
+    <h3>Pegadinhas</h3>
+    <ul>
+      <li>"Contribuintes são apenas pessoas jurídicas": errado. Pessoa física também.</li>
+      <li>"Pessoa física que importa, <b>desde que tenha intuito comercial</b>": errado. Importador não precisa de intuito comercial.</li>
+      <li>Destinatário de serviço <b>prestado no Brasil</b> por empresa do exterior não entra no § 1º, II. A regra é serviço prestado ou iniciado <b>no exterior</b>.</li>
+      <li>Combustível: só <b>derivados de petróleo</b> e energia, nunca "combustíveis sólidos". O § 1º, IV, vale quando não são para comercialização ou industrialização.</li>
+      <li>O § 1º, III, vale para pessoa física e jurídica, em qualquer licitação, e não só leilão da Justiça. Os bens importados e leiloados antes do desembaraço também entram.</li>
+      <li>Prestar transporte dentro do mesmo município não torna ninguém contribuinte do ICMS (é ISS).</li>
+      <li>Quem a lei obriga a pagar sem relação direta com o fato gerador é <b>responsável</b>, não contribuinte.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CASOS RESOLVIDOS -->
+<section class="chap r" id="contas">
+  <div class="head"><span class="big">6</span><div><h2>Casos no estilo da banca, resolvidos</h2><div class="ref">FCC SEFAZ-SP 2026 e FCC SEFAZ-PE 2022 · bases em R$</div></div></div>
+  <div class="one"><b class="lab">Em uma frase</b>Nesta aula a "conta" é separar cada valor entre ISS e ICMS. Faça uma linha por item cobrado e depois some por imposto.</div>
+
+  <div class="concept">
+    <h3>Caso 1: hotel, restaurante e salão de festas</h3>
+    <ol class="steps">
+      <li><div>Liste cada valor cobrado do cliente, um por linha.</div></li>
+      <li><div>Hospedagem e café da manhã incluído na diária: <b>ISS</b>. O café vale mesmo que não seja consumido.</div></li>
+      <li><div>Refeição e bebida cobradas à parte, e refeições de quem não é hóspede: <b>ICMS</b>.</div></li>
+      <li><div>Ingresso de festa com show ao vivo: <b>ISS</b>. Bebidas avulsas na festa: <b>ICMS</b>.</div></li>
+      <li><div>Some por imposto: ICMS = 350 (Arnaldo) + 0 (Beatriz) + 800 (Carlos) + 150 (Daniela) = <b>R$ 1.300</b>. ISS = 2.000 + 4.000 + 0 + 2.300 = <b>R$ 8.300</b>.</div></li>
+    </ol>
+    <div class="bars" role="img" aria-label="Base de ISS e de ICMS por cliente, em reais. Arnaldo: ISS 2000, ICMS 350. Beatriz: ISS 4000, ICMS 0. Carlos: ISS 0, ICMS 800. Daniela: ISS 2300, ICMS 150.">
+      <div class="key"><span><i style="background:var(--blue)"></i>ISS</span><span><i style="background:var(--amber)"></i>ICMS</span></div>
+      <div class="bar-row"><span class="nm">Arnaldo</span><div class="tracks"><div class="trk"><div class="fill iss" style="width:50%"></div><span class="val">2.000</span></div><div class="trk"><div class="fill icms" style="width:8.75%"></div><span class="val">350</span></div></div></div>
+      <div class="bar-row"><span class="nm">Beatriz</span><div class="tracks"><div class="trk"><div class="fill iss" style="width:100%"></div><span class="val" style="color:var(--surface)">4.000</span></div><div class="trk"><div class="fill icms" style="width:0"></div><span class="val">0</span></div></div></div>
+      <div class="bar-row"><span class="nm">Carlos</span><div class="tracks"><div class="trk"><div class="fill iss" style="width:0"></div><span class="val">0</span></div><div class="trk"><div class="fill icms" style="width:20%"></div><span class="val">800</span></div></div></div>
+      <div class="bar-row"><span class="nm">Daniela</span><div class="tracks"><div class="trk"><div class="fill iss" style="width:57.5%"></div><span class="val">2.300</span></div><div class="trk"><div class="fill icms" style="width:3.75%"></div><span class="val">150</span></div></div></div>
+      <div class="axis"><div></div><div><span>0</span><span>1.000</span><span>2.000</span><span>3.000</span><span>4.000</span></div></div>
+    </div>
+    <p class="note">Escala única de 0 a 4.000. O enunciado diz que Arnaldo pagou R$ 2.000 pelas três noites "com" cafés, almoço e jantar. A resolução da apostila trata almoço (R$ 150) e jantar (R$ 200) como cobrados à parte, e é isso que o gráfico segue. O gabarito da questão (letra D) não depende dos totais.</p>
+    <div class="erro"><b>Erro clássico:</b> pôr o café da manhã incluído na diária no ICMS (alternativas B e E), ou pôr o ingresso da festa, que traz o show, no ICMS (alternativa A).</div>
+  </div>
+
+  <div class="concept">
+    <h3>Caso 2: venda de papel</h3>
+    <p>Indústria de papel de Pernambuco vende para: D1) impressão de periódicos em Jaboatão/PE; D2) exportação para fábrica de caixas na Argentina; D3) embalagem de artigos em lojas em São Paulo; D4) impressão de rótulos de remédio em gráfica de Picos/PI.</p>
+    <ol class="steps">
+      <li><div>D1: papel para periódico é imunidade (art. 3º, I). <b>Não incide.</b></div></li>
+      <li><div>D2: destina mercadoria ao exterior (art. 3º, II). <b>Não incide.</b></div></li>
+      <li><div>D3: operação interestadual de papel para embalagem, sem hipótese de não incidência. <b>Incide.</b></div></li>
+      <li><div>D4: rótulo de remédio não é livro, jornal nem periódico. <b>Incide.</b> Resposta: D3 e D4, letra A.</div></li>
+    </ol>
+    <div class="erro"><b>Erro clássico:</b> estender a imunidade do papel a qualquer impressão, como o rótulo, ou a qualquer papel enviado a outro Estado.</div>
+  </div>
+</section>
+
+<!-- QUADRO COMPARATIVO -->
+<section id="quadro">
+  <div class="sec-title b"><h2>Quadro comparativo: ISS ou ICMS?</h2><span class="ref">as situações que a banca mais troca</span></div>
+  <div class="tw b"><table>
+    <thead><tr><th>Situação</th><th>ISS</th><th>ICMS</th></tr></thead>
+    <tbody>
+      <tr><td>Transporte dentro do mesmo município</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Transporte interestadual ou intermunicipal</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Diária de hotel</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Café da manhã incluído na diária</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Jantar cobrado à parte do hóspede</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Conserto de elevador: mão de obra</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Conserto de elevador: peças empregadas</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Obra: mercadoria produzida pelo prestador fora do local</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Organização de festa (serviço)</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Alimentação e bebida servidas na festa</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Costura com tecido do cliente</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Costura com tecido da costureira</td><td class="no">não</td><td class="yes">sim (valor total)</td></tr>
+      <tr><td>Streaming pela internet</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>TV por assinatura</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Cartão de visita personalizado</td><td class="yes">sim</td><td class="no">não</td></tr>
+      <tr><td>Rótulo ou embalagem que vai no produto vendido</td><td class="no">não</td><td class="yes">sim</td></tr>
+      <tr><td>Serviço fora da lista da LC 116 com mercadoria</td><td class="no">não</td><td class="yes">sim (sobre tudo)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- GLOSSÁRIO -->
+<section id="gloss" class="g">
+  <div class="sec-title g"><h2>Glossário rápido</h2><span class="ref">termos que aparecem nas questões</span></div>
+  <dl class="gl">
+    <div><dt>Fato gerador</dt><dd>Situação descrita na lei que faz nascer a obrigação de pagar o imposto.</dd></div>
+    <div><dt>Contribuinte de direito</dt><dd>Quem a lei obriga a recolher o imposto, como o supermercado.</dd></div>
+    <div><dt>Contribuinte de fato</dt><dd>Quem arca com o custo do imposto no preço, o consumidor.</dd></div>
+    <div><dt>Homologação</dt><dd>Lançamento em que o contribuinte declara e paga, e o Fisco confere depois.</dd></div>
+    <div><dt>Lançamento de ofício</dt><dd>Feito pela própria Administração quando o contribuinte declarou menos.</dd></div>
+    <div><dt>Operação onerosa</dt><dd>Aquela em que há pagamento. A gratuita não gera ICMS de comunicação.</dd></div>
+    <div><dt>Intramunicipal</dt><dd>Transporte que começa e termina no mesmo município. Campo do ISS.</dd></div>
+    <div><dt>Ativo financeiro</dt><dd>Ouro negociado como reserva ou especulação financeira, fora do ICMS.</dd></div>
+    <div><dt>Trading</dt><dd>Empresa comercial exportadora. Saída para ela com fim específico de exportação não incide.</dd></div>
+    <div><dt>Armazém alfandegado</dt><dd>Local sob controle aduaneiro onde a mercadoria aguarda a exportação.</dd></div>
+    <div><dt>Alienação fiduciária</dt><dd>Devedor transfere a propriedade ao credor em garantia e mantém a posse.</dd></div>
+    <div><dt>Arrendamento mercantil</dt><dd>Leasing. Operacional lembra aluguel, financeiro lembra financiamento com valor residual.</dd></div>
+    <div><dt>Salvados de sinistro</dt><dd>Bens segurados que ficam com a seguradora após o evento e a indenização.</dd></div>
+    <div><dt>Responsável tributário</dt><dd>Pessoa que paga o tributo por determinação expressa de lei, sem ser contribuinte.</dd></div>
+  </dl>
+</section>
+
+<!-- SIMULADO -->
+<section id="simulado" class="r">
+  <div class="sec-title r"><h2>Simulado interativo</h2><span class="ref">19 questões · clique na alternativa · placar fixo no rodapé</span></div>
+  <p class="note" style="margin-bottom:14px">Questões elaboradas a partir das regras da aula, algumas adaptadas de provas citadas na apostila (CESPE, FCC, FGV). As explicações indicam o dispositivo.</p>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<footer>
+  <span><b>Origem do material:</b> Rabelo Concursos, LTF SEFAZ RS, Aula 02 (Lei Kandir, Parte 01), Prof. Rabelo.</span>
+  <span>Os trechos de lei em caixa cinza foram transcritos da apostila. O conteúdo geral dos arts. 1º a 5º foi cotejado com o texto da LC 87/96 no site do Planalto, mas a literalidade não foi conferida palavra por palavra.</span>
+  <span>A suspensão do art. 3º, X, pelo STF (ADI 7195) vem da apostila. A página do Planalto consultada não traz anotação de suspensão nesse inciso.</span>
+</footer>
+</main>
+
+<div class="score r" id="scorebar" role="status" aria-live="polite">
+  <div class="in">
+    <span class="num" id="scoretxt">Acertos 0/0</span>
+    <div class="pr" aria-hidden="true"><i class="gi" id="pg" style="width:0"></i><i class="ri" id="pr" style="width:0"></i></div>
+    <span class="num" id="scoreinfo">0 de 19</span>
+    <button type="button" id="reset">Recomeçar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var Q = [
+    {t:"Base", s:"O ICMS é um imposto…", o:["direto e pessoal, que deverá ser seletivo.","indireto e real, que poderá ser seletivo.","direto e real, que poderá ser seletivo.","indireto e pessoal, que deverá ser seletivo."], a:1,
+     e:"Indireto, porque o ônus é repassado ao consumidor; real, porque ignora as características pessoais; e a seletividade é facultativa na CF. Adaptada de CESPE, SEFAZ-RS 2019."},
+    {t:"Art. 1º", s:"Sobre a instituição do ICMS pela LC 87/96:", o:["A Lei Kandir institui o imposto diretamente e os Estados apenas o cobram.","Estados e DF instituem o imposto por lei própria, seguindo as normas gerais da Kandir, e essa lei local não precisa ser complementar.","As leis estaduais que instituem o ICMS devem ser leis complementares.","A União institui o ICMS e reparte a receita com os Estados."], a:1,
+     e:"Art. 1º: a Kandir atribui a competência. Os Estados e o DF instituem o imposto por lei estadual ou distrital, e a CF não exige que ela seja complementar."},
+    {t:"Art. 2º, I", s:"Restaurante fornece refeição com a simultânea prestação do serviço de mesa. Qual é a base do ICMS?", o:["Só o valor da comida, e o serviço de mesa paga ISS.","O valor total da operação.","Nenhuma, pois restaurante presta serviço.","Só o valor das bebidas."], a:1,
+     e:"Súmula 163 do STJ: o fato gerador incide sobre o valor total da operação. Pela Súmula 574 do STF, é preciso que a lei estadual preveja a hipótese."},
+    {t:"Art. 2º, § 1º, II", s:"Rinaldo compra uma passagem de ônibus que parte de Buenos Aires e termina em Porto Alegre. Quanto ao ICMS:", o:["Não incide, porque só há ICMS em transporte interestadual e intermunicipal.","Incide, porque a prestação do serviço de transporte se iniciou no exterior.","Incide ISS, por ser transporte de pessoas.","Não incide, porque o transporte terminou no Brasil."], a:1,
+     e:"O art. 2º, § 1º, II, alcança o serviço prestado ou iniciado no exterior, o que inclui transporte."},
+    {t:"Art. 2º, III", s:"Sobre os serviços de comunicação, assinale a correta:", o:["O ICMS incide sobre toda comunicação, gratuita ou onerosa.","O ICMS não incide sobre comunicação, que é tributada pelo ISS.","O ICMS incide sobre a TV aberta, mas não sobre a TV por assinatura.","O ICMS incide sobre prestações onerosas, como a TV por assinatura, e não sobre a TV aberta de recepção livre e gratuita."], a:3,
+     e:"O art. 2º, III, só alcança prestações onerosas. A TV por assinatura (Serviço de Acesso Condicionado) fica no ICMS; streaming pela internet é ISS."},
+    {t:"Art. 4º, § 1º, I", s:"Paulinho importou cinco potes de suplemento de um site americano, para consumir dois e vender três. Quanto ao ICMS na importação:", o:["Só seria contribuinte se importasse tudo para revenda.","Não é contribuinte, pois é pessoa física sem habitualidade.","Só incide sobre os três potes revendidos.","É contribuinte, e o imposto incide independentemente da finalidade ou da habitualidade."], a:3,
+     e:"Art. 2º, § 1º, I, e art. 4º, § 1º, I: importou, paga, pessoa física ou jurídica, qualquer que seja a finalidade."},
+    {t:"Art. 2º, § 1º, III", s:"Distribuidora do Paraná vende gasolina a transportadora do Rio Grande do Sul, que a usará na própria frota. O ICMS:", o:["incide na saída do PR, cabendo ao PR.","não incide em nenhum dos dois momentos.","incide só no PR; o RS não pode cobrar.","não incide na saída do PR e incide na entrada no RS, por ser uso e consumo, cabendo ao RS."], a:3,
+     e:"A CF afasta o ICMS na saída interestadual. Na entrada, incide porque o destino é uso ou consumo, e o imposto vai para o Estado do adquirente."},
+    {t:"LC 116, item 9.01", s:"Hóspede paga diária com café da manhã incluído e, à parte, um jantar de R$ 200 no restaurante do hotel. A incidência é:", o:["ICMS sobre a diária e o café; ISS sobre o jantar.","ISS sobre a diária e o café incluído; ICMS sobre o jantar cobrado à parte.","ICMS sobre tudo.","ISS sobre tudo, inclusive o jantar."], a:1,
+     e:"A alimentação incluída no preço da diária fica no ISS. A alimentação cobrada à parte é fornecimento de mercadoria e paga ICMS."},
+    {t:"LC 116, item 14.01", s:"Oficina conserta o elevador de um hotel e cobra mão de obra e peças trocadas. Qual a incidência?", o:["ISS sobre tudo.","ISS sobre a mão de obra e ICMS sobre as peças e partes empregadas.","ICMS sobre tudo.","ICMS sobre a mão de obra e ISS sobre as peças."], a:1,
+     e:"Item 14.01: o serviço é ISS, com exceção das peças e partes empregadas, que ficam sujeitas ao ICMS."},
+    {t:"LC 116, item 7.02", s:"Construtora executa obra por empreitada. O cimento é produzido na fábrica da própria construtora, fora do local da obra, e levado até lá. A incidência é:", o:["ISS sobre o serviço e ICMS sobre o cimento produzido fora do local da obra.","ISS sobre tudo, inclusive o cimento.","ICMS sobre tudo.","ICMS sobre o serviço e ISS sobre o cimento."], a:0,
+     e:"Item 7.02: a exceção é a mercadoria produzida pelo prestador fora do local da prestação. Se fosse produzida no canteiro, seria só ISS."},
+    {t:"LC 116, item 14.09", s:"Duas encomendas de vestido: na primeira o cliente leva o tecido; na segunda, a costureira fornece o tecido. A incidência é:", o:["ISS nos dois casos.","ICMS nos dois casos.","Tecido do cliente: ICMS sobre o total; tecido da costureira: ISS.","Tecido do cliente: ISS sobre o serviço; tecido da costureira: ICMS sobre o valor total."], a:3,
+     e:"Nos itens 7.06, 14.09 e 39.01 vale a origem do material: do tomador, ISS sobre o serviço; do prestador, ICMS sobre o total."},
+    {t:"LC 116, item 13.05", s:"Gráfica produz, sob encomenda, cartões de visita para uma advogada e rótulos para uma cervejaria colar nas garrafas que vende. A incidência é:", o:["ICMS nos dois.","ISS nos dois.","ICMS nos cartões e ISS nos rótulos.","ISS nos cartões e ICMS nos rótulos."], a:3,
+     e:"O impresso para uso próprio do encomendante é ISS. O destinado a comercialização ou industrialização, como rótulo e embalagem, é ICMS."},
+    {t:"Art. 3º, IV", s:"Em qual das operações abaixo INCIDE ICMS?", o:["Transferência da propriedade de uma loja a outro empresário.","Consolidação da propriedade do carro pelo banco após inadimplência em alienação fiduciária.","Venda de uma joia de ouro em joalheria.","Transferência do carro batido à seguradora após o sinistro."], a:2,
+     e:"Joia é mercadoria. Só o ouro definido em lei como ativo financeiro ou instrumento cambial escapa do ICMS. As outras três são hipóteses do art. 3º (VI, VII e IX)."},
+    {t:"Art. 3º, II e par. único", s:"Fábrica remete lote de linguiça, com fim específico de exportação, a uma trading em outro Estado. O ICMS:", o:["incide, por ser operação interestadual.","não incide, pois a saída se equipara à exportação.","incide, porque a trading é intermediária.","incide, salvo se a trading for do mesmo grupo."], a:1,
+     e:"Parágrafo único do art. 3º: equipara-se à exportação a saída com fim específico de exportação para empresa comercial exportadora, inclusive trading, e para armazém alfandegado ou entreposto aduaneiro."},
+    {t:"Art. 3º, VIII", s:"Empresa contrata leasing de um caminhão e, ao final, exerce a opção de compra pelo valor residual. O ICMS:", o:["incide sobre cada prestação mensal.","não incide em nenhum momento.","incide só sobre a primeira prestação.","não incide sobre o arrendamento, mas incide sobre a venda do bem ao arrendatário ao final."], a:3,
+     e:"O art. 3º, VIII, exclui o arrendamento mercantil, mas não a venda do bem arrendado ao arrendatário."},
+    {t:"Art. 3º, IX", s:"Seguradora recebe o carro sinistrado e depois o vende como sucata. O ICMS:", o:["incide na transferência à seguradora, mas não na venda posterior.","incide na venda a sucatas.","incide nas duas operações.","não incide na transferência à seguradora nem na venda posterior dos salvados."], a:3,
+     e:"Art. 3º, IX, e Súmula Vinculante 32: o ICMS não incide sobre a alienação de salvados de sinistro pelas seguradoras."},
+    {t:"Art. 4º, § 1º, III", s:"João arremata um videogame apreendido em leilão da Receita Federal. Quanto ao ICMS:", o:["Só é contribuinte se comprar com habitualidade.","Não é contribuinte, pois o bem não tem dono.","É contribuinte, mesmo sem habitualidade ou intuito comercial.","Só é contribuinte se o bem valer mais de mil dólares."], a:2,
+     e:"Art. 4º, § 1º, III: é contribuinte quem adquire em licitação mercadorias ou bens apreendidos ou abandonados. O valor do bem é irrelevante."},
+    {t:"Art. 2º, § 2º", s:"Fábrica de embutidos doa um lote de linguiça a uma entidade beneficente. O ICMS:", o:["não incide, por não haver venda.","incide, pois o fato gerador independe da natureza jurídica da operação.","incide só se a entidade for contribuinte.","não incide, por imunidade das entidades beneficentes."], a:1,
+     e:"A incidência é sobre a circulação de mercadorias, e o art. 2º, § 2º, dispensa a natureza jurídica da operação. Adaptada de FCC, SEFAZ-PE 2014."},
+    {t:"Art. 5º", s:"Segundo a Lei Kandir, a lei poderá atribuir a terceiros a responsabilidade pelo pagamento do imposto quando:", o:["o terceiro for sócio do contribuinte, sempre.","os atos ou omissões do terceiro concorrerem para o não recolhimento do tributo.","o contribuinte for pessoa física.","o terceiro for importador."], a:1,
+     e:"Art. 5º: a responsabilidade de terceiros exige lei (a estadual ou distrital) e que os atos ou omissões do terceiro tenham concorrido para o não recolhimento."}
+  ];
+
+  var quiz = document.getElementById('quiz');
+  var txt = document.getElementById('scoretxt'), info = document.getElementById('scoreinfo');
+  var pg = document.getElementById('pg'), pr = document.getElementById('pr');
+  var answered = 0, hits = 0, L = ['A','B','C','D','E'];
+
+  function el(tag, cls, html){ var n = document.createElement(tag); if(cls) n.className = cls; if(html != null) n.innerHTML = html; return n; }
+
+  function paint(){
+    var n = Q.length;
+    txt.textContent = 'Acertos ' + hits + '/' + answered;
+    info.textContent = answered + ' de ' + n;
+    pg.style.width = (hits / n * 100) + '%';
+    pr.style.width = ((answered - hits) / n * 100) + '%';
+    if(answered === n){
+      var pc = Math.round(hits / n * 100);
+      info.textContent = 'Fim: ' + pc + '%';
+    }
+  }
+
+  function build(){
+    quiz.innerHTML = ''; answered = 0; hits = 0;
+    Q.forEach(function(q, i){
+      var card = el('div', 'q'); card.id = 'q' + (i + 1);
+      card.appendChild(el('div', 'qh', '<span>Questão ' + (i + 1) + ' de ' + Q.length + '</span><span>' + q.t + '</span>'));
+      card.appendChild(el('p', 'stmt', q.s));
+      var ul = el('ul', 'opts');
+      var exp = el('div', 'exp'); exp.hidden = true;
+      var btns = [];
+      q.o.forEach(function(o, j){
+        var li = document.createElement('li');
+        var b = el('button', 'opt', '<span class="l">' + L[j] + '</span><span>' + o + '</span>');
+        b.type = 'button';
+        b.addEventListener('click', function(){
+          if(card.dataset.done) return;
+          card.dataset.done = '1'; answered++;
+          var ok = (j === q.a); if(ok) hits++;
+          btns.forEach(function(x, k){
+            x.disabled = true;
+            if(k === q.a) x.classList.add('right');
+            else if(k === j) x.classList.add('wrong');
+            else x.classList.add('dim');
+          });
+          exp.className = 'exp ' + (ok ? 'ok' : 'bad');
+          exp.innerHTML = '<b class="v">' + (ok ? 'Correto.' : 'Errado. A resposta é a letra ' + L[q.a] + '.') + '</b>' + q.e;
+          exp.hidden = false;
+          paint();
+        });
+        btns.push(b); li.appendChild(b); ul.appendChild(li);
+      });
+      card.appendChild(ul); card.appendChild(exp);
+      quiz.appendChild(card);
+    });
+    paint();
+  }
+
+  document.getElementById('reset').addEventListener('click', function(){
+    build();
+    var s = document.getElementById('simulado');
+    if(s && s.scrollIntoView) s.scrollIntoView({block:'start'});
+  });
+  build();
+})();
+</script>
+
+</body></html>
