@@ -1,0 +1,598 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guia Lei Kandir SEFAZ-RS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: coluna única de leitura (max 880px), barra de chips fixa no topo, placar fixo no rodapé. Cada capítulo tem uma cor própria definida em --c / --cl. */
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --fg:#1b2030; --mut:#5a6275; --line:#dfe3ee;
+  --quote-bg:#eceef3; --quote-fg:#2b3246;
+  --azul:#1f5fd1; --azul-l:#e3ecfc;
+  --verde:#17803d; --verde-l:#dcf2e4;
+  --oliva:#667412; --oliva-l:#eef0cf;
+  --ambar:#b36200; --ambar-l:#fdebcc;
+  --roxo:#7a3fc4; --roxo-l:#eddffb;
+  --verm:#c42b2b; --verm-l:#fbe0e0;
+  --rosa:#c2255c; --rosa-l:#fde3ed;
+  --ok:#17803d; --ok-l:#dcf2e4; --bad:#c42b2b; --bad-l:#fbe0e0;
+  --f-title:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10131b; --card:#181c27; --fg:#e8eaf1; --mut:#a2a9bb; --line:#2b3142;
+  --quote-bg:#222735; --quote-fg:#d5d9e6;
+  --azul:#7aa8ff; --azul-l:#1a2744;
+  --verde:#55d588; --verde-l:#14301f;
+  --oliva:#c6d45e; --oliva-l:#2a2f12;
+  --ambar:#ffb64d; --ambar-l:#3a290c;
+  --roxo:#bf92f4; --roxo-l:#2c2042;
+  --verm:#ff8080; --verm-l:#3e1c1c;
+  --rosa:#ff93ba; --rosa-l:#3c1c2b;
+  --ok:#55d588; --ok-l:#14301f; --bad:#ff8080; --bad-l:#3e1c1c;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10131b; --card:#181c27; --fg:#e8eaf1; --mut:#a2a9bb; --line:#2b3142;
+  --quote-bg:#222735; --quote-fg:#d5d9e6;
+  --azul:#7aa8ff; --azul-l:#1a2744;
+  --verde:#55d588; --verde-l:#14301f;
+  --oliva:#c6d45e; --oliva-l:#2a2f12;
+  --ambar:#ffb64d; --ambar-l:#3a290c;
+  --roxo:#bf92f4; --roxo-l:#2c2042;
+  --verm:#ff8080; --verm-l:#3e1c1c;
+  --rosa:#ff93ba; --rosa-l:#3c1c2b;
+  --ok:#55d588; --ok-l:#14301f; --bad:#ff8080; --bad-l:#3e1c1c;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--f-body);padding-inline:16px;padding-block:0 96px;overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.wrap{max-width:880px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-title);text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0 0 .7em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--azul);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-16px;padding:10px 16px}
+.nav-in{max-width:880px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.chip{flex:none;text-decoration:none;font:700 14px/1 var(--f-title);padding:9px 14px;border-radius:99px;background:var(--cl,var(--quote-bg));color:var(--c,var(--fg));border:1px solid color-mix(in srgb,var(--c,var(--fg)) 35%,transparent)}
+.chip:hover{filter:brightness(.96)}
+
+/* header */
+header.top{padding-block:36px 8px}
+.seal{display:inline-block;font:600 13px/1.3 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border:1.5px solid var(--fg);border-radius:6px;margin-bottom:18px}
+h1{font-size:clamp(2.2rem,7vw,3.8rem);font-weight:800;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,var(--azul),var(--roxo) 45%,var(--verm) 80%,var(--ambar));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.lead{font-size:1.1rem;color:var(--mut);max-width:62ch;margin-top:14px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:18px;font-size:14px}
+.legend span{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line)}
+.sw{width:14px;height:14px;border-radius:4px;flex:none}
+
+/* pontos */
+.sec-title{font-size:1.6rem;margin:44px 0 14px}
+.pts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.pt b.v{display:block;font:800 1.3rem/1.15 var(--f-title);color:var(--c)}
+.pt span.n{font:600 12px var(--f-mono);color:var(--mut)}
+.pt p{font-size:15px;margin:6px 0 0;color:var(--mut)}
+
+/* capítulos */
+section.cap{--c:var(--azul);--cl:var(--azul-l);margin-top:56px;scroll-margin-top:72px}
+section[data-c="verde"]{--c:var(--verde);--cl:var(--verde-l)}
+section[data-c="oliva"]{--c:var(--oliva);--cl:var(--oliva-l)}
+section[data-c="ambar"]{--c:var(--ambar);--cl:var(--ambar-l)}
+section[data-c="roxo"]{--c:var(--roxo);--cl:var(--roxo-l)}
+section[data-c="verm"]{--c:var(--verm);--cl:var(--verm-l)}
+.chip[data-c="azul"]{--c:var(--azul);--cl:var(--azul-l)}
+.chip[data-c="verde"]{--c:var(--verde);--cl:var(--verde-l)}
+.chip[data-c="oliva"]{--c:var(--oliva);--cl:var(--oliva-l)}
+.chip[data-c="ambar"]{--c:var(--ambar);--cl:var(--ambar-l)}
+.chip[data-c="roxo"]{--c:var(--roxo);--cl:var(--roxo-l)}
+.chip[data-c="verm"]{--c:var(--verm);--cl:var(--verm-l)}
+.cap-h{display:flex;gap:16px;align-items:flex-end;border-bottom:3px solid var(--c);padding-bottom:12px;margin-bottom:18px}
+.num{font:800 clamp(3.4rem,12vw,5.5rem)/.8 var(--f-title);color:var(--c)}
+.cap-h h2{font-size:clamp(1.5rem,4.5vw,2.1rem);color:var(--c)}
+.cap-h small{display:block;font:600 13px var(--f-mono);color:var(--mut);margin-top:6px}
+.one{background:var(--cl);border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:1.05rem}
+.one b{font:700 12px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--c);display:block;margin-bottom:4px}
+.box{background:var(--card);border:1.5px solid var(--c);border-radius:10px;padding:14px 18px;margin:14px 0}
+.box h3{font-size:1.1rem;color:var(--c);margin-bottom:6px}
+.box ul,.peg ul{margin:.3em 0 0;padding-left:1.2em}
+.box li,.peg li{margin-bottom:.35em}
+blockquote.q{margin:14px 0;background:var(--quote-bg);color:var(--quote-fg);border-left:5px solid var(--c);border-radius:0 10px 10px 0;padding:12px 16px;font-style:italic;font-size:15.5px}
+blockquote.q cite{display:block;font:600 12px var(--f-mono);font-style:normal;color:var(--c);margin-bottom:6px;letter-spacing:.03em}
+blockquote.q p{margin:0 0 .45em}
+blockquote.q p::before{content:"“";}
+blockquote.q p::after{content:"”";}
+.peg{background:var(--rosa-l);border:1.5px solid var(--rosa);border-radius:12px;padding:14px 18px;margin:18px 0}
+.peg h3{color:var(--rosa);font-size:1.1rem;margin-bottom:6px}
+.ok{color:var(--ok);font-weight:700}.no{color:var(--bad);font-weight:700}
+
+/* tabelas */
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--cl,var(--quote-bg));color:var(--c,var(--fg));font:700 13px var(--f-title);text-transform:uppercase;letter-spacing:.05em}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right}
+
+/* barras */
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:10px 0 6px;background:var(--quote-bg)}
+.bar i{display:block;height:100%}
+.bl{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--mut)}
+.bl span{display:inline-flex;align-items:center;gap:6px}
+.bl .sw{width:12px;height:12px}
+.rowbar{display:grid;grid-template-columns:110px 1fr 80px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.rowbar div.t{height:22px;background:var(--quote-bg);border-radius:6px;overflow:hidden}
+.rowbar div.t i{display:block;height:100%;border-radius:6px}
+@media(max-width:480px){.rowbar{grid-template-columns:88px 1fr 66px}}
+
+/* contas */
+.conta{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:18px 0}
+.conta h3{font-size:1.15rem;color:var(--c)}
+.conta ol{padding-left:1.3em;margin:.5em 0}
+.conta li{margin-bottom:.35em}
+.eq{font-family:var(--f-mono);background:var(--cl);padding:10px 12px;border-radius:8px;overflow-x:auto;white-space:nowrap;font-size:15px;margin:10px 0}
+.erro{border-left:4px solid var(--rosa);background:var(--rosa-l);padding:8px 12px;border-radius:0 8px 8px 0;font-size:15px;margin-top:10px}
+.erro b{color:var(--rosa)}
+
+/* glossário */
+dl.gl{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:0;margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+dl.gl dt,dl.gl dd{margin:0;padding:10px 14px;border-bottom:1px solid var(--line)}
+dl.gl dt{font:700 15px var(--f-title);background:var(--quote-bg)}
+dl.gl dd{font-size:15px}
+@media(max-width:560px){dl.gl{grid-template-columns:1fr}dl.gl dt{border-bottom:0;padding-bottom:2px;background:var(--card);color:var(--azul)}}
+
+/* simulado */
+.qz{--c:var(--roxo);--cl:var(--roxo-l)}
+.qq{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.qq .qn{font:600 12px var(--f-mono);color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.qq h3{font:700 1.05rem/1.4 var(--f-body);margin:4px 0 12px}
+.op{display:block;width:100%;text-align:left;font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.op:hover:not(:disabled){border-color:var(--roxo)}
+.op:disabled{cursor:default}
+.op.ok-o{background:var(--ok-l);border-color:var(--ok)}
+.op.bad-o{background:var(--bad-l);border-color:var(--bad)}
+.op b{font-family:var(--f-mono);margin-right:8px}
+.ex{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--quote-bg);font-size:15px}
+.score{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:2px solid var(--roxo);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.score-in{max-width:880px;margin:0 auto;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score .st{font:600 15px var(--f-mono);display:flex;gap:16px;flex-wrap:wrap}
+.btn{font:700 14px var(--f-title);background:var(--roxo);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
+footer.fim{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+</style>
+
+<nav class="nav" aria-label="Seções"><div class="nav-in">
+<a class="chip" href="#pontos">12 pontos</a>
+<a class="chip" data-c="azul" href="#local">1 Local</a>
+<a class="chip" data-c="verde" href="#estab">2 Estabelecimento</a>
+<a class="chip" data-c="oliva" href="#momento">3 Momento</a>
+<a class="chip" data-c="ambar" href="#base">4 Base de cálculo</a>
+<a class="chip" data-c="roxo" href="#frete">5 Frete e arbitramento</a>
+<a class="chip" data-c="verm" href="#contas">Contas</a>
+<a class="chip" href="#quadros">Quadros</a>
+<a class="chip" href="#glossario">Glossário</a>
+<a class="chip" data-c="roxo" href="#simulado">Simulado</a>
+</div></nav>
+
+<div class="wrap">
+<header class="top">
+  <div class="seal">Prof. Rabelo · Aula 03 · LTF SEFAZ RS</div>
+  <h1>Lei Kandir: <span class="grad">local, momento e base de cálculo</span> do ICMS</h1>
+  <p class="lead">Leia na ordem: cada capítulo explica a ideia, mostra o texto da lei, lista as pegadinhas e termina com o que a banca cobra. Feche com as contas resolvidas e o simulado.</p>
+  <div class="legend" aria-label="Legenda">
+    <span><i class="sw" style="background:var(--ok)"></i>verde = subiu / correto</span>
+    <span><i class="sw" style="background:var(--bad)"></i>vermelho = caiu / errado</span>
+    <span><i class="sw" style="border:2px solid var(--azul)"></i>caixa com borda = conceito</span>
+    <span><i class="sw" style="background:var(--rosa-l);border:1.5px solid var(--rosa)"></i>caixa rosa = pegadinha</span>
+    <span><i class="sw" style="background:var(--quote-bg);border-left:4px solid var(--fg)"></i>caixa cinza com aspas = texto da norma</span>
+  </div>
+</header>
+
+<h2 class="sec-title" id="pontos" style="scroll-margin-top:72px">Os 12 pontos para decorar</h2>
+<div class="pts">
+  <div class="pt" style="--c:var(--azul)"><span class="n">LOCAL</span><b class="v">Onde está a mercadoria</b><p>Regra geral: o estabelecimento onde ela se encontra no momento do fato gerador.</p></div>
+  <div class="pt" style="--c:var(--verm)"><span class="n">IRREGULAR</span><b class="v">Onde foi flagrada</b><p>Sem nota ou com documento inidônea: vale o local da constatação, seja qual for a origem e o destino.</p></div>
+  <div class="pt" style="--c:var(--verde)"><span class="n">TRANSPORTE</span><b class="v">Início da prestação</b><p>É o local e também o momento. Escalas, destino e sede do transportador não mudam isso.</p></div>
+  <div class="pt" style="--c:var(--roxo)"><span class="n">IMPORTAÇÃO</span><b class="v">Local ≠ momento</b><p>Local: entrada física (ou domicílio). Fato gerador: desembaraço aduaneiro.</p></div>
+  <div class="pt" style="--c:var(--ambar)"><span class="n">MESMO TITULAR</span><b class="v">Não é fato gerador</b><p>Transferir entre matriz e filial não é circulação jurídica (STF; LC 204/2023).</p></div>
+  <div class="pt" style="--c:var(--oliva)"><span class="n">ARMAZÉM / DEPÓSITO</span><b class="v">Mesmo Estado</b><p>Remessa não incide. Venda posterior: local é o estabelecimento do depositante.</p></div>
+  <div class="pt" style="--c:var(--azul)"><span class="n">BC IMPORTAÇÃO</span><b class="v">Quase tudo entra</b><p>Valor + II + IPI + IOF + outros tributos e despesas aduaneiras + o próprio ICMS.</p></div>
+  <div class="pt" style="--c:var(--ambar)"><span class="n">POR DENTRO</span><b class="v">÷ (1 − alíquota)</b><p>O ICMS integra a própria base. Destaque na nota é só controle.</p></div>
+  <div class="pt" style="--c:var(--verde)"><span class="n">DESCONTO</span><b class="v">Condicional entra</b><p>Incondicional sai da base. Condicional (depende de evento futuro) fica.</p></div>
+  <div class="pt" style="--c:var(--oliva)"><span class="n">FRETE</span><b class="v">CIF entra, FOB não</b><p>Pelo remetente ou por sua conta e ordem, cobrado em separado: integra a base.</p></div>
+  <div class="pt" style="--c:var(--roxo)"><span class="n">IPI</span><b class="v">Sai só com 3 condições</b><p>Entre contribuintes, produto para industrializar/revender, FG dos dois impostos.</p></div>
+  <div class="pt" style="--c:var(--verm)"><span class="n">SEM VALOR</span><b class="v">Art. 15 e 16</b><p>Produtor: atacado. Industrial/comerciante: FOB. Comerciante sem vendas a comerciantes: 75% do varejo.</p></div>
+</div>
+
+<!-- ===== 1 LOCAL ===== -->
+<section class="cap" id="local">
+  <div class="cap-h"><div class="num">1</div><div><h2>Local da operação</h2><small>Art. 11, incisos I a IV e §§ 1º, 2º, 5º, 6º</small></div></div>
+  <div class="one"><b>Em uma frase</b>O local da operação é o aspecto espacial: ele diz para qual Estado o imposto é devido e qual estabelecimento responde.</div>
+
+  <div class="box"><h3>Como pensar</h3>
+    <p>A lei separa em três grupos: mercadorias ou bens, serviço de transporte e serviço de comunicação. Há ainda uma regra para serviços prestados ou iniciados no exterior. Para cada grupo existe uma regra geral e algumas exceções. Decore a regra geral primeiro.</p>
+  </div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Mercadorias e bens (art. 11, I)</h3>
+  <blockquote class="q"><cite>Art. 11, I, a</cite><p>o do estabelecimento onde se encontre, no momento da ocorrência do fato gerador;</p></blockquote>
+  <div class="box"><h3>Exemplo do arroz</h3><p>Você compra um pacote de arroz no supermercado. A circulação acontece no supermercado, então o local da operação é o estabelecimento do supermercado.</p></div>
+
+  <blockquote class="q"><cite>Art. 11, I, b</cite><p>onde se encontre, quando em situação irregular pela falta de documentação fiscal ou quando acompanhado de documentação inidônea, como dispuser a legislação tributária;</p></blockquote>
+  <div class="box"><h3>Flagrante em outro Estado</h3><p>Cerveja de SC para o RS com nota fria é parada pela fiscalização do PR. O local é o <b>Paraná</b>: onde a irregularidade foi constatada, sem importar origem ou destino.</p></div>
+
+  <blockquote class="q"><cite>Art. 11, I, c e § 1º</cite><p>o do estabelecimento que transfira a propriedade, ou o título que a represente, de mercadoria por ele adquirida no País e que por ele não tenha transitado;</p><p>§ 1º O disposto na alínea c do inciso I não se aplica às mercadorias recebidas em regime de depósito de contribuinte de Estado que não o do depositário.</p></blockquote>
+  <div class="box"><h3>Venda sem a mercadoria passar por você</h3><p>Rubervaldo vende garrafões de água, mas o estoque fica no distribuidor, que entrega ao cliente. O local da operação é o estabelecimento de Rubervaldo, porque foi ele que transferiu a propriedade. O § 1º corta essa regra quando a mercadoria está depositada em <b>outro Estado</b>: volta a valer a regra geral (onde a mercadoria está).</p></div>
+
+  <blockquote class="q"><cite>Art. 11, § 5º</cite><p>Quando a mercadoria for remetida para armazém geral ou para depósito fechado do próprio contribuinte, no mesmo Estado, a posterior saída considerar-se-á ocorrida no estabelecimento do depositante, salvo se para retornar ao estabelecimento remetente.</p></blockquote>
+
+  <div class="box"><h3>Armazém geral × depósito fechado</h3>
+  <ul><li><b>Armazém geral:</b> empresa de terceiro, que guarda mercadorias de terceiros mediante serviço.</li>
+  <li><b>Depósito fechado:</b> local do próprio contribuinte, só para guardar as suas mercadorias. É extensão do estabelecimento.</li>
+  <li><b>Depositante</b> envia; <b>depositário</b> recebe.</li></ul></div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Remessa para…</th><th>ICMS na remessa</th><th>ICMS na venda posterior</th><th>Local na venda posterior</th></tr></thead>
+    <tbody>
+    <tr><td>Armazém geral, mesmo Estado</td><td class="no">Não incide</td><td class="ok">Incide</td><td>Estabelecimento do depositante</td></tr>
+    <tr><td>Depósito fechado, mesmo Estado</td><td class="no">Não incide</td><td class="ok">Incide</td><td>Estabelecimento do depositante</td></tr>
+    <tr><td>Armazém geral, outro Estado</td><td class="ok">Incide (alíquota interestadual)</td><td class="ok">Incide</td><td>Estabelecimento onde a mercadoria está</td></tr>
+    <tr><td>Depósito fechado, outro Estado</td><td>Pode ou não incidir, por opção do contribuinte (LC 204/2023)</td><td class="ok">Incide</td><td>Estabelecimento onde a mercadoria está</td></tr>
+    </tbody></table></div>
+
+  <blockquote class="q"><cite>Art. 11, I, d e e</cite><p>importado do exterior, o do estabelecimento onde ocorrer a entrada física;</p><p>importado do exterior, o do domicílio do adquirente, quando não estabelecido;</p></blockquote>
+  <div class="box"><h3>Importação</h3><p>Importou uma máquina do Paraguai, com desembaraço em Foz do Iguaçu/PR, e ela foi entregue em Caxias do Sul/RS? O local é <b>Caxias do Sul</b>. Alice, de Pelotas, que compra perfume de loja chinesa pela internet, tem como local o seu domicílio em Pelotas, mesmo que o produto tenha entrado por Paranaguá.</p></div>
+
+  <blockquote class="q"><cite>Art. 11, I, f a i</cite><p>aquele onde seja realizada a licitação, no caso de arrematação de mercadoria ou bem importados do exterior e apreendidos ou abandonados;</p><p>o do Estado onde estiver localizado o adquirente, inclusive consumidor final, nas operações interestaduais com energia elétrica e petróleo, lubrificantes e combustíveis dele derivados, quando não destinados à industrialização ou à comercialização;</p><p>o do Estado de onde o ouro tenha sido extraído, quando não considerado como ativo financeiro ou instrumento cambial;</p><p>o de desembarque do produto, na hipótese de captura de peixes, crustáceos e moluscos;</p></blockquote>
+  <div class="box"><h3>Por que essas exceções existem</h3><ul>
+    <li><b>Energia, petróleo e derivados</b> para uso ou consumo: o imposto fica com o Estado de quem consome. Exemplo: lubrificante vendido por empresa de SP a construtora do RS para usar nas próprias máquinas.</li>
+    <li><b>Ouro:</b> o Estado de extração. Quando é ativo financeiro ou instrumento cambial, a origem precisa ser identificada.</li>
+    <li><b>Pesca:</b> não dá para saber de que Estado é cada peixe (muitas vezes é águas internacionais), então vale o desembarque.</li></ul></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Transporte (art. 11, II)</h3>
+  <blockquote class="q"><cite>Art. 11, II</cite><p>a) onde tenha início a prestação;</p><p>b) onde se encontre o transportador, quando em situação irregular pela falta de documentação fiscal ou quando acompanhada de documentação inidônea, como dispuser a legislação tributária;</p></blockquote>
+  <div class="box"><h3>Exemplo</h3><p>A transportadora “Amazônia Log” sai de Belém/PA para Porto Velho/RO, com escalas em Santarém, Parintins e Itacoatiara. O ICMS é do <b>Pará</b>, onde a viagem começa.</p></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Comunicação (art. 11, III)</h3>
+  <blockquote class="q"><cite>Art. 11, III</cite><p>a) o da prestação do serviço de radiodifusão sonora e de som e imagem, assim entendido o da geração, emissão, transmissão e retransmissão, repetição, ampliação e recepção;</p><p>b) o do estabelecimento da concessionária ou da permissionária que forneça ficha, cartão, ou assemelhados com que o serviço é pago;</p><p>c) o do estabelecimento destinatário do serviço, na hipótese e para os efeitos do inciso XIII do art. 12;</p><p>c-1) o do estabelecimento ou domicílio do tomador do serviço, quando prestado por meio de satélite;</p><p>d) onde seja cobrado o serviço, nos demais casos;</p></blockquote>
+  <blockquote class="q"><cite>Art. 11, § 6º</cite><p>Na hipótese do inciso III do caput deste artigo, tratando-se de serviços não medidos, que envolvam localidades situadas em diferentes unidades da Federação e cujo preço seja cobrado por períodos definidos, o imposto devido será recolhido em partes iguais para as unidades da Federação onde estiverem localizados o prestador e o tomador.</p></blockquote>
+  <div class="box"><h3>Serviço não medido</h3><p>Na TV por assinatura o assinante paga um valor fixo por mês, qualquer que seja o uso. O material cita decisão do STJ que a trata como serviço não medido, cobrado por período definido. Então o imposto é dividido em partes iguais entre o Estado do prestador e o do tomador.</p></div>
+
+  <blockquote class="q"><cite>Art. 11, IV</cite><p>tratando-se de serviços prestados ou iniciados no exterior, o do estabelecimento ou do domicílio do destinatário.</p></blockquote>
+
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Na importação, <span class="no">desembaraço</span> é o momento do fato gerador, não o local. O local é a <span class="ok">entrada física</span> (ou o domicílio de quem não é estabelecido). Banca adora trocar.</li>
+    <li>Importação de mercadoria: não vale o porto, a sede da transportadora, o banco do câmbio nem o ponto de transbordo.</li>
+    <li>Mercadoria irregular: o Estado da abordagem fica com o imposto, ainda que o motorista diga qual era o destino.</li>
+    <li>Transporte: o destino final, as escalas e a sede do transportador não definem o local. Só o início.</li>
+    <li>Licitação de importado apreendido: vale o local da <b>licitação</b>, não o da apreensão.</li>
+    <li>Satélite: não é onde fica a antena. É o tomador. E se o serviço é não medido com preço por período, divide só entre prestador e tomador, não entre “todos os Estados envolvidos”.</li>
+    <li>Cabo e fibra óptica não têm regra própria: caem na residual, “onde seja cobrado o serviço”.</li>
+    <li>Combustível e energia: o Estado do adquirente só vale se <b>não</b> for para revenda ou industrialização.</li>
+    <li>Remessa para armazém ou depósito: só vale o “estabelecimento do depositante” se for no <b>mesmo Estado</b>.</li></ul></div>
+</section>
+
+<!-- ===== 2 ESTABELECIMENTO ===== -->
+<section class="cap" id="estab" data-c="verde">
+  <div class="cap-h"><div class="num">2</div><div><h2>Estabelecimento</h2><small>Art. 11, § 3º, incisos I a IV</small></div></div>
+  <div class="one"><b>Em uma frase</b>Estabelecimento é qualquer local onde se exerce atividade ou onde há mercadoria armazenada, mesmo sem prédio, mesmo emprestado, mesmo temporário.</div>
+  <blockquote class="q"><cite>Art. 11, § 3º</cite><p>Para efeito desta Lei Complementar, estabelecimento é o local, privado ou público, edificado ou não, próprio ou de terceiro, onde pessoas físicas ou jurídicas exerçam suas atividades em caráter temporário ou permanente, bem como onde se encontrem armazenadas mercadorias, observado, ainda, o seguinte:</p><p>I - na impossibilidade de determinação do estabelecimento, considera-se como tal o local em que tenha sido efetuada a operação ou prestação, encontrada a mercadoria ou constatada a prestação;</p><p>II - é autônomo cada estabelecimento do mesmo titular; (Declarado inconstitucional)</p><p>III - considera-se também estabelecimento autônomo o veículo usado no comércio ambulante e na captura de pescado;</p><p>IV - respondem pelo crédito tributário todos os estabelecimentos do mesmo titular.</p></blockquote>
+  <div class="box"><h3>Passo a passo</h3><ul>
+    <li>O Código Civil (art. 1.142) fala em “complexo de bens organizado para o exercício da empresa”. A Lei Kandir é bem mais ampla: o que importa é onde a atividade acontece.</li>
+    <li>Sem prédio identificável? A esquina onde a pessoa fez as vendas vira o estabelecimento (inciso I).</li>
+    <li>Cada estabelecimento tinha inscrição, escrituração, apuração e pagamento próprios (inciso II). Mas, no pagamento, todos respondem pelo crédito do mesmo titular (inciso IV). O inciso II foi declarado inconstitucional, na mesma linha da decisão do STF sobre transferências entre filiais.</li></ul></div>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Local de reunião de pessoas não é estabelecimento só por isso. É preciso atividade ou mercadoria armazenada.</li>
+    <li>Não importa se o local é público ou privado, edificado ou não, próprio ou de terceiro, temporário ou permanente.</li>
+    <li>Depósito de mercadorias pode ser estabelecimento, mesmo ao lado da loja e mesmo aberto.</li>
+    <li>“Cada estabelecimento responde só pelo seu crédito” está <span class="no">errado</span>: respondem todos os do mesmo titular.</li>
+    <li>Veículo de comércio ambulante ou de captura de pescado é estabelecimento autônomo, em qualquer via (inclusive fluvial). Mas “veículo de transporte de gado vira depósito fechado” não existe na lei.</li></ul></div>
+</section>
+
+<!-- ===== 3 MOMENTO ===== -->
+<section class="cap" id="momento" data-c="oliva">
+  <div class="cap-h"><div class="num">3</div><div><h2>Momento do fato gerador</h2><small>Art. 12, incisos I a XIII e §§ 1º a 4º</small></div></div>
+  <div class="one"><b>Em uma frase</b>O aspecto temporal marca quando nasce a obrigação: em regra, quando a mercadoria sai do estabelecimento, ou quando o serviço começa.</div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Mercadorias</h3>
+  <blockquote class="q"><cite>Art. 12, I (redação da LC 204/2023) e § 4º</cite><p>da saída de mercadoria de estabelecimento de contribuinte;</p><p>§4º Não se considera ocorrido o fato gerador do imposto na saída de mercadoria de estabelecimento para outro de mesma titularidade, (...)</p></blockquote>
+  <div class="box"><h3>Por que sumiu “ainda que para outro estabelecimento do mesmo titular”</h3><p>A redação original incluía a transferência entre filiais. O STF (ADC 49) declarou inconstitucional essa expressão: deslocar mercadoria entre estabelecimentos do mesmo titular não é circulação jurídica. A LC 204/2023 ajustou o texto.</p>
+  <blockquote class="q" style="margin-bottom:0"><cite>Tese de repercussão geral (trecho do material)</cite><p>Não incide ICMS no deslocamento de bens de um estabelecimento para outro do mesmo contribuinte localizados em estados distintos, visto não haver a transferência da titularidade ou a realização de ato de mercancia.</p></blockquote></div>
+
+  <blockquote class="q"><cite>Art. 12, II, III e IV</cite><p>II - do fornecimento de alimentação, bebidas e outras mercadorias por qualquer estabelecimento;</p><p>III - da transmissão a terceiro de mercadoria depositada em armazém geral ou em depósito fechado, no Estado do transmitente;</p><p>IV - da transmissão de propriedade de mercadoria, ou de título que a represente, quando a mercadoria não tiver transitado pelo estabelecimento transmitente;</p></blockquote>
+  <div class="box"><h3>Como ler cada um</h3><ul>
+    <li><b>II:</b> bares e restaurantes. O fato gerador é o fornecimento, comendo no local ou levando. Pizzaria com delivery: pizza entregue = saída; pizza consumida no salão = fornecimento.</li>
+    <li><b>III:</b> o que vale é a transmissão da propriedade, não a saída física do depósito, e só quando o depósito está no mesmo Estado do transmitente.</li>
+    <li><b>IV:</b> operação triangular. Fábrica A vende para loja B, que vende para cliente C, e a fábrica entrega direto a C. Há <b>dois</b> fatos geradores, A→B e B→C. A saída física direta é só logística.</li></ul></div>
+
+  <blockquote class="q"><cite>Art. 12, VIII</cite><p>do fornecimento de mercadoria com prestação de serviços:</p><p>a) não compreendidos na competência tributária dos Municípios;</p><p>b) compreendidos na competência tributária dos Municípios e com indicação expressa de incidência do imposto de competência estadual, como definido na lei complementar aplicável;</p></blockquote>
+  <div class="tw"><table><thead><tr><th>Serviço</th><th>Competência</th><th>Resultado</th></tr></thead><tbody>
+    <tr><td>Fora da competência dos Municípios</td><td>Estado</td><td>Só ICMS, sobre tudo (mercadoria + serviço)</td></tr>
+    <tr><td>Dos Municípios, mas com ICMS expresso na lei complementar</td><td>Município e Estado</td><td>ISS sobre o serviço e ICMS sobre a mercadoria</td></tr>
+    <tr><td>Dos Municípios, sem previsão de ICMS</td><td>Município</td><td>Só ISS, sobre tudo</td></tr></tbody></table></div>
+
+  <blockquote class="q"><cite>Art. 12, IX, § 2º e § 3º</cite><p>IX – do desembaraço aduaneiro de mercadorias ou bens importados do exterior;</p><p>§ 3o Na hipótese de entrega de mercadoria ou bem importados do exterior antes do desembaraço aduaneiro, considera-se ocorrido o fato gerador neste momento, devendo a autoridade responsável, salvo disposição em contrário, exigir a comprovação do pagamento do imposto.</p></blockquote>
+  <blockquote class="q"><cite>Art. 12, XI e XII</cite><p>XI – da aquisição em licitação pública de mercadorias ou bens importados do exterior e apreendidos ou abandonados;</p><p>XII – da entrada no território do Estado de lubrificantes e combustíveis líquidos e gasosos derivados de petróleo e energia elétrica oriundos de outro Estado, quando não destinados à comercialização ou à industrialização;</p></blockquote>
+  <div class="box"><h3>Importação: o tópico preferido da banca</h3><p>Regra: <b>desembaraço aduaneiro</b>. Exceção: se a mercadoria é entregue ao importador antes do desembaraço, o fato gerador antecipa para a entrega. Dizer que o fato gerador é o ingresso no território nacional está errado.</p></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Transporte</h3>
+  <blockquote class="q"><cite>Art. 12, V e VI</cite><p>V - do início da prestação de serviços de transporte interestadual e intermunicipal, de qualquer natureza;</p><p>VI - do ato final do transporte iniciado no exterior;</p></blockquote>
+  <p>Você pode comprar hoje a passagem para daqui a 3 meses. O fato gerador só ocorre quando a viagem começa. Transporte iniciado no exterior é a exceção: vale o ato final, o que beneficia o Estado onde a viagem termina.</p>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Comunicação e serviços do exterior</h3>
+  <blockquote class="q"><cite>Art. 12, VII, § 1º, X e XIII</cite><p>VII - das prestações onerosas de serviços de comunicação, feita por qualquer meio, inclusive a geração, a emissão, a recepção, a transmissão, a retransmissão, a repetição e a ampliação de comunicação de qualquer natureza;</p><p>§ 1º Na hipótese do inciso VII, quando o serviço for prestado mediante pagamento em ficha, cartão ou assemelhados, considera-se ocorrido o fato gerador do imposto quando do fornecimento desses instrumentos ao usuário.</p><p>X - do recebimento, pelo destinatário, de serviço prestado no exterior;</p><p>XIII - da utilização, por contribuinte, de serviço cuja prestação se tenha iniciado em outro Estado e não esteja vinculada a operação ou prestação subsequente.</p></blockquote>
+
+  <div class="tw"><table><thead><tr><th>Operação</th><th>Momento do fato gerador</th></tr></thead><tbody>
+    <tr><td>Importação de mercadoria</td><td>Desembaraço aduaneiro (ou entrega antes dele)</td></tr>
+    <tr><td>Importação de serviço</td><td>Recebimento do serviço pelo destinatário</td></tr>
+    <tr><td>Transporte interestadual e intermunicipal</td><td>Início da prestação</td></tr>
+    <tr><td>Transporte iniciado no exterior</td><td>Ato final do transporte</td></tr>
+    <tr><td>Comunicação onerosa</td><td>Prestação do serviço</td></tr>
+    <tr><td>Comunicação paga com ficha ou cartão</td><td>Fornecimento do cartão ao usuário</td></tr>
+    <tr><td>Serviço iniciado em outro Estado, utilizado por contribuinte</td><td>Utilização do serviço (diferencial de alíquotas)</td></tr></tbody></table></div>
+
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>“Saída para outro estabelecimento do mesmo titular é fato gerador”: <span class="no">errado</span> hoje.</li>
+    <li>Fato gerador na emissão da nota fiscal, no fechamento do período ou no pagamento: não existe. Mercadoria é saída, alimentação é fornecimento.</li>
+    <li>Transporte: o fato gerador é o início, não o ato final. O ato final só vale para o iniciado no exterior.</li>
+    <li>Importação de mercadoria é desembaraço. Importação de serviço é recebimento. Não troque.</li>
+    <li>Combustível e energia: a entrada no Estado só gera fato gerador se o destino <b>não</b> for revenda nem industrialização. Posto que compra gasolina para revender não paga na entrada.</li>
+    <li>Cartão ou ficha de comunicação: não é quando completa a ligação, é quando o cartão é fornecido.</li>
+    <li>ICMS e ISS: serviço dos Municípios sem previsão expressa de ICMS é só ISS.</li></ul></div>
+</section>
+
+<!-- ===== 4 BASE ===== -->
+<section class="cap" id="base" data-c="ambar">
+  <div class="cap-h"><div class="num">4</div><div><h2>Base de cálculo</h2><small>Art. 13, 14, 15 e 16</small></div></div>
+  <div class="one"><b>Em uma frase</b>Em circulação de mercadorias a base é o valor da operação. Em transporte e comunicação, o preço do serviço. O ICMS entra na própria base.</div>
+
+  <blockquote class="q"><cite>Art. 13, I a IV</cite><p>I - na saída de mercadoria prevista nos incisos I, III e IV do art. 12, o valor da operação;</p><p>II - na hipótese do inciso II do art. 12, o valor da operação, compreendendo mercadoria e serviço;</p><p>III - na prestação de serviço de transporte interestadual e intermunicipal e de comunicação, o preço do serviço;</p><p>IV - no fornecimento de que trata o inciso VIII do art. 12; a) o valor da operação, na hipótese da alínea a; b) o preço corrente da mercadoria fornecida ou empregada, na hipótese da alínea b;</p></blockquote>
+  <div class="box"><h3>Tradução</h3><p>Valor da operação vale para: saída de mercadoria, transmissão de mercadoria em armazém ou depósito, transmissão de mercadoria que não transitou, e fornecimento de alimentação (mercadoria + serviço). Fornecimento com serviço: se for só ICMS, valor da operação; se ISS sobre o serviço e ICMS sobre a mercadoria, o preço corrente da mercadoria.</p></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Importação: tudo entra</h3>
+  <blockquote class="q"><cite>Art. 13, V</cite><p>na hipótese do inciso IX do art. 12, a soma das seguintes parcelas:</p><p>a) o valor da mercadoria ou bem constante dos documentos de importação, observado o disposto no art. 14;</p><p>b) imposto de importação;</p><p>c) imposto sobre produtos industrializados;</p><p>d) imposto sobre operações de câmbio;</p><p>e) quaisquer outros impostos, taxas, contribuições e despesas aduaneiras;</p></blockquote>
+  <blockquote class="q"><cite>Art. 14 e parágrafo único</cite><p>O preço de importação expresso em moeda estrangeira será convertido em moeda nacional pela mesma taxa de câmbio utilizada no cálculo do imposto de importação, sem qualquer acréscimo ou devolução posterior se houver variação da taxa de câmbio até o pagamento efetivo do preço.</p><p>O valor fixado pela autoridade aduaneira para base de cálculo do imposto de importação, nos termos da lei aplicável, substituirá o preço declarado.</p></blockquote>
+  <div class="box"><h3>Também entram</h3><ul>
+    <li><b>Importação de serviço (art. 13, VI):</b> valor da prestação, mais os encargos relacionados com a utilização.</li>
+    <li><b>Licitação de importado apreendido (art. 13, VII):</b> valor da operação + II + IPI + todas as despesas cobradas ou debitadas ao adquirente.</li>
+    <li><b>Entrada de combustível e energia (art. 13, VIII):</b> valor da operação de que decorrer a entrada.</li>
+    <li>Despesas depois do desembaraço (frete interno, armazenagem posterior) não entram na base da importação.</li></ul></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">O que integra a base (art. 13, § 1º)</h3>
+  <blockquote class="q"><cite>Art. 13, § 1º</cite><p>Integra a base de cálculo do imposto, inclusive na hipótese do inciso V do caput deste artigo:</p><p>I - o montante do próprio imposto, constituindo o respectivo destaque mera indicação para fins de controle;</p><p>II - o valor correspondente a:</p><p>a) seguros, juros e demais importâncias pagas, recebidas ou debitadas, bem como descontos concedidos sob condição;</p><p>b) frete, caso o transporte seja efetuado pelo próprio remetente ou por sua conta e ordem e seja cobrado em separado.</p></blockquote>
+
+  <div class="box"><h3>Desconto</h3>
+    <div class="tw" style="margin:8px 0 0"><table><thead><tr><th>Tipo</th><th>Exemplo</th><th>Na base?</th></tr></thead><tbody>
+    <tr><td>Condicional</td><td>5% se pagar em 10 dias (depende de evento futuro e incerto)</td><td class="ok">Integra</td></tr>
+    <tr><td>Incondicional</td><td>Abatimento no preço, no ato da venda</td><td class="no">Não integra</td></tr></tbody></table></div></div>
+  <div class="box"><h3>Frete</h3>
+    <div class="tw" style="margin:8px 0 0"><table><thead><tr><th>Quem assume</th><th>Efeito</th></tr></thead><tbody>
+    <tr><td>Remetente, com frota própria, ou por sua conta e ordem (CIF)</td><td class="ok">Integra a base da mercadoria, mesmo destacado na nota</td></tr>
+    <tr><td>Destinatário contrata o transportador (FOB)</td><td class="no">Não integra a base da mercadoria. O ICMS incide à parte sobre o serviço de transporte, se intermunicipal ou interestadual</td></tr></tbody></table></div></div>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">IPI: quando fica fora da base</h3>
+  <blockquote class="q"><cite>Art. 13, § 2º</cite><p>Não integra a base de cálculo do imposto o montante do Imposto sobre Produtos Industrializados, quando a operação, realizada entre contribuintes e relativa a produto destinado à industrialização ou à comercialização, configurar fato gerador de ambos os impostos.</p></blockquote>
+  <div class="box"><h3>As 3 condições (todas juntas)</h3><ul>
+    <li><b>1.</b> Operação entre contribuintes do ICMS. Venda para escola (contribuinte de ISS) leva o IPI para a base.</li>
+    <li><b>2.</b> Produto para industrialização ou comercialização. Carro comprado por concessionária para o gerente usar: IPI entra.</li>
+    <li><b>3.</b> Fato gerador de ICMS e de IPI. Sem ICMS, não há o que incluir ou excluir.</li></ul>
+    <p style="margin:8px 0 0">Falhou uma? O IPI integra a base do ICMS.</p></div>
+
+  <blockquote class="q"><cite>Art. 13, § 5º</cite><p>Nas operações e prestações interestaduais entre estabelecimentos de contribuintes diferentes, caso haja reajuste do valor depois da remessa ou da prestação, a diferença fica sujeita ao imposto no estabelecimento do remetente ou do prestador.</p></blockquote>
+
+  <h3 style="margin:22px 0 6px;color:var(--c)">Quando não há valor (art. 15 e 16)</h3>
+  <p>É o caso típico de doação: sem preço, o ICMS ainda incide. A lei diz como achar a base, conforme quem remete.</p>
+  <blockquote class="q"><cite>Art. 15 e 16 (síntese literal dos incisos)</cite><p>I - o preço corrente da mercadoria, ou de seu similar, no mercado atacadista do local da operação ou, na sua falta, no mercado atacadista regional, caso o remetente seja produtor, extrator ou gerador, inclusive de energia;</p><p>II - o preço FOB estabelecimento industrial à vista, caso o remetente seja industrial;</p><p>III - o preço FOB estabelecimento comercial à vista, na venda a outros comerciantes ou industriais, caso o remetente seja comerciante.</p><p>§ 2º Na hipótese do inciso III do caput, se o estabelecimento remetente não efetue vendas a outros comerciantes ou industriais ou, em qualquer caso, se não houver mercadoria similar, a base de cálculo será equivalente a setenta e cinco por cento do preço de venda corrente no varejo.</p><p>Art. 16. Nas prestações sem preço determinado, a base de cálculo do imposto é o valor corrente do serviço, no local da prestação.</p></blockquote>
+  <div class="tw"><table><thead><tr><th>Remetente</th><th>1ª opção</th><th>Se não houver</th></tr></thead><tbody>
+    <tr><td>Produtor, extrator ou gerador</td><td>Preço corrente no atacado do local (ou regional)</td><td>—</td></tr>
+    <tr><td>Industrial</td><td>Preço FOB industrial à vista: o efetivamente cobrado na operação mais recente</td><td>Preço corrente no atacado do local (ou regional)</td></tr>
+    <tr><td>Comerciante</td><td>Preço FOB comercial à vista: o efetivamente cobrado na operação mais recente</td><td>Atacado do local (ou regional). Sem vendas a comerciantes/industriais ou sem similar: 75% do varejo</td></tr></tbody></table></div>
+  <p>FOB (free on board) é o preço na porta do vendedor, sem frete e seguro. CIF inclui transporte e seguro até o destino.</p>
+
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>“Cálculo por fora” ou “é vedado incluir o ICMS na base”: <span class="no">errado</span>. O ICMS integra a própria base e o destaque é mera indicação.</li>
+    <li>Lei estadual não pode fixar base de cálculo diferente da lei complementar federal. A CF reservou isso à lei complementar.</li>
+    <li>Importação: “exceto despesas aduaneiras” ou “isentas” não existe. Entram tributos, taxas, contribuições e despesas aduaneiras.</li>
+    <li>Desconto: o que depende de condição fica na base. Só o incondicional sai.</li>
+    <li>Frete CIF entra, FOB não. E o IPI só sai com as três condições.</li>
+    <li>Na licitação de importado, a base é valor da operação + II + IPI + despesas. Não é só “valor + câmbio”.</li>
+    <li>Câmbio: a mesma taxa do imposto de importação, sem ajuste posterior.</li>
+    <li>Fabricou sob encomenda e cobrou também desenho/molde e instalação: tudo isso compõe a base e o fato gerador é a saída, não a data do recebimento antecipado (“venda para entrega futura”).</li></ul></div>
+</section>
+
+<!-- ===== 5 FRETE E ARBITRAMENTO ===== -->
+<section class="cap" id="frete" data-c="roxo">
+  <div class="cap-h"><div class="num">5</div><div><h2>Interdependentes e arbitramento</h2><small>Art. 17 e art. 18</small></div></div>
+  <div class="one"><b>Em uma frase</b>O Fisco pode corrigir o frete inflado entre empresas ligadas e arbitrar valores que não merecem fé.</div>
+
+  <blockquote class="q"><cite>Art. 17 e parágrafo único</cite><p>Quando o valor do frete, cobrado por estabelecimento pertencente ao mesmo titular da mercadoria ou por outro estabelecimento de empresa que com aquele mantenha relação de interdependência, exceder os níveis normais de preços em vigor, no mercado local, para serviço semelhante, constantes de tabelas elaboradas pelos órgãos competentes, o valor excedente será havido como parte do preço da mercadoria.</p><p>Considerar-se-ão interdependentes duas empresas quando:</p><p>I - uma delas, por si, seus sócios ou acionistas, e respectivos cônjuges ou filhos menores, for titular de mais de cinquenta por cento do capital da outra;</p><p>II - uma mesma pessoa fizer parte de ambas, na qualidade de diretor, ou sócio com funções de gerência, ainda que exercidas sob outra denominação;</p><p>III - uma delas locar ou transferir a outra, a qualquer título, veículo destinado ao transporte de mercadorias.</p></blockquote>
+  <div class="box"><h3>Por que existe</h3><p>Se a alíquota do frete é menor que a da mercadoria, quem controla as duas pontas pode baixar o preço da mercadoria e inflar o frete, cobrando o mesmo total do cliente e pagando menos imposto. O Fisco compara com uma tabela de fretes. O que passar do normal é tratado como preço da mercadoria. Veja a conta no capítulo de contas.</p>
+  <ul><li><b>Quando:</b> frete cobrado por estabelecimento do mesmo titular ou interdependente.</li><li><b>E:</b> valor acima da tabela de preços normais do mercado local.</li><li><b>Então:</b> o excedente é parte do preço da mercadoria.</li></ul></div>
+
+  <blockquote class="q"><cite>Art. 18</cite><p>Quando o cálculo do tributo tenha por base, ou tome em consideração, o valor ou o preço de mercadorias, bens, serviços ou direitos, a autoridade lançadora, mediante processo regular, arbitrará aquele valor ou preço, sempre que sejam omissos ou não mereçam fé as declarações ou os esclarecimentos prestados, ou os documentos expedidos pelo sujeito passivo ou pelo terceiro legalmente obrigado, ressalvada, em caso de contestação, avaliação contraditória, administrativa ou judicial.</p></blockquote>
+  <div class="box"><h3>Arbitramento</h3><ul>
+    <li>É técnica de aferição indireta da base. O lançamento continua sendo <b>de ofício</b>, não é um novo tipo de lançamento.</li>
+    <li>É recurso subsidiário: só quando o valor declarado é omisso ou não merece fé.</li>
+    <li>Não é definitivo. O contribuinte pode pedir avaliação contraditória, administrativa ou judicial.</li>
+    <li>Exemplo: vendedor e cliente combinam nota com metade do preço real. O Fisco arbitra o preço de mercado e cobra a diferença com acréscimos legais.</li></ul></div>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Interdependência exige <b>mais de</b> 50% do capital (50% exato não basta).</li>
+    <li>O excedente do frete vira preço da <b>mercadoria</b>, não é desconsiderado nem é isento.</li>
+    <li>O arbitramento tem processo regular e contraditório, não é arbitrário no sentido absoluto.</li></ul></div>
+</section>
+
+<!-- ===== CONTAS ===== -->
+<section class="cap" id="contas" data-c="verm">
+  <div class="cap-h"><div class="num">=</div><div><h2>Contas no estilo da banca, resolvidas</h2><small>Importação, desconto, base com serviço, frete e preço sem valor</small></div></div>
+
+  <div class="conta"><h3>Conta 1. Base do ICMS na importação (cálculo por dentro)</h3>
+    <p>Máquina de US$ 1.000. Câmbio R$ 3,00. IPI R$ 400. IOF R$ 150. Despesas aduaneiras R$ 50. Alíquota 25%.</p>
+    <ol><li>Converta: 1.000 × 3 = <b class="mono">R$ 3.000</b>.</li>
+    <li>Some tributos e despesas: 3.000 + 400 + 150 + 50 = <b class="mono">R$ 3.600</b>.</li>
+    <li>Divida por (1 − alíquota): 3.600 ÷ 0,75 = <b class="mono">R$ 4.800</b> (base).</li>
+    <li>ICMS = 25% × 4.800 = <b class="mono">R$ 1.200</b>.</li></ol>
+    <div class="eq">BC = (preço + II + IPI + IOF + outras despesas) ÷ (1 − alíquota)</div>
+    <div class="bar" role="img" aria-label="Composição da base de 4.800 reais">
+      <i style="width:62.5%;background:var(--azul)"></i><i style="width:8.33%;background:var(--verde)"></i><i style="width:3.125%;background:var(--oliva)"></i><i style="width:1.04%;background:var(--roxo)"></i><i style="width:25%;background:var(--verm)"></i></div>
+    <div class="bl"><span><i class="sw" style="background:var(--azul)"></i>Mercadoria 3.000</span><span><i class="sw" style="background:var(--verde)"></i>IPI 400</span><span><i class="sw" style="background:var(--oliva)"></i>IOF 150</span><span><i class="sw" style="background:var(--roxo)"></i>Desp. 50</span><span><i class="sw" style="background:var(--verm)"></i>ICMS 1.200</span></div>
+    <div class="erro"><b>Erro clássico:</b> parar em 3.600 e multiplicar por 25% (ICMS de 900), ou multiplicar por 1,25 (4.500). O ICMS faz parte da base, então divide-se por 0,75.</div></div>
+
+  <div class="conta"><h3>Conta 2. Celular parcelado, com desconto e seguro</h3>
+    <p>Preço R$ 1.000 em 10 parcelas sem juros. Desconto de R$ 100 já no ato da venda. Desconto extra de R$ 50 só na 1ª parcela, se paga com 15 dias de antecedência. Seguro de R$ 60 contratado pelo comprador.</p>
+    <ol><li>Desconto de R$ 100 no ato é incondicional: <b>subtrai</b>.</li><li>Desconto de R$ 50 depende de pagamento antecipado: condicional, <b>não subtrai</b>.</li><li>Seguro integra a base: <b>soma</b>.</li></ol>
+    <div class="eq">1.000 − 100 + 60 = 960</div>
+    <div class="rowbar"><span>Preço</span><div class="t"><i style="width:100%;background:var(--azul)"></i></div><span class="mono">1.000</span></div>
+    <div class="rowbar"><span>Base correta</span><div class="t"><i style="width:96%;background:var(--ok)"></i></div><span class="mono">960</span></div>
+    <div class="rowbar"><span>Erro (−50)</span><div class="t"><i style="width:91%;background:var(--bad)"></i></div><span class="mono">910</span></div>
+    <div class="erro"><b>Erro clássico:</b> descontar também os R$ 50 condicionais (910), ou esquecer o seguro (900).</div></div>
+
+  <div class="conta"><h3>Conta 3. Fabricação sob encomenda com venda para entrega futura</h3>
+    <p>Busto de R$ 10.000, mais R$ 1.000 de desenho e molde e R$ 2.000 de instalação. Tudo recebido antecipado em janeiro. A peça sai da fábrica em 31/03 e é instalada em 01/04.</p>
+    <ol><li>Fato gerador: saída do estabelecimento, em <b>31/03</b>. Nem o recebimento em janeiro nem a instalação em abril contam.</li>
+    <li>Base: fornecimento de mercadoria com instalação é tributado como um todo. O desenho está ligado à produção e é tratado como insumo. 10.000 + 1.000 + 2.000 = <b class="mono">R$ 13.000</b>.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> fixar o fato gerador na data do pagamento antecipado, ou deixar a instalação de fora da base.</div></div>
+
+  <div class="conta"><h3>Conta 4. Frete inflado entre empresas ligadas</h3>
+    <p>Mercadoria vendida a R$ 2.000 e frete real de R$ 200. A empresa emite nota de R$ 1.400 para a mercadoria e conhecimento de transporte de R$ 800. Alíquotas: mercadoria 25%, frete 12%.</p>
+    <ol><li>Correto: 25% × 2.000 = 500, mais 12% × 200 = 24. Total <b class="mono">524</b>.</li><li>Manipulado: 25% × 1.400 = 350, mais 12% × 800 = 96. Total <b class="mono">446</b>.</li><li>Diferença que deixaria de ser paga: 524 − 446 = <b class="mono">78</b>.</li></ol>
+    <div class="rowbar"><span>Correto</span><div class="t"><i style="width:100%;background:var(--ok)"></i></div><span class="mono">524</span></div>
+    <div class="rowbar"><span>Manipulado</span><div class="t"><i style="width:85.1%;background:var(--bad)"></i></div><span class="mono">446</span></div>
+    <p style="margin-top:8px">Pelo art. 17, se a tabela de preços normais indicar R$ 200 de frete, o excedente (R$ 600) é havido como parte do preço da mercadoria, que volta a R$ 2.000.</p>
+    <div class="erro"><b>Erro clássico:</b> achar que o Fisco descarta o frete. Ele só reclassifica o <b>excesso</b>.</div></div>
+
+  <div class="conta"><h3>Conta 5. Doação por loja que só vende no varejo</h3>
+    <p>Loja de eletrônicos doa um aparelho de som. Preço no varejo R$ 2.000. Ela não vende a outros comerciantes ou industriais e não há similar no mercado.</p>
+    <ol><li>Remetente comerciante, sem vendas a comerciantes ou sem similar: art. 15, § 2º.</li><li>Base: 75% × 2.000 = <b class="mono">R$ 1.500</b>.</li></ol>
+    <div class="erro"><b>Erro clássico:</b> usar o preço cheio de varejo (2.000) ou achar que doação não tem ICMS.</div></div>
+</section>
+
+<!-- ===== QUADROS ===== -->
+<section class="cap" id="quadros" style="--c:var(--fg);--cl:var(--quote-bg)">
+  <h2 class="sec-title" style="margin-top:0">Quadros comparativos</h2>
+  <div class="tw"><table><thead><tr><th>Operação</th><th>Local</th><th>Momento do FG</th><th>Base de cálculo</th></tr></thead><tbody>
+    <tr><td>Saída de mercadoria</td><td>Onde ela está</td><td>Saída do estabelecimento</td><td>Valor da operação</td></tr>
+    <tr><td>Alimentação e bebidas</td><td>Onde está</td><td>Fornecimento</td><td>Valor da operação (mercadoria + serviço)</td></tr>
+    <tr><td>Mercadoria que não transitou</td><td>Estabelecimento que transfere a propriedade</td><td>Transmissão da propriedade</td><td>Valor da operação</td></tr>
+    <tr><td>Importação de mercadoria</td><td>Entrada física ou domicílio do adquirente</td><td>Desembaraço (ou entrega antes dele)</td><td>Valor + II + IPI + IOF + outros + ICMS</td></tr>
+    <tr><td>Licitação de importado apreendido</td><td>Onde ocorre a licitação</td><td>Aquisição na licitação</td><td>Valor da operação + II + IPI + despesas</td></tr>
+    <tr><td>Combustível e energia (consumo)</td><td>Estado do adquirente</td><td>Entrada no Estado</td><td>Valor da operação da entrada</td></tr>
+    <tr><td>Transporte</td><td>Início da prestação</td><td>Início da prestação (no exterior: ato final)</td><td>Preço do serviço</td></tr>
+    <tr><td>Comunicação</td><td>Onde é cobrado (regras especiais para rádio/TV, cartão, satélite)</td><td>Prestação (cartão: fornecimento)</td><td>Preço do serviço</td></tr>
+    <tr><td>Serviço do exterior</td><td>Estabelecimento ou domicílio do destinatário</td><td>Recebimento</td><td>Valor do serviço + encargos de utilização</td></tr></tbody></table></div>
+  <div class="tw"><table><thead><tr><th>Conceito</th><th>Regra</th></tr></thead><tbody>
+    <tr><td>Armazém geral × depósito fechado</td><td>Terceiro que guarda bens de terceiros × extensão do próprio contribuinte, só para os seus bens</td></tr>
+    <tr><td>Desconto condicional × incondicional</td><td>Condicional integra a base. Incondicional não</td></tr>
+    <tr><td>Frete CIF × FOB</td><td>Por conta do remetente integra. Por conta do destinatário não integra a base da mercadoria</td></tr>
+    <tr><td>Serviço com mercadoria (ICMS × ISS)</td><td>Fora da competência municipal: ICMS sobre tudo. Municipal com ICMS expresso: ICMS na mercadoria e ISS no serviço. Municipal sem ICMS expresso: ISS sobre tudo</td></tr>
+    <tr><td>Local × momento na importação</td><td>Local: entrada física. Momento: desembaraço aduaneiro</td></tr></tbody></table></div>
+</section>
+
+<!-- ===== GLOSSÁRIO ===== -->
+<section class="cap" id="glossario" style="--c:var(--fg)">
+  <h2 class="sec-title" style="margin-top:0">Glossário rápido</h2>
+  <dl class="gl">
+    <dt>Aspecto espacial</dt><dd>Onde se considera ocorrido o fato gerador. Na Lei Kandir, o local da operação.</dd>
+    <dt>Aspecto temporal</dt><dd>Quando ocorre o fato gerador e nasce a obrigação.</dd>
+    <dt>Aspecto quantitativo</dt><dd>Quanto se paga: base de cálculo vezes alíquota.</dd>
+    <dt>Estabelecimento</dt><dd>Local onde se exerce atividade ou onde há mercadoria armazenada.</dd>
+    <dt>Armazém geral</dt><dd>Empresa que guarda mercadorias de terceiros.</dd>
+    <dt>Depósito fechado</dt><dd>Local do próprio contribuinte, só para guardar os seus bens.</dd>
+    <dt>Depositante / depositário</dt><dd>Quem envia a mercadoria / quem a recebe para guarda.</dd>
+    <dt>Documentação inidônea</dt><dd>Documento que não reflete a realidade da operação (nota “fria”).</dd>
+    <dt>Desembaraço aduaneiro</dt><dd>Conclusão do despacho de importação, com liberação da mercadoria.</dd>
+    <dt>Tomador</dt><dd>Quem contrata ou usa o serviço.</dd>
+    <dt>Serviço não medido</dt><dd>Preço fixo por período, sem variar com o uso (ex.: TV por assinatura).</dd>
+    <dt>Cálculo por dentro</dt><dd>O ICMS integra a própria base. Base = valor ÷ (1 − alíquota).</dd>
+    <dt>Desconto condicional</dt><dd>Depende de evento futuro e incerto. Integra a base.</dd>
+    <dt>FOB</dt><dd>Preço na porta do vendedor, sem frete e seguro.</dd>
+    <dt>CIF</dt><dd>Preço com custo, seguro e frete até o destino.</dd>
+    <dt>Interdependência</dt><dd>Ligação entre empresas por capital, gestão ou cessão de veículos de transporte (art. 17).</dd>
+    <dt>Arbitramento</dt><dd>Fixação do valor pelo Fisco, em processo regular, quando o declarado é omisso ou não merece fé.</dd>
+    <dt>Circulação jurídica</dt><dd>Mudança de titularidade da mercadoria. Sem ela, não há fato gerador do ICMS (ADC 49).</dd>
+  </dl>
+</section>
+
+<!-- ===== SIMULADO ===== -->
+<section class="cap qz" id="simulado">
+  <div class="cap-h"><div class="num">?</div><div><h2>Simulado</h2><small>20 questões · clique na alternativa · o placar fica no rodapé</small></div></div>
+  <div id="quiz"></div>
+</section>
+
+<footer class="fim">
+  Origem do material: Prof. Rabelo, Aula 03, “LTF SEFAZ RS – Lei Kandir (Parte 02)”, Rabelo Concursos. Os trechos da LC 87/1996 seguem a reprodução desse material. O simulado foi escrito a partir dele, sem usar gabaritos de outras fontes.
+</footer>
+</div>
+
+<div class="score" role="status" aria-live="polite"><div class="score-in">
+  <div class="st"><span>Certas: <b id="sc-ok" style="color:var(--ok)">0</b></span><span>Erradas: <b id="sc-no" style="color:var(--bad)">0</b></span><span>Respondidas: <b id="sc-done">0</b>/<b id="sc-tot">0</b></span></div>
+  <button class="btn" id="reset" type="button">Recomeçar</button>
+</div></div>
+
+<script>
+var Q=[
+{q:"Um caminhão com cervejas de SC para o RS é parado pela fiscalização do Paraná. A nota fiscal é inidônea. O ICMS é devido a qual Estado?",o:["Santa Catarina, de origem","Rio Grande do Sul, de destino","Dividido entre SC e RS","Paraná, onde a irregularidade foi constatada"],a:3,e:"Art. 11, I, b: com mercadoria em situação irregular, o local é onde ela se encontra, independentemente de origem e destino."},
+{q:"Transportadora paulista é contratada por fábrica mineira para levar monitores de Belo Horizonte (MG) a Vitória (ES). O ICMS do transporte é devido a:",o:["São Paulo, sede da transportadora","Minas Gerais, onde começa a prestação","Espírito Santo, onde termina","Dividido entre MG e ES"],a:1,e:"Art. 11, II, a: no transporte vale o início da prestação. Sede do prestador, destino e escalas não contam."},
+{q:"Uma embarcação captura camarões em alto-mar e desembarca a carga em porto de Santa Catarina. Depois a carga segue de caminhão para o RS. O local da operação é:",o:["Onde ocorreu a captura","A sede do armador","O estabelecimento do comprador, no RS","O Estado do desembarque, SC"],a:3,e:"Art. 11, I, i: na captura de peixes, crustáceos e moluscos, o local é o de desembarque do produto."},
+{q:"Alice, residente em Pelotas/RS, compra perfumes de uma loja chinesa. Eles entram no Brasil por Paranaguá/PR e são entregues na casa dela. O local da operação é:",o:["Pelotas/RS, domicílio do adquirente não estabelecido","Paranaguá/PR, onde entraram no país","O Estado do vendedor","O Estado do desembaraço, qualquer que seja"],a:0,e:"Art. 11, I, e: na importação por quem não é estabelecido, vale o domicílio do adquirente. A porta de entrada no país não importa."},
+{q:"Sobre o momento do fato gerador na importação de mercadoria, em regra:",o:["A entrada no território nacional","O desembaraço aduaneiro","A entrada física no estabelecimento do importador","O pagamento ao exportador"],a:1,e:"Art. 12, IX. A entrada física é o critério do local, não do momento. Quem confunde os dois erra a questão."},
+{q:"Mercadoria importada é entregue ao importador antes do desembaraço aduaneiro. Quando ocorre o fato gerador?",o:["Não há fato gerador","No desembaraço, mesmo que posterior","Quando o imposto for pago","No momento da entrega"],a:3,e:"Art. 12, § 3º: a entrega antes do desembaraço antecipa o fato gerador para esse momento."},
+{q:"A indústria de Recife transfere mercadorias de sua produção para a própria filial em Fortaleza. Quanto ao ICMS:",o:["Incide com base no custo de produção","Incide com alíquota interestadual","Não ocorre fato gerador, pois não há transmissão de propriedade","Incide com base no preço FOB industrial"],a:2,e:"ADC 49 (STF), tese de repercussão geral e LC 204/2023 (art. 12, § 4º): deslocamento entre estabelecimentos do mesmo titular não é fato gerador."},
+{q:"Empresa do Piauí mantém, em nome próprio, mercadorias em armazém geral em Fortaleza/CE e as vende a cliente de Aracaju/SE, sem passar pelo PI. O ICMS da venda é devido ao:",o:["Piauí, estabelecimento do vendedor","Ceará, onde a mercadoria estava","Sergipe, destino","Bahia, origem da compra"],a:1,e:"Art. 11, § 1º: a regra do estabelecimento que transfere a propriedade não vale para mercadoria em depósito em outro Estado. Aplica-se a regra geral: onde a mercadoria se encontra."},
+{q:"Remessa de mercadoria para armazém geral no mesmo Estado do depositante. Sobre o ICMS:",o:["Incide na remessa e na venda posterior","Incide só na venda posterior, e o local é o armazém","Não incide na remessa. Na venda posterior, o local é o estabelecimento do depositante","Não incide em nenhuma das duas"],a:2,e:"Art. 11, § 5º e art. 12, III. A saída física do armazém não muda o local da operação."},
+{q:"Quanto ao serviço de transporte interestadual, a passagem foi comprada hoje para uma viagem daqui a três meses. O fato gerador do ICMS ocorre:",o:["Hoje, na venda do bilhete","Na emissão do documento fiscal","No início da prestação, quando a viagem começa","No ato final do transporte"],a:2,e:"Art. 12, V. O ato final só vale para transporte iniciado no exterior (art. 12, VI)."},
+{q:"TV por assinatura prestada por satélite, com prestador e tomador em Estados diferentes e mensalidade fixa. O imposto é:",o:["Todo do Estado do prestador","Todo do Estado do tomador","Dividido entre todos os Estados cobertos pelo satélite","Recolhido em partes iguais ao Estado do prestador e ao do tomador"],a:3,e:"Art. 11, § 6º: serviço não medido, entre UFs diferentes, preço por período definido. Divide-se entre prestador e tomador, não entre todos os Estados envolvidos."},
+{q:"Importação de máquina: US$ 1.000, câmbio R$ 3,00, IPI R$ 400, IOF R$ 150, despesas aduaneiras R$ 50, alíquota de 25%. A base de cálculo do ICMS é:",o:["R$ 3.600","R$ 4.500","R$ 4.800","R$ 5.000"],a:2,e:"(3.000 + 400 + 150 + 50) ÷ (1 − 0,25) = 3.600 ÷ 0,75 = 4.800. O ICMS integra a própria base."},
+{q:"Celular de R$ 1.000, com desconto de R$ 100 no ato da venda, desconto adicional de R$ 50 se a 1ª parcela for paga antecipadamente, e seguro de R$ 60 contratado pelo comprador. A base do ICMS é:",o:["R$ 910","R$ 960","R$ 1.060","R$ 900"],a:1,e:"1.000 − 100 (incondicional) + 60 (seguro) = 960. O desconto de R$ 50 é condicional e não reduz a base."},
+{q:"Fabricante de computadores vende, com fato gerador de ICMS e IPI. Em qual venda o IPI integra a base do ICMS?",o:["A atacadista contribuinte, para revenda","A indústria de aeronaves, contribuinte, para incorporar às aeronaves","A indústria contribuinte, para uso nos próprios escritórios","O IPI nunca integra a base do ICMS"],a:2,e:"Art. 13, § 2º: o IPI só fica fora da base se a operação é entre contribuintes, com produto para industrialização ou comercialização, e há fato gerador dos dois impostos. Uso nos escritórios falha na 2ª condição."},
+{q:"O vendedor contrata a transportadora e cobra o frete do comprador em destaque na nota. Quanto à base de cálculo do ICMS da mercadoria:",o:["O frete não integra, porque está destacado","O frete integra, porque o transporte é por conta do remetente","O frete integra apenas se interestadual","O frete integra apenas se acima da tabela"],a:1,e:"Art. 13, § 1º, II, b: frete pelo próprio remetente ou por sua conta e ordem, cobrado em separado, integra a base (operação CIF). No FOB, não integra."},
+{q:"Uma loja de varejo faz doação de mercadoria. Ela não vende a outros comerciantes ou industriais e não há similar no mercado. Preço de varejo: R$ 2.000. A base de cálculo é:",o:["R$ 2.000","R$ 1.000","R$ 1.500","Zero, pois doação não tem valor"],a:2,e:"Art. 15, III e § 2º: 75% do preço de venda corrente no varejo. Doação não afasta o ICMS."},
+{q:"Na arrematação em licitação de videogame importado e apreendido, o local, o momento e a base do ICMS são, respectivamente:",o:["Local da apreensão; desembaraço; valor da operação","Local da licitação; aquisição na licitação; valor da operação + II + IPI + despesas cobradas","Local da licitação; desembaraço; valor da operação","Entrada física; aquisição; valor + IOF"],a:1,e:"Art. 11, I, f; art. 12, XI; art. 13, VII."},
+{q:"Sobre estabelecimento para fins de ICMS, é correto afirmar:",o:["Qualquer local público de reunião de pessoas é estabelecimento","Cada estabelecimento responde apenas pelo seu próprio crédito tributário","O veículo usado no comércio ambulante pode ser estabelecimento autônomo","Depósito aberto, mesmo do titular, nunca é estabelecimento"],a:2,e:"Art. 11, § 3º, III. Todos os estabelecimentos do mesmo titular respondem pelo crédito (inciso IV), e o local onde há mercadoria armazenada é estabelecimento."},
+{q:"Empresa de transporte municipal do Piauí compra óleo diesel de fornecedor baiano para abastecer os próprios veículos. Em favor do Piauí, o fato gerador ocorre:",o:["Na saída do estabelecimento baiano","Na entrada do diesel no território do Piauí","Quando o diesel for revendido","Não ocorre"],a:1,e:"Art. 12, XII: entrada no Estado de combustível derivado de petróleo, quando não destinado a comercialização ou industrialização. Para o posto que compra para revenda, não há fato gerador na entrada."},
+{q:"O frete é cobrado por estabelecimento do mesmo titular da mercadoria e excede os preços normais de mercado, segundo tabelas dos órgãos competentes. O valor excedente:",o:["É isento de ICMS","É havido como parte do preço da mercadoria","Fica sujeito apenas ao ISS","Deve ser desconsiderado pelo Fisco, que arbitra todo o frete"],a:1,e:"Art. 17: o excedente é havido como parte do preço da mercadoria. Só o excesso é reclassificado. O arbitramento é o art. 18, tratado à parte."}
+];
+(function(){
+  var box=document.getElementById('quiz'),ok=0,no=0,done=0,L='ABCD';
+  var sOk=document.getElementById('sc-ok'),sNo=document.getElementById('sc-no'),sDone=document.getElementById('sc-done');
+  document.getElementById('sc-tot').textContent=Q.length;
+  function upd(){sOk.textContent=ok;sNo.textContent=no;sDone.textContent=done}
+  function build(){
+    box.innerHTML='';ok=no=done=0;upd();
+    Q.forEach(function(it,i){
+      var d=document.createElement('div');d.className='qq';
+      var n=document.createElement('div');n.className='qn';n.textContent='Questão '+(i+1)+' de '+Q.length;
+      var h=document.createElement('h3');h.textContent=it.q;
+      d.appendChild(n);d.appendChild(h);
+      var btns=[];
+      it.o.forEach(function(t,j){
+        var b=document.createElement('button');b.type='button';b.className='op';
+        var s=document.createElement('b');s.textContent=L[j]+')';
+        b.appendChild(s);b.appendChild(document.createTextNode(t));
+        b.addEventListener('click',function(){
+          btns.forEach(function(x){x.disabled=true});
+          btns[it.a].classList.add('ok-o');
+          var right=(j===it.a);
+          if(!right)b.classList.add('bad-o');
+          if(right)ok++;else no++;done++;upd();
+          var ex=document.createElement('div');ex.className='ex';
+          var st=document.createElement('b');st.className=right?'ok':'no';st.textContent=right?'Certo. ':'Errado. Resposta: '+L[it.a]+'. ';
+          ex.appendChild(st);ex.appendChild(document.createTextNode(it.e));
+          d.appendChild(ex);
+        });
+        btns.push(b);d.appendChild(b);
+      });
+      box.appendChild(d);
+    });
+  }
+  document.getElementById('reset').addEventListener('click',function(){
+    build();
+    var s=document.getElementById('simulado');if(s)s.scrollIntoView();
+  });
+  build();
+})();
+</script>
+
+</body></html>

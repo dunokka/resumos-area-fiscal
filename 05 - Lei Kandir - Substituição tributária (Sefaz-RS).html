@@ -1,0 +1,1402 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Substituição Tributária na Lei Kandir</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: coluna única de leitura (880px), navegação fixa com um chip colorido por seção,
+   caixas de conceito, norma e pegadinha, diagramas em HTML/CSS e placar fixo do simulado no rodapé. */
+:root{
+  --font-head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --font-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+
+  --bg:#f3f5f9; --surface:#ffffff; --fg:#162033; --muted:#566178; --line:#d8dfeb; --on:#ffffff;
+  --quote-bg:#eceff4; --quote-fg:#2b3750;
+
+  --blue:#2457c9;   --blue-bg:#e4ecff;   --blue-ink:#183d94;
+  --green:#17804f;  --green-bg:#dcf3e6;  --green-ink:#0d5e38;
+  --olive:#6c7e16;  --olive-bg:#eef2d5;  --olive-ink:#485607;
+  --amber:#b36a00;  --amber-bg:#ffefcf;  --amber-ink:#7d4800;
+  --purple:#7b3fc6; --purple-bg:#efe6fb; --purple-ink:#57289a;
+  --red:#c5302e;    --red-bg:#fde6e5;    --red-ink:#9a1f1f;
+  --teal:#0d7c86;   --teal-bg:#d9f2f4;   --teal-ink:#065861;
+  --pink-bg:#ffe8f0; --pink-line:#d9437d; --pink-ink:#7b1b44;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141d; --surface:#171d29; --fg:#e8ecf4; --muted:#9ba6ba; --line:#2a3345; --on:#0e1320;
+    --quote-bg:#1f2735; --quote-fg:#d3dbea;
+    --blue:#7ba3ff;   --blue-bg:#1a2a4f;   --blue-ink:#b9ceff;
+    --green:#4fd39a;  --green-bg:#11352a;  --green-ink:#a6efcd;
+    --olive:#b7cd58;  --olive-bg:#2a3010;  --olive-ink:#dbe9a1;
+    --amber:#ffb547;  --amber-bg:#3a2a0b;  --amber-ink:#ffd9a0;
+    --purple:#bb8dff; --purple-bg:#2b1d49; --purple-ink:#dcc3ff;
+    --red:#ff7d78;    --red-bg:#4a1d1d;    --red-ink:#ffc2bf;
+    --teal:#4fd0da;   --teal-bg:#0f3438;   --teal-ink:#a8eef3;
+    --pink-bg:#3b1a28; --pink-line:#ff6fa3; --pink-ink:#ffc4d9;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f141d; --surface:#171d29; --fg:#e8ecf4; --muted:#9ba6ba; --line:#2a3345; --on:#0e1320;
+  --quote-bg:#1f2735; --quote-fg:#d3dbea;
+  --blue:#7ba3ff;   --blue-bg:#1a2a4f;   --blue-ink:#b9ceff;
+  --green:#4fd39a;  --green-bg:#11352a;  --green-ink:#a6efcd;
+  --olive:#b7cd58;  --olive-bg:#2a3010;  --olive-ink:#dbe9a1;
+  --amber:#ffb547;  --amber-bg:#3a2a0b;  --amber-ink:#ffd9a0;
+  --purple:#bb8dff; --purple-bg:#2b1d49; --purple-ink:#dcc3ff;
+  --red:#ff7d78;    --red-bg:#4a1d1d;    --red-ink:#ffc2bf;
+  --teal:#4fd0da;   --teal-bg:#0f3438;   --teal-ink:#a8eef3;
+  --pink-bg:#3b1a28; --pink-line:#ff6fa3; --pink-ink:#ffc4d9;
+  color-scheme:dark;
+}
+
+/* cores por seção */
+.blue{--c:var(--blue);--cbg:var(--blue-bg);--cink:var(--blue-ink)}
+.green{--c:var(--green);--cbg:var(--green-bg);--cink:var(--green-ink)}
+.olive{--c:var(--olive);--cbg:var(--olive-bg);--cink:var(--olive-ink)}
+.amber{--c:var(--amber);--cbg:var(--amber-bg);--cink:var(--amber-ink)}
+.purple{--c:var(--purple);--cbg:var(--purple-bg);--cink:var(--purple-ink)}
+.red{--c:var(--red);--cbg:var(--red-bg);--cink:var(--red-ink)}
+.teal{--c:var(--teal);--cbg:var(--teal-bg);--cink:var(--teal-ink)}
+.neutral{--c:var(--muted);--cbg:var(--surface);--cink:var(--fg)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.62;
+  padding-inline:16px;padding-block:64px 100px;-webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0 0 .9em;max-width:72ch}
+a{color:inherit}
+b,strong{font-weight:700}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.m{font-family:var(--font-mono);font-size:.9em;overflow-wrap:anywhere}
+.mut{color:var(--muted)}
+
+/* navegação fixa */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:9px 16px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.chip{flex:none;display:inline-flex;gap:6px;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;
+  background:var(--cbg);color:var(--cink);border:1.5px solid var(--c);font:600 13.5px/1 var(--font-head);
+  text-decoration:none;white-space:nowrap}
+.chip b{font-family:var(--font-mono);font-weight:600}
+.chip:hover,.chip.on{background:var(--c);color:var(--on)}
+
+/* cabeçalho */
+.hero{padding-block:26px 6px}
+.seal{display:inline-block;font:600 12px/1.4 var(--font-mono);letter-spacing:.04em;text-transform:uppercase;
+  color:var(--blue-ink);background:var(--blue-bg);border:1px solid var(--blue);padding:6px 12px;border-radius:999px}
+.hero h1{font-weight:800;font-size:clamp(2.1rem,7.4vw,3.7rem);margin-block:16px 12px;letter-spacing:-.02em}
+.grad{color:var(--blue);background:linear-gradient(95deg,var(--blue),var(--purple) 55%,var(--red));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.how{font-size:1.06rem;color:var(--muted)}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px 14px;margin-top:18px}
+.lg{display:flex;gap:10px;align-items:center;font-size:.9rem;min-width:0}
+.sw{flex:none;width:36px;height:24px;border-radius:6px;border:1.5px solid;position:relative}
+.sw.g{background:var(--green-bg);border-color:var(--green)}
+.sw.r{background:var(--red-bg);border-color:var(--red)}
+.sw.c{background:var(--surface);border-color:var(--blue)}
+.sw.p{background:var(--pink-bg);border-color:var(--pink-line)}
+.sw.q{background:var(--quote-bg);border-color:var(--line);border-left:4px solid var(--muted)}
+.sw.q::after{content:"\201C";position:absolute;left:7px;top:-2px;font:800 20px/1 var(--font-head);color:var(--muted)}
+
+/* seções */
+.blk{margin-top:44px;scroll-margin-top:calc(62px + env(safe-area-inset-top,0px))}
+.blk>h2.t{font-size:clamp(1.4rem,4.6vw,1.9rem);font-weight:800;margin-bottom:6px}
+.blk>p.lead{color:var(--muted);margin-bottom:16px}
+.sec{margin-top:60px;scroll-margin-top:calc(62px + env(safe-area-inset-top,0px))}
+.sec-head{display:flex;gap:16px;align-items:flex-end;padding-bottom:12px;border-bottom:3px solid var(--c);margin-bottom:22px}
+.num{font:800 clamp(3.2rem,12vw,4.8rem)/.82 var(--font-head);color:var(--c);flex:none}
+.sec-head h2{font-size:clamp(1.45rem,5vw,2.15rem);font-weight:800}
+.ref{font:500 12.5px/1.45 var(--font-mono);color:var(--muted);margin-top:8px}
+.sec-body{display:flex;flex-direction:column;gap:18px}
+.sub{font-size:1.2rem;font-weight:800;color:var(--cink);margin-top:10px}
+
+/* 12 pontos */
+.pts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.pt{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;min-width:0}
+.pt:hover{border-color:var(--c)}
+.pt small{font:600 11px var(--font-mono);color:var(--cink);text-transform:uppercase;letter-spacing:.07em}
+.pt .v{font:800 1.5rem/1.1 var(--font-head);color:var(--c)}
+.pt p{margin:0;font-size:.95rem}
+
+/* caixas */
+.one{background:var(--cbg);border-radius:14px;padding:16px 18px;color:var(--cink)}
+.one small{display:block;font:600 11.5px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;margin-bottom:4px}
+.one p{margin:0;font:700 1.15rem/1.4 var(--font-head);max-width:none}
+.concept{background:var(--surface);border:1.5px solid var(--c);border-radius:14px;padding:16px 18px;min-width:0}
+.concept h3{font-size:1.08rem;color:var(--cink);margin-bottom:8px}
+.concept>:last-child{margin-bottom:0}
+.concept ul,.concept ol{margin:0 0 .9em;padding-left:1.2em}
+.concept li{margin-bottom:.35em}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.norm{margin:0;background:var(--quote-bg);color:var(--quote-fg);border-left:4px solid var(--c);
+  border-radius:4px 12px 12px 4px;padding:14px 18px 14px 20px;font-style:italic;min-width:0}
+.norm .src{display:block;font:600 12px var(--font-mono);font-style:normal;color:var(--cink);margin-bottom:6px;letter-spacing:.03em}
+.norm p{margin:0 0 .55em;max-width:none}
+.norm p:last-child{margin-bottom:0}
+.norm b{font-weight:700;color:var(--fg)}
+.norm mark{background:transparent;color:var(--cink);font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.trap{background:var(--pink-bg);border:1.5px solid var(--pink-line);border-radius:14px;padding:16px 18px;color:var(--pink-ink)}
+.trap h3{display:flex;gap:10px;align-items:center;font-size:1.08rem;margin-bottom:10px}
+.trap h3::before{content:"!";flex:none;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
+  background:var(--pink-line);color:#fff;font:800 15px var(--font-head)}
+.trap ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:9px}
+.trap li::marker{color:var(--pink-line)}
+.tag{display:inline-block;font:700 11px/1 var(--font-mono);letter-spacing:.05em;padding:3px 6px;border-radius:5px;
+  vertical-align:1px;text-transform:uppercase;white-space:nowrap}
+.tag.ok{background:var(--green-bg);color:var(--green-ink);border:1px solid var(--green)}
+.tag.no{background:var(--red-bg);color:var(--red-ink);border:1px solid var(--red)}
+
+/* fórmulas */
+.formula{background:var(--surface);border:2px solid var(--c);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.formula .fl{font:600 11.5px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--cink)}
+.formula .eq{font:600 clamp(.82rem,3.5vw,1.2rem)/1.8 var(--font-mono);text-align:center;color:var(--fg);overflow-wrap:anywhere}
+.eq .op{color:var(--muted);padding:0 .25em}
+.eq .res{color:var(--cink)}
+.eq .grp{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top}
+.eq .grp .br{display:block;width:100%;height:9px;border:2px solid var(--c);border-top:none;border-radius:0 0 9px 9px;margin-top:2px}
+.eq .grp i{font:700 .78rem var(--font-head);font-style:normal;color:var(--cink)}
+.vars{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;font-size:.94rem;margin:0}
+.vars dt{font:600 .88rem var(--font-mono);color:var(--cink)}
+.vars dd{margin:0}
+@media (max-width:480px){.vars{grid-template-columns:1fr;gap:0}.vars dd{margin-bottom:8px}}
+
+/* tabelas */
+.tw{overflow-x:auto;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:.94rem}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{background:var(--cbg);color:var(--cink);font:700 .86rem var(--font-head)}
+tbody th{font-weight:700}
+tbody tr:last-child>*{border-bottom:none}
+.hint{font-size:.8rem;color:var(--muted);margin:0}
+
+/* diagramas */
+.dg{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.dg>h4{font-size:.95rem;color:var(--cink);margin-bottom:12px}
+.dg .cap{font-size:.9rem;color:var(--muted);margin:10px 0 0;max-width:none}
+
+.tl{display:grid;grid-template-columns:minmax(92px,1.2fr) repeat(3,minmax(0,1fr));font-size:.88rem}
+.tl>div{padding:10px 4px;border-bottom:1px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:5px;min-width:0}
+.tl>.h{font:700 11px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line)}
+.tl>.mid{background:var(--blue-bg);border-left:2px dashed var(--blue);border-right:2px dashed var(--blue);color:var(--blue-ink)}
+.tl>.h.mid{color:var(--blue-ink)}
+.tl>.lab{align-items:flex-start;text-align:left}
+.tl>.lab small{color:var(--muted);font-size:.78rem;line-height:1.3}
+.tl>div:nth-last-child(-n+4){border-bottom:none}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px var(--cbg)}
+.tl small.t{font-size:.74rem;line-height:1.25;color:var(--muted)}
+
+.chain{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));row-gap:6px;align-items:center}
+.node{grid-column:span 2;text-align:center;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;
+  padding:9px 3px;font:700 .84rem/1.2 var(--font-head);min-width:0;margin-inline:2px}
+.node small{display:block;font:500 11px var(--font-body);color:var(--muted)}
+.node.sub{border-color:var(--c);background:var(--cbg);color:var(--cink)}
+.ar{height:3px;background:var(--c);position:relative;margin-block:12px}
+.ar::before{content:"";position:absolute;top:-6px;border-top:7.5px solid transparent;border-bottom:7.5px solid transparent}
+.ar.l::before{left:-3px;border-right:11px solid var(--c)}
+.ar.r::before{right:-3px;border-left:11px solid var(--c)}
+.ar.l{grid-column:2/4}
+.ar.r{grid-column:4/8}
+.chain .cp{grid-column:1/-1;font-size:.9rem;margin:0;max-width:none}
+
+.tree{display:grid;grid-template-columns:minmax(96px,.75fr) minmax(0,2fr);gap:14px;align-items:center}
+.root{position:relative;background:var(--cbg);color:var(--cink);border:1.5px solid var(--c);border-radius:12px;padding:12px;text-align:center;font:800 .98rem/1.25 var(--font-head)}
+.root::after{content:"";position:absolute;right:-15px;top:50%;width:15px;border-top:2px solid var(--c)}
+.kids{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--c);padding-left:16px}
+.kid{position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.92rem;min-width:0}
+.kid::before{content:"";position:absolute;left:-18px;top:50%;width:16px;border-top:2px solid var(--c)}
+.kid.pair{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.kid .ar2{color:var(--c);font:800 1.1rem var(--font-head)}
+.kid .res{flex:1 1 120px;background:var(--cbg);color:var(--cink);border-radius:8px;padding:6px 10px;font-weight:700}
+@media (max-width:520px){.tree{grid-template-columns:1fr}.root::after{display:none}.kids{margin-left:6px}}
+
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.fs{flex:1 1 160px;min-width:0;background:var(--surface);border:1.5px solid var(--c);border-radius:12px;padding:10px 12px;font-size:.92rem}
+.fs .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--c);color:var(--on);font:700 12px var(--font-mono);margin-right:6px}
+.fs b{color:var(--cink)}
+.fa{flex:0 0 auto;align-self:center;color:var(--c);font:800 1.3rem var(--font-head)}
+@media (max-width:560px){.fa{display:none}}
+
+.decide{display:flex;flex-direction:column;gap:10px}
+.qbox{text-align:center;font:700 1rem/1.3 var(--font-head);background:var(--cbg);color:var(--cink);border:1.5px solid var(--c);border-radius:12px;padding:12px}
+.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.br2{border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--surface);display:flex;flex-direction:column;gap:8px;min-width:0}
+.br2 .lbl{font:700 12px var(--font-mono);letter-spacing:.07em}
+.br2.yes{border-color:var(--green)}.br2.yes .lbl{color:var(--green-ink)}
+.br2.no .lbl{color:var(--red-ink)}
+.orow{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.92rem}
+.orow .st{flex:none;font:700 11px/1.2 var(--font-mono);padding:3px 6px;border-radius:5px;background:var(--cbg);color:var(--cink);margin-top:2px;text-transform:uppercase}
+
+.sbars{display:flex;flex-direction:column;gap:12px}
+.brow{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:center}
+.brow .l{font:700 .85rem var(--font-mono);color:var(--cink)}
+.brow .d{font-size:.8rem;color:var(--muted);margin-top:3px;line-height:1.35}
+.sb{display:flex;height:34px;border-radius:8px;overflow:hidden;border:1.5px solid var(--line)}
+.sb i{display:flex;align-items:center;justify-content:center;font:600 12px var(--font-mono);font-style:normal;color:var(--on);white-space:nowrap;overflow:hidden;min-width:0}
+.sb .p{background:var(--blue)}.sb .s{background:var(--amber)}.sb .o{background:var(--olive)}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;margin-bottom:12px}
+.key span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--k)}
+
+/* contas */
+.calc{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+.calc>header{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:space-between;background:var(--cbg);padding:11px 16px}
+.calc>header h3{font-size:1.02rem;color:var(--cink)}
+.calc>header .meta{font:600 11.5px var(--font-mono);color:var(--cink)}
+.calc .cb{padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.stmt{font-size:.93rem;color:var(--muted);margin:0}
+.calc ol{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:9px}
+.calc ol li{counter-increment:s;display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px}
+.calc ol li::before{content:counter(s);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--c);color:var(--on);font:700 12px var(--font-mono);margin-top:2px}
+.result{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;background:var(--green-bg);border:1.5px solid var(--green);color:var(--green-ink);border-radius:10px;padding:10px 12px;font-weight:700}
+.result .big{font:800 1.25rem var(--font-mono)}
+.err{background:var(--pink-bg);border:1.5px solid var(--pink-line);color:var(--pink-ink);border-radius:10px;padding:10px 12px;font-size:.93rem}
+.check{counter-reset:k;margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.check li{counter-increment:k;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px;font-size:.93rem}
+.check li::before{content:counter(k);display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--cbg);color:var(--cink);font:700 13px var(--font-mono)}
+
+/* glossário */
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:0}
+.gl>div{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;min-width:0}
+.gl dt{font:700 .98rem var(--font-head);color:var(--blue-ink);margin-bottom:2px}
+.gl dd{margin:0;font-size:.92rem}
+
+/* simulado */
+.q{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;scroll-margin-top:calc(70px + env(safe-area-inset-top,0px))}
+.q h3{display:flex;gap:12px;align-items:flex-start;font:700 1.02rem/1.45 var(--font-body);margin-bottom:12px}
+.q .qn{flex:none;display:inline-grid;place-items:center;min-width:30px;height:30px;padding-inline:6px;border-radius:8px;background:var(--blue-bg);color:var(--blue-ink);font:700 13px var(--font-mono)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:inherit;font-size:.96rem;color:var(--fg);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--blue)}
+.opt .l{flex:none;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--muted);font:700 12px var(--font-mono);color:var(--muted)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--green-bg);border-color:var(--green);color:var(--green-ink)}
+.opt.right .l{background:var(--green);border-color:var(--green);color:var(--on)}
+.opt.wrong{background:var(--red-bg);border-color:var(--red);color:var(--red-ink)}
+.opt.wrong .l{background:var(--red);border-color:var(--red);color:var(--on)}
+.opt.dim{opacity:.62}
+.ex{margin-top:12px;background:var(--cbg,var(--blue-bg));border-radius:10px;padding:12px 14px;font-size:.94rem;color:var(--fg)}
+.ex.ok{background:var(--green-bg)}.ex.no{background:var(--red-bg)}
+.ex b.v{display:block;margin-bottom:4px}
+.ex.ok b.v{color:var(--green-ink)}.ex.no b.v{color:var(--red-ink)}
+.final{background:var(--surface);border:2px solid var(--blue);border-radius:14px;padding:16px 18px}
+.final h3{font-size:1.2rem;margin-bottom:6px}
+.final a{color:var(--blue-ink);font-weight:700}
+.score{position:fixed;inset:auto 0 0 0;z-index:60;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:center}
+.score .st{font:600 13px var(--font-mono);white-space:nowrap}
+.score .st b{font-size:15px;color:var(--green-ink)}
+.score .pb{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden;min-width:40px}
+.score .pb i{display:block;height:100%;width:0;background:var(--green)}
+.score .pb i.bad{background:var(--red);opacity:.85}
+.score .an{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.score button{font:700 13px var(--font-head);background:var(--blue);color:var(--on);border:0;border-radius:999px;padding:8px 14px;cursor:pointer}
+@media (max-width:440px){.score .an{display:none}}
+
+.foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.foot p{max-width:none;margin-bottom:.6em}
+</style>
+<nav class="nav" aria-label="Seções do guia">
+  <div class="chips">
+    <a class="chip neutral" href="#pontos" data-t="pontos"><b>12</b> Pontos</a>
+    <a class="chip blue" href="#s1" data-t="s1"><b>1</b> Conceito</a>
+    <a class="chip green" href="#s2" data-t="s2"><b>2</b> Responsabilidade</a>
+    <a class="chip olive" href="#s3" data-t="s3"><b>3</b> Diferimento</a>
+    <a class="chip amber" href="#s4" data-t="s4"><b>4</b> Base e cálculo</a>
+    <a class="chip purple" href="#s5" data-t="s5"><b>5</b> Restituição</a>
+    <a class="chip red" href="#s6" data-t="s6"><b>6</b> Interestaduais</a>
+    <a class="chip teal" href="#s7" data-t="s7"><b>7</b> Contas</a>
+    <a class="chip neutral" href="#quadros" data-t="quadros">Quadros</a>
+    <a class="chip neutral" href="#glossario" data-t="glossario">Glossário</a>
+    <a class="chip neutral" href="#simulado" data-t="simulado">Simulado</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="seal">Aula 05 · Legislação Tributária Facilitada · SEFAZ RS · Prof. Rabelo</span>
+  <h1>Substituição tributária na <span class="grad">Lei Kandir</span></h1>
+  <p class="how">Revisão da LC 87/1996, arts. 6º a 10, feita a partir da Aula 05. Leia a caixa "Em uma frase" de cada seção, confira o texto da norma, desvie das pegadinhas e feche com as contas resolvidas e o simulado de 20 questões.</p>
+  <div class="legend" aria-label="Legenda das cores e caixas">
+    <div class="lg"><span class="sw g"></span>Verde: correto, certo</div>
+    <div class="lg"><span class="sw r"></span>Vermelho: errado, caiu</div>
+    <div class="lg"><span class="sw c"></span>Caixa com borda: conceito</div>
+    <div class="lg"><span class="sw p"></span>Caixa rosa: pegadinha</div>
+    <div class="lg"><span class="sw q"></span>Cinza com aspas: texto da norma</div>
+  </div>
+</header>
+
+<!-- ========== 12 PONTOS ========== -->
+<section class="blk" id="pontos">
+  <h2 class="t">Os 12 pontos para decorar</h2>
+  <p class="lead">Cada cartão leva à seção onde o assunto é explicado. A cor do cartão é a cor da seção.</p>
+  <div class="pts">
+    <a class="pt blue" href="#s1"><small>Seção 1</small><span class="v">2 sujeitos</span><p>O substituto recolhe o imposto. O substituído teria a obrigação de pagar e arca com o ônus.</p></a>
+    <a class="pt blue" href="#s1"><small>Seção 1</small><span class="v">3 modalidades</span><p>Para trás (antecedentes, diferimento), pura (concomitantes) e para frente (subsequentes).</p></a>
+    <a class="pt green" href="#s2"><small>Seção 2 · art. 6º</small><span class="v">Lei estadual</span><p>Atribui a responsabilidade a contribuinte do imposto ou a depositário a qualquer título.</p></a>
+    <a class="pt green" href="#s2"><small>Seção 2</small><span class="v">Não é benefício</span><p>A ST é técnica de arrecadação e não exige convênio para ser instituída. A interestadual exige acordo (art. 9º).</p></a>
+    <a class="pt olive" href="#s3"><small>Seção 3 · art. 7º</small><span class="v">Entrada = fato gerador</span><p>Para exigir o imposto por ST, também é fato gerador a entrada da mercadoria no estabelecimento do adquirente.</p></a>
+    <a class="pt olive" href="#s3"><small>Seção 3 · art. 8º, §1º</small><span class="v">3 momentos</span><p>Diferimento: paga na entrada, na saída subsequente (ainda que isenta ou não tributada) ou em evento que impeça o fato gerador.</p></a>
+    <a class="pt amber" href="#s4"><small>Seção 4 · art. 8º, I</small><span class="v">Valor do substituído</span><p>Antecedentes e concomitantes: a base é o valor da operação praticado pelo contribuinte substituído.</p></a>
+    <a class="pt amber" href="#s4"><small>Seção 4 · art. 8º, II</small><span class="v">Soma + MVA</span><p>Subsequentes: operação própria + seguro, frete e outros encargos cobrados + margem de valor agregado.</p></a>
+    <a class="pt amber" href="#s4"><small>Seção 4 · art. 8º</small><span class="v">4 formas de base</span><p>MVA; preço fixado por órgão público (é a base); preço sugerido (poderá); preço usual de mercado (poderá).</p></a>
+    <a class="pt amber" href="#s4"><small>Seção 4 · art. 8º, §5º</small><span class="v">BC × alíq. − próprio</span><p>ICMS-ST = base ST × alíquota interna do destino − ICMS da operação própria do substituto.</p></a>
+    <a class="pt purple" href="#s5"><small>Seção 5 · art. 10</small><span class="v">90 dias e 15 dias</span><p>Restituição é do substituído. Sem decisão em 90 dias, ele pode se creditar. Decisão contrária irrecorrível: estorno em 15 dias.</p></a>
+    <a class="pt red" href="#s6"><small>Seção 6 · art. 9º</small><span class="v">Acordo específico</span><p>Interestadual depende de acordo entre os Estados interessados. Petróleo e energia a consumidor final: imposto ao Estado do adquirente, pago pelo remetente.</p></a>
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 1 ========== -->
+<section class="sec blue" id="s1">
+  <div class="sec-head"><span class="num">1</span><div><h2>Conceito e as três modalidades</h2><div class="ref">Introdução da aula · CF art. 150, §7º · jurisprudência do STJ e do STF</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>A lei escolhe um terceiro ligado ao fato gerador para pagar o imposto no lugar de quem deveria pagar, e o Fisco passa a fiscalizar poucos contribuintes em vez de milhares.</p></div>
+
+    <div class="two">
+      <div class="concept">
+        <h3>Contribuinte substituído</h3>
+        <p>É aquele que <b>teria a obrigação</b> de pagar o tributo. Ele não recolhe, mas é quem <b>arca com o ônus</b> do imposto.</p>
+        <p class="mut">Exemplos da aula: os pequenos produtores rurais; as distribuidoras e os bares.</p>
+      </div>
+      <div class="concept">
+        <h3>Contribuinte substituto</h3>
+        <p>É aquele <b>eleito para pagar</b> o imposto do substituído. É ele quem <b>recolhe</b> aos cofres do Estado.</p>
+        <p class="mut">Exemplos da aula: a cooperativa que reúne a produção; a indústria de bebidas.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>Por que a substituição existe</h3>
+      <p>Imagine milhares de pequenos produtores que entregam a produção a uma cooperativa regional. Fiscalizar um a um seria caríssimo. Concentrar a cobrança na cooperativa permite fiscalizar uma só empresa, e todos os produtores passam a ser fiscalizados <b>indiretamente</b>. Se a cooperativa reter errado, o Fisco cobra dela o valor correto.</p>
+      <p>A lógica é a de <b>racionalização e eficiência administrativa</b>: o custo de arrecadar não pode superar o que se arrecada. O mesmo vale para uma indústria de bebidas que abastece milhares de bares: é inviável fiscalizar bar por bar, então se concentra o recolhimento na indústria.</p>
+    </div>
+
+    <div class="dg blue">
+      <h4>A cadeia e os dois sentidos da substituição</h4>
+      <div class="chain" role="img" aria-label="Cadeia produtor, indústria, distribuidora e bar. Seta para trás da indústria até o produtor: substituição para trás. Seta para frente da indústria até o bar: substituição para frente.">
+        <div class="node">Produtor rural<small>etapa antes</small></div>
+        <div class="node sub">Indústria<small>substituto</small></div>
+        <div class="node">Distribuidora<small>etapa depois</small></div>
+        <div class="node">Bar<small>etapa depois</small></div>
+        <div class="ar l"></div>
+        <p class="cp"><b>Para trás</b> (regressiva, diferimento): a indústria recolhe o ICMS que o produtor, das <b>operações antecedentes</b>, deveria pagar. O pagamento vem <b>depois</b> do fato gerador.</p>
+        <div class="ar r"></div>
+        <p class="cp"><b>Para frente</b> (progressiva): a indústria recolhe, antecipadamente, o ICMS das <b>operações subsequentes</b> da distribuidora e do bar. O pagamento vem <b>antes</b> do fato gerador, que é presumido.</p>
+      </div>
+    </div>
+
+    <div class="dg blue">
+      <h4>Onde cai o pagamento em relação ao fato gerador (FG)</h4>
+      <div class="tl" role="img" aria-label="Para frente: pagamento antes do fato gerador. Pura: pagamento no momento do fato gerador. Para trás: pagamento depois do fato gerador.">
+        <div class="h"></div><div class="h">Antes do FG</div><div class="h mid">No FG</div><div class="h">Depois do FG</div>
+
+        <div class="lab"><b>Para frente</b><small>progressiva · operações subsequentes</small></div>
+        <div><span class="dot"></span><small class="t">imposto pago antecipado</small></div><div class="mid"></div><div></div>
+
+        <div class="lab"><b>Pura</b><small>concomitante · operações concomitantes</small></div>
+        <div></div><div class="mid"><span class="dot"></span><small class="t">pago no próprio FG</small></div><div></div>
+
+        <div class="lab"><b>Para trás</b><small>regressiva · diferimento · operações antecedentes</small></div>
+        <div></div><div class="mid"></div><div><span class="dot"></span><small class="t">pago em momento posterior</small></div>
+      </div>
+      <p class="cap">As três modalidades se distinguem só pela relação entre o momento do fato gerador e o momento em que o imposto é exigido, e por quem o exige.</p>
+    </div>
+
+    <div class="concept">
+      <h3>Fato gerador e pagamento são momentos diferentes</h3>
+      <p>Primeiro nasce a <b>obrigação tributária</b> (o dever de pagar) e só depois ocorre o <b>pagamento</b>. O momento em que o imposto se torna devido não é o mesmo em que ele deve ser pago.</p>
+      <p>No exemplo da indústria de bebidas, quando ela realiza a venda <b>nasce para ela a obrigação de recolher o ICMS-ST</b> devido por seus clientes. Isso não quer dizer que o pagamento seja instantâneo.</p>
+    </div>
+
+    <div class="three">
+      <div class="concept">
+        <h3>Para trás</h3>
+        <p><b>Quando:</b> um contribuinte posterior recolhe o imposto devido por quem está antes na cadeia.</p>
+        <p><b>Exemplo:</b> o produtor rural vende leite; a cooperativa compra e recolhe o ICMS devido pelo produtor.</p>
+        <p class="m">Responsável: destinatário<br>FG: etapa anterior<br>Nome: para trás</p>
+      </div>
+      <div class="concept">
+        <h3>Para frente</h3>
+        <p><b>Quando:</b> um contribuinte anterior recolhe antecipadamente o imposto das etapas posteriores.</p>
+        <p><b>Exemplo:</b> a indústria de bebidas vende a distribuidores e recolhe o ICMS-ST das saídas que ainda vão ocorrer.</p>
+        <p class="m">Responsável: remetente<br>FG: etapa posterior (presumida)<br>Nome: para frente</p>
+      </div>
+      <div class="concept">
+        <h3>Pura (concomitante)</h3>
+        <p><b>Quando:</b> o responsável recolhe o imposto no mesmo momento do fato gerador, sem ser antes nem depois.</p>
+        <p><b>Exemplo clássico:</b> o tomador do serviço de transporte é obrigado a recolher o ICMS na própria prestação, que já ocorreu.</p>
+        <p class="m">Responsável: tomador<br>FG: no próprio momento<br>Nome: concomitante</p>
+      </div>
+    </div>
+
+    <blockquote class="norm">
+      <span class="src">CF/88, art. 150, §7º</span>
+      <p>“A lei poderá atribuir a sujeito passivo de obrigação tributária a condição de responsável pelo pagamento de imposto ou contribuição, cujo fato gerador <mark>deva ocorrer posteriormente</mark>, assegurada a <mark>imediata e preferencial restituição</mark> da quantia paga, caso não se realize o fato gerador presumido.”</p>
+    </blockquote>
+
+    <div class="concept">
+      <h3>A substituição para frente é criticada, mas é aceita pelos tribunais</h3>
+      <p>Ela antecipa o pagamento de um tributo cujo fato gerador ainda não ocorreu, e por isso recebe muitas críticas. O STJ e o STF, porém, tratam o regime como legítimo.</p>
+    </div>
+    <blockquote class="norm">
+      <span class="src">STJ · 2ª T. · REsp 89.630/PR · Rel. Min. Ari Pargendler</span>
+      <p>“[…] o momento da incidência do tributo fixado por lei não se confunde com a cobrança do tributo, pelo que <mark>o sistema de substituição tributária não agride o ordenamento jurídico tributário</mark>”.</p>
+    </blockquote>
+    <blockquote class="norm">
+      <span class="src">STF · Tribunal Pleno · RE 194.382 · Rel. Min. Maurício Corrêa</span>
+      <p>“Legitimidade do regime de substituição tributária, dado que a cobrança antecipada do ICMS por meio de estimativa <mark>‘constitui simples recolhimento cautelar</mark> enquanto não há o negócio jurídico de circulação […]’”.</p>
+    </blockquote>
+    <p class="mut">O RE 362.231/SP-AgR (2ª T., Rel. Min. Carlos Velloso), citado na aula, registra que o Plenário da Corte deu pela legitimidade do regime, com precedente no RE 213.396/SP.</p>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>Quem recolhe × quem arca.</b> A obrigação de recolher o ICMS-ST é do <b>substituto</b>. O ônus do imposto é do <b>substituído</b>. A banca troca os dois (CESGRANRIO, Transpetro 2011: só o item "o recolhimento incide sobre o substituto" estava certo).</li>
+        <li><b>Nomes cruzados.</b> Para trás = regressiva = diferimento = operações antecedentes. Para frente = progressiva = operações subsequentes. Laticínio que recolhe o ICMS dos produtores de leite é substituição <b>para trás</b> (FUNCERN 2024; CESPE/Cebraspe, SEFAZ-AC 2024).</li>
+        <li><b>Termos inventados.</b> "Substituição vetorial" não existe na legislação (FUNCERN 2024).</li>
+        <li><b>Base constitucional.</b> A substituição para frente (progressiva) tem previsão expressa na CF, no art. 150, §7º (CESPE, AGU 2015).</li>
+        <li><b>Regressiva = diferimento.</b> Em substituição regressiva, o destinatário nas operações com diferimento é o substituto (CESPE, SEFAZ/AL 2002, item certo).</li>
+        <li><b>Duas normas.</b> Na ST há a norma impositiva, que liga o fisco ao contribuinte, e uma norma de colaboração, que atribui a um terceiro o dever de recolher (FGV, Câmara dos Deputados 2023, item verdadeiro).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 2 ========== -->
+<section class="sec green" id="s2">
+  <div class="sec-head"><span class="num">2</span><div><h2>Responsabilidade na substituição tributária</h2><div class="ref">LC 87/96, art. 6º, caput, §1º e §2º · CF art. 155, §2º, XII, b</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>A Lei Kandir dá as regras gerais; quem institui a substituição tributária, e para quais mercadorias, é a lei de cada Estado.</p></div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 6º</span>
+      <p>“<mark>Lei estadual poderá atribuir a</mark> contribuinte do imposto ou a depositário a qualquer título <mark>a responsabilidade pelo seu pagamento</mark>, hipótese em que assumirá a condição de <mark>substituto tributário</mark>.”</p>
+    </blockquote>
+
+    <div class="concept">
+      <h3>Lendo o art. 6º passo a passo</h3>
+      <ol>
+        <li><b>“poderá”</b>: cada Unidade da Federação tem a <b>faculdade</b> de instituir a substituição tributária.</li>
+        <li><b>“Lei estadual”</b>: o instrumento é a lei do Estado.</li>
+        <li><b>“contribuinte do imposto ou depositário a qualquer título”</b>: o terceiro eleito pode ser um dos dois.</li>
+        <li><b>“substituto tributário”</b>: é o nome que esse terceiro passa a ter.</li>
+      </ol>
+    </div>
+
+    <div class="dg green">
+      <h4>Quem pode ser eleito substituto</h4>
+      <div class="tree">
+        <div class="root">Substituto tributário</div>
+        <div class="kids">
+          <div class="kid">Contribuinte do imposto (ICMS)</div>
+          <div class="kid">Depositário a qualquer título</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>A substituição não é benefício fiscal</h3>
+      <p>Ela é só uma sistemática de arrecadação. O tributo continua sendo pago normalmente, sem dispensa. Por isso <b>não se exige convênio</b> para que o Estado a institua por lei. O STJ aplicou essa ideia ao diferimento:</p>
+    </div>
+    <blockquote class="norm">
+      <span class="src">STJ · 1ª Seção · EREsp 1.119.205/MG · Rel. Min. Benedito Gonçalves · DJe 08/11/2010</span>
+      <p>“O diferimento tributário não constituiu um benefício fiscal, até porque <mark>não há dispensa do pagamento do tributo</mark> (como ocorre com a isenção ou com a não incidência), mas <mark>técnica de arrecadação</mark> que visa otimizar tarefas típicas do fisco, de fiscalizar e arrecadar tributos.”</p>
+    </blockquote>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 6º, §1º</span>
+      <p>“A responsabilidade poderá ser atribuída em relação ao imposto incidente sobre uma ou mais operações ou prestações, sejam <mark>antecedentes</mark>, <mark>concomitantes</mark> ou <mark>subsequentes</mark>, <b>inclusive ao valor decorrente da diferença entre alíquotas interna e interestadual</b> nas operações e prestações que destinem bens e serviços a consumidor final localizado em outro Estado, que seja contribuinte do imposto.”</p>
+    </blockquote>
+
+    <div class="dg green">
+      <h4>As três modalidades e as operações que o art. 6º, §1º alcança</h4>
+      <div class="tree">
+        <div class="root">Substituição tributária</div>
+        <div class="kids">
+          <div class="kid pair"><b>Para trás</b><span class="ar2">→</span><span class="res">pelas operações antecedentes</span></div>
+          <div class="kid pair"><b>Pura</b><span class="ar2">→</span><span class="res">pelas operações concomitantes</span></div>
+          <div class="kid pair"><b>Para frente</b><span class="ar2">→</span><span class="res">pelas operações subsequentes</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>O DIFAL: a hipótese que fica fora das três modalidades</h3>
+      <p>Além das três modalidades, o §1º acrescenta uma hipótese distinta: a ST sobre o <b>valor da diferença entre a alíquota interna e a interestadual (DIFAL)</b>, quando a operação interestadual destina bens ou serviços a <b>consumidor final contribuinte</b> do ICMS.</p>
+      <p><b>Regra geral:</b> o próprio destinatário contribuinte é o responsável pelo recolhimento do DIFAL. <b>Exceção expressa:</b> a legislação pode transferir a responsabilidade ao <b>remetente</b>, que recolhe o DIFAL como substituto tributário. É a principal fonte de confusão entre os candidatos.</p>
+    </div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 6º, §2º</span>
+      <p>“A atribuição de responsabilidade <mark>dar-se-á</mark> em relação a mercadorias, bens ou serviços previstos <mark>em lei de cada Estado</mark>.”</p>
+    </blockquote>
+    <blockquote class="norm">
+      <span class="src">CF/88, art. 155, §2º, XII</span>
+      <p>“cabe à lei complementar: […] b) dispor sobre substituição tributária;”</p>
+    </blockquote>
+
+    <div class="two">
+      <div class="concept"><h3>Lei Kandir</h3><p>Lei complementar. Traz as <b>disposições gerais</b> sobre a substituição tributária, como a CF mandou.</p></div>
+      <div class="concept"><h3>Legislação estadual</h3><p>Lei de cada Estado. É ela que <b>institui</b> a substituição tributária e diz quais mercadorias entram.</p></div>
+    </div>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>Instrumento.</b> Quem atribui a condição de substituto é a <b>lei estadual</b>. No diferimento, o único instrumento legislativo necessário é a lei estadual: não há convênio do CONFAZ (FCC, SEFAZ/SP 2009, alternativa correta: a ST "não caracteriza benefício fiscal, não necessitando de convênio").</li>
+        <li><b>Quem pode ser substituto.</b> Contribuinte do imposto <b>ou</b> depositário a qualquer título (Fundatec, PGE/SP 2023). Não é só "industrial ou importador".</li>
+        <li><b>DIFAL.</b> A regra é o destinatário contribuinte responder; o remetente só responde se a legislação assim atribuir.</li>
+        <li><b>Natureza.</b> Diferimento não é isenção, nem suspensão do pagamento, nem benefício fiscal. A obrigação não muda; muda quem recolhe e quando.</li>
+        <li><b>Quem institui.</b> A Lei Kandir não institui o regime: ela dispõe sobre ele. Quem institui são as leis estaduais.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 3 ========== -->
+<section class="sec olive" id="s3">
+  <div class="sec-head"><span class="num">3</span><div><h2>Especificidades do diferimento</h2><div class="ref">LC 87/96, art. 7º e art. 8º, §1º · substituição pelas operações antecedentes</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>No diferimento o imposto da etapa anterior é pago depois: na entrada da mercadoria, na saída subsequente ou quando algum evento impedir a saída.</p></div>
+
+    <div class="concept">
+      <h3>Regra geral × diferimento</h3>
+      <p>A regra geral é que o fato gerador do ICMS ocorre na <b>saída</b> da mercadoria do estabelecimento do contribuinte. Na substituição pelas operações antecedentes (o <b>diferimento</b>), a Lei Kandir considera fato gerador também a <b>entrada</b> da mercadoria no estabelecimento do adquirente, ou em outro que ele indicar.</p>
+    </div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 7º</span>
+      <p>“Para efeito de exigência do imposto por substituição tributária, <b>inclui-se, também, como fato gerador do imposto</b>, <mark>a entrada de mercadoria ou bem no estabelecimento do adquirente ou em outro por ele indicado</mark>.”</p>
+    </blockquote>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 8º, §1º</span>
+      <p>“Na hipótese de responsabilidade tributária em relação às <mark>operações ou prestações antecedentes</mark>, o <b>imposto</b> devido pelas referidas operações ou prestações <b>será pago</b> pelo responsável, <mark>quando</mark>:</p>
+      <p>I – <mark>da entrada</mark> ou recebimento da mercadoria, do bem ou do serviço;</p>
+      <p>II – <mark>da saída</mark> subsequente por ele promovida, ainda que isenta ou não tributada;</p>
+      <p>III – ocorrer qualquer saída ou evento que impossibilite a ocorrência do fato determinante do pagamento do imposto.”</p>
+    </blockquote>
+
+    <div class="dg olive">
+      <h4>Os três momentos do pagamento do ICMS diferido</h4>
+      <div class="tree">
+        <div class="root">Momento do pagamento do ICMS diferido</div>
+        <div class="kids">
+          <div class="kid"><b>I · Da entrada</b> ou recebimento da mercadoria, do bem ou do serviço.</div>
+          <div class="kid"><b>II · Da saída subsequente</b> por ele promovida, <b>ainda que isenta ou não tributada</b>.</div>
+          <div class="kid"><b>III · Qualquer saída ou evento</b> que impossibilite a ocorrência do fato determinante do pagamento.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>Os três momentos com o exemplo do leite</h3>
+      <p>Um laticínio é substituto pelas compras de leite de pequenos produtores rurais. A <b>legislação local</b> escolhe em qual dos três momentos o imposto diferido é pago.</p>
+      <ol>
+        <li><b>Entrada.</b> Se a lei local mandar pagar na entrada, o laticínio recolhe o ICMS diferido no momento em que recebe o leite.</li>
+        <li><b>Saída subsequente.</b> Se a lei local mandar pagar na saída, o laticínio recolhe o diferido quando revende o leite, <b>seja a revenda tributada, isenta ou não tributada</b>. Se a saída for regularmente tributada, ele recolhe o ICMS do diferimento <b>e</b> o ICMS da operação própria.</li>
+        <li><b>Evento que impeça o fato gerador.</b> O leite armazenado perece e não pode ser revendido. Não haverá saída, mas o ICMS do diferimento tem que ser pago nesse momento.</li>
+      </ol>
+    </div>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>“Ainda que isenta ou não tributada.”</b> O ICMS diferido é pago na saída subsequente mesmo que a saída não seja tributada. Uma alternativa dizendo "só quando a saída for tributada" está errada.</li>
+        <li><b>Quem escolhe o momento.</b> A Lei Kandir prevê três momentos possíveis; a legislação local define qual vale.</li>
+        <li><b>Entrada também é fato gerador</b> para fins de exigir o imposto por ST (art. 7º). A saída do estabelecimento continua sendo a regra geral para as demais operações.</li>
+        <li><b>Não é benefício.</b> Quem diz que o diferimento é "espécie de suspensão", "isenção em etapas iniciais" ou "benefício que depende de convênio do CONFAZ" erra (FCC, SEFAZ/SP 2009).</li>
+        <li><b>Quem é o substituto.</b> Em regressiva, o destinatário que fica com o pagamento (a cooperativa, o laticínio) é o substituto; o produtor é o substituído.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 4 ========== -->
+<section class="sec amber" id="s4">
+  <div class="sec-head"><span class="num">4</span><div><h2>Base de cálculo e cálculo do ICMS-ST</h2><div class="ref">LC 87/96, art. 8º, caput, incisos I e II, §§2º a 6º · art. 13, §2º</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>Nas operações antecedentes e concomitantes a base é o valor da operação do substituído; nas subsequentes a base é uma soma que termina na MVA, e o ICMS-ST é essa base vezes a alíquota interna do destino, menos o ICMS próprio.</p></div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 8º</span>
+      <p>“A base de cálculo, para fins de substituição tributária, será:</p>
+      <p>I - em relação às <mark>operações ou prestações antecedentes ou concomitantes</mark>, o <mark>valor da operação ou prestação praticado pelo contribuinte substituído</mark>;</p>
+      <p>II - em relação às operações ou prestações <mark>subsequentes</mark>, obtida pelo <mark>somatório das parcelas</mark> seguintes:</p>
+      <p>a) o valor da operação ou prestação própria realizada pelo substituto tributário ou pelo substituído intermediário;</p>
+      <p>b) o montante dos valores de seguro, de frete e de outros encargos cobrados ou transferíveis aos adquirentes ou tomadores de serviço;</p>
+      <p>c) a margem de valor agregado, inclusive lucro, relativa às operações ou prestações subsequentes.”</p>
+    </blockquote>
+
+    <h3 class="sub">Operações antecedentes ou concomitantes</h3>
+    <div class="concept">
+      <p>Aqui a base é simples: o <b>valor da operação praticado pelo contribuinte substituído</b>. Se um produtor rural vende a safra por R$ 30.000,00 a uma cooperativa que o substitui, a base de cálculo da ST é R$ 30.000,00. Não entra MVA.</p>
+    </div>
+
+    <h3 class="sub">Operações subsequentes</h3>
+    <div class="concept">
+      <p>Quem recolhe por substituição paga o imposto de operações <b>futuras</b>, e ainda não se sabe por quanto a mercadoria será vendida. Por isso a lei fixa uma base prévia, partindo do que o substituto já conhece: o valor da <b>sua própria operação</b>. Sobre esse valor entram os encargos cobrados do adquirente e, por fim, a <b>MVA</b>, uma porcentagem determinada pelas Secretarias da Fazenda das UFs para produtos, serviços ou grupos de produtos.</p>
+    </div>
+
+    <div class="formula amber">
+      <span class="fl">Fórmula · base de cálculo da ST (operações subsequentes, via MVA)</span>
+      <div class="eq">BC-ST <span class="op">=</span> ( BC<sub>própria</sub> <span class="op">+</span> frete <span class="op">+</span> seguro <span class="op">+</span> outros encargos ) <span class="op">×</span> ( 1 <span class="op">+</span> MVA )</div>
+      <dl class="vars">
+        <dt>BC<sub>própria</sub></dt><dd>valor da operação própria do substituto (ou do substituído intermediário).</dd>
+        <dt>frete, seguro, outros encargos</dt><dd>só os <b>cobrados ou transferíveis ao adquirente</b>. Encargos que não são cobrados do adquirente ficam de fora.</dd>
+        <dt>MVA</dt><dd>margem de valor agregado, <b>inclusive lucro</b>, em forma de percentual (0,50 para 50%). Em algumas questões vem como valor em reais; nesse caso soma-se em vez de multiplicar.</dd>
+        <dt>Condição</dt><dd>vale quando a base é definida pelo método da MVA. As outras três formas de base estão mais abaixo.</dd>
+      </dl>
+    </div>
+
+    <div class="concept">
+      <h3>Exemplo numérico: base ST pela MVA</h3>
+      <p>Indústria vende por R$ 10.000,00 e cobra R$ 2.000,00 de seguro. MVA de 50%.</p>
+      <ol>
+        <li>Soma da operação própria e do encargo: <span class="m">10.000 + 2.000 = 12.000</span>.</li>
+        <li>Aplica a MVA: <span class="m">12.000 × (1 + 0,50) = 12.000 × 1,5 = 18.000</span>.</li>
+      </ol>
+      <p>A base ST é R$ 18.000,00. Não se sabe se a mercadoria será de fato vendida por esse valor; ele só serve de base.</p>
+    </div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 8º, §4º</span>
+      <p>“A margem a que se refere a alínea c do inciso II do caput será <mark>estabelecida com base em preços usualmente praticados no mercado</mark> considerado, obtidos por levantamento, ainda que por amostragem ou através de informações e outros elementos fornecidos por entidades representativas dos respectivos setores, <mark>adotando-se a média ponderada dos preços coletados</mark>, devendo os critérios para sua fixação ser previstos em lei.”</p>
+    </blockquote>
+    <p>A MVA não é arbitrária. Vem de <b>levantamento de preços usualmente praticados</b> (mesmo por amostragem ou por informações de entidades do setor), com <b>média ponderada</b>, e os <b>critérios</b> para fixá-la são previstos <b>em lei</b> de cada UF. Para calcular, basta receber a MVA pronta.</p>
+
+    <h3 class="sub">As quatro formas de definir a base nas operações subsequentes</h3>
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 8º, §§2º, 3º e 6º</span>
+      <p>§2º “Tratando-se de mercadoria ou serviço cujo preço final a consumidor, <mark>único ou máximo</mark>, seja fixado por órgão público competente, a base de cálculo do imposto, para fins de substituição tributária, <b>é o referido preço</b> por ele estabelecido.”</p>
+      <p>§3º “Existindo preço final a consumidor <mark>sugerido pelo fabricante ou importador</mark>, <b>poderá a lei estabelecer</b> como base de cálculo este preço.”</p>
+      <p>§6º “Em substituição ao disposto no inciso II do caput, a base de cálculo em relação às operações ou prestações subsequentes <b>poderá ser</b> o <mark>preço a consumidor final usualmente praticado no mercado</mark> considerado, relativamente ao serviço, à mercadoria ou sua similar, em condições de livre concorrência, adotando-se para sua apuração as regras estabelecidas no § 4º deste artigo.”</p>
+    </blockquote>
+
+    <div class="dg amber">
+      <h4>Qual base usar? Árvore de decisão</h4>
+      <div class="decide">
+        <div class="qbox">Existe preço final ao consumidor, único ou máximo, fixado por órgão público competente?</div>
+        <div class="branches">
+          <div class="br2 yes">
+            <span class="lbl">SIM · art. 8º, §2º</span>
+            <div class="orow"><span class="st">Será</span><span>A base <b>é</b> esse preço. Tem preferência sobre todas as outras.</span></div>
+          </div>
+          <div class="br2 no">
+            <span class="lbl">NÃO · a lei estadual escolhe</span>
+            <div class="orow"><span class="st">Regra geral</span><span>Operação própria + seguro, frete e outros encargos + MVA (art. 8º, II).</span></div>
+            <div class="orow"><span class="st">Poderá</span><span>Preço final ao consumidor sugerido pelo fabricante ou importador, se a lei estabelecer (§3º).</span></div>
+            <div class="orow"><span class="st">Poderá</span><span>Preço ao consumidor final usualmente praticado no mercado, em livre concorrência (§6º).</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">Pense no iogurte com "preço sugerido" impresso na embalagem: a lei pode adotar esse preço como base, mesmo que o caixa do mercado cobre mais.</p>
+    </div>
+
+    <h3 class="sub">O imposto devido por substituição (ICMS-ST)</h3>
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 8º, §5º</span>
+      <p>“O imposto a ser pago por substituição tributária, na hipótese do inciso II do caput, <mark>corresponderá à diferença</mark> entre o valor resultante da aplicação da <mark>alíquota prevista para as operações ou prestações internas do Estado de destino</mark> sobre a respectiva base de cálculo e o <mark>valor do imposto devido pela operação ou prestação própria do substituto</mark>.”</p>
+    </blockquote>
+
+    <div class="formula amber">
+      <span class="fl">Fórmula · ICMS-ST (operações subsequentes)</span>
+      <div class="eq">ICMS-ST <span class="op">=</span> BC-ST <span class="op">×</span> alíq<sub>interna do destino</sub> <span class="op">−</span> ICMS<sub>próprio</sub></div>
+      <div class="eq">
+        ICMS-ST <span class="op">=</span>
+        <span class="grp"><span>( 1 + MVA ) × ( BC<sub>própria</sub> + encargos )</span><span class="br"></span><i>BC-ST</i></span>
+        <span class="op">×</span> alíq <span class="op">−</span> ICMS<sub>próprio</sub>
+      </div>
+      <dl class="vars">
+        <dt>BC-ST</dt><dd>base de cálculo para fins de ST, calculada acima.</dd>
+        <dt>alíq<sub>interna</sub></dt><dd>alíquota das operações <b>internas do Estado de destino</b>, a da revenda futura. Nunca a interestadual.</dd>
+        <dt>ICMS<sub>próprio</sub></dt><dd>imposto da operação própria do substituto, como se a operação não tivesse ST: <span class="m">BC<sub>própria</sub> × alíquota da própria operação</span>. É subtraído, e por isso a não cumulatividade se mantém.</dd>
+        <dt>Condição</dt><dd>vale para a ST pelas operações subsequentes (art. 8º, II).</dd>
+      </dl>
+    </div>
+
+    <div class="dg amber">
+      <h4>A conta em 3 passos</h4>
+      <div class="flow">
+        <div class="fs"><span class="n">1</span><b>ICMS próprio</b><br>BC<sub>própria</sub> × alíquota da operação própria.</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">2</span><b>BC-ST</b><br>(BC<sub>própria</sub> + encargos) × (1 + MVA).</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">3</span><b>ICMS-ST</b><br>BC-ST × alíquota interna do destino − ICMS próprio.</div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>Exemplo 1 resolvido: seguro cobrado do adquirente</h3>
+      <p>Indústria de SP vende por R$ 10.000,00, cobra R$ 2.000,00 de seguro. MVA de 50%. Alíquota de 25% na venda e na revenda.</p>
+      <ol>
+        <li>ICMS próprio: o seguro integra a base própria, então <span class="m">BC = 12.000</span> e <span class="m">12.000 × 25% = 3.000</span>.</li>
+        <li>BC-ST: <span class="m">12.000 × 1,5 = 18.000</span>.</li>
+        <li>ICMS-ST: <span class="m">18.000 × 25% − 3.000 = 4.500 − 3.000 = 1.500</span>.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub">IPI e frete: o que entra em cada base</h3>
+    <div class="concept">
+      <p>Em todos os exemplos abaixo: venda de R$ 10.000,00, MVA de 50%, alíquota de 25%, adquirente contribuinte que vai revender. O que muda é o encargo cobrado.</p>
+    </div>
+
+    <div class="dg amber">
+      <h4>ICMS total sobre a BC-ST = ICMS próprio + ICMS-ST (escala: R$ 4.500 = barra inteira)</h4>
+      <div class="key"><span style="--k:var(--blue)">ICMS próprio</span><span style="--k:var(--amber)">ICMS-ST</span></div>
+      <div class="sbars">
+        <div class="brow"><span class="l">Ex. 1</span><div><div class="sb"><i class="p" style="width:66.67%">3.000</i><i class="s" style="width:33.33%">1.500</i></div><div class="d">Seguro de R$ 2.000 cobrado do adquirente. Integra as duas bases.</div></div></div>
+        <div class="brow"><span class="l">Ex. 2</span><div><div class="sb"><i class="p" style="width:55.56%">2.500</i><i class="s" style="width:44.44%">2.000</i></div><div class="d">IPI de R$ 2.000. Fora da base própria, dentro da BC-ST.</div></div></div>
+        <div class="brow"><span class="l">Ex. 3</span><div><div class="sb"><i class="p" style="width:66.67%">3.000</i><i class="s" style="width:33.33%">1.500</i></div><div class="d">Frete de R$ 2.000 realizado pela própria indústria. Integra as duas bases.</div></div></div>
+        <div class="brow"><span class="l">Ex. 4</span><div><div class="sb"><i class="p" style="width:55.56%">2.500</i><i class="s" style="width:44.44%">2.000</i></div><div class="d">Frete de R$ 2.000 de transportadora contratada pelo adquirente. Fora da base própria, dentro da BC-ST.</div></div></div>
+      </div>
+      <p class="cap">Em todos, BC-ST = 18.000 e ICMS total = 18.000 × 25% = 4.500. A diferença está só em quanto desse total já é "ICMS próprio".</p>
+    </div>
+
+    <div class="tw amber"><table>
+      <thead><tr><th>Encargo ou situação</th><th>Base do ICMS próprio</th><th>BC-ST</th></tr></thead>
+      <tbody>
+        <tr><th>IPI (operação entre contribuintes, produto para industrialização ou comercialização, FG dos dois impostos)</th><td>Não integra (art. 13, §2º)</td><td>Integra, por ser encargo cobrado do adquirente</td></tr>
+        <tr><th>Seguro cobrado do adquirente</th><td>Integra</td><td>Integra</td></tr>
+        <tr><th>Frete realizado pela própria indústria (remetente)</th><td>Integra</td><td>Integra</td></tr>
+        <tr><th>Frete de terceiro contratado pelo adquirente (como tratado na aula)</th><td>Não integra</td><td>Integra</td></tr>
+        <tr><th>Frete sem informação sobre quem realizou (enunciado omisso)</th><td>Integra (a aula o trata como realizado pelo prestador ou por sua conta e risco)</td><td>Integra</td></tr>
+        <tr><th>Retirada pelo adquirente em veículo próprio (venda FOB); combustível gasto</th><td>Não é frete, não entra</td><td>Não entra</td></tr>
+        <tr><th>Outros encargos que não são cobrados do adquirente</th><td>Não entram</td><td>Não entram</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">Deslize a tabela para o lado se estiver em tela pequena.</p>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 13, §2º</span>
+      <p>“<mark>Não integra a base de cálculo</mark> do imposto o montante do Imposto sobre Produtos Industrializados, quando a operação, realizada <mark>entre contribuintes</mark> e relativa a produto destinado à <mark>industrialização ou à comercialização</mark>, configurar <mark>fato gerador de ambos os impostos</mark>.”</p>
+    </blockquote>
+    <div class="concept">
+      <h3>As três condições para o IPI ficar fora da base própria</h3>
+      <ol>
+        <li>A operação é realizada <b>entre contribuintes</b>.</li>
+        <li>O produto é destinado à <b>industrialização ou à comercialização</b>.</li>
+        <li>A operação configura <b>fato gerador dos dois impostos</b> (ICMS e IPI).</li>
+      </ol>
+      <p>Se alguma falhar, o IPI integra a base do ICMS próprio. Na ST, o IPI sempre entra na BC-ST, porque todo encargo cobrado do adquirente integra essa base.</p>
+    </div>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>A MVA não é uma das quatro bases.</b> Ela é uma <b>parcela</b> da primeira forma de base (Fundatec, SEFAZ/RS 2014, item errado: "A MVA é uma das bases de cálculo da ST"). As quatro são: soma com MVA, preço fixado por órgão público, preço sugerido, preço usual de mercado.</li>
+        <li><b>Preço sugerido é "poderá".</b> Dizer que a base será, "caso exista", o preço sugerido pelo fabricante está errado (FGV, SEFAZ/RJ 2009). Dizer que será "obrigatoriamente" o preço sugerido, na falta de preço fixado, também (FCC, TJ/RS 2017).</li>
+        <li><b>Só o preço fixado por órgão público tem preferência.</b> Havendo os dois, a lei não escolhe: vale o fixado (FCC, SEFAZ-SP 2026, alternativa c errada).</li>
+        <li><b>Palavras limitativas.</b> "Só pode", "somente", "exclusivamente", "não pode utilizar levantamentos": a lei admite várias formas, então essas afirmativas costumam estar erradas (FCC, TJ/RS 2017).</li>
+        <li><b>Concomitantes e antecedentes não têm MVA.</b> Dizer que a base concomitante é acrescida de MVA, ou que a antecedente soma operação própria do substituto, seguro e frete, está errado (FCC, SEFAZ-SP 2026; FCC, CL/DF 2018).</li>
+        <li><b>Alíquota do ICMS-ST.</b> Usa-se a das operações <b>internas do Estado de destino</b>, não a interestadual (FGV, SEAD/AP 2010).</li>
+        <li><b>MVA inclui o lucro.</b> "Excluído o lucro" está errado. A MVA é fixada por <b>média ponderada</b> (não por média dos maiores valores) e não há dedução de descontos por quantidade nem "a que for menor" (FCC, SEFAZ/BA 2019; FCC, SEFAZ/MA 2016).</li>
+        <li><b>Preço mínimo de pauta</b> fixado pela Secretaria da Fazenda <b>não existe</b> como base de ST (FCC, SEFAZ/SP 2013).</li>
+        <li><b>Preço de mercado (§6º) já é base fechada.</b> Não se acrescenta nova margem fixada pela autoridade (FCC, SEFAZ-SP 2026, alternativa e errada).</li>
+        <li><b>Não cumulatividade.</b> Na ST para frente o princípio é respeitado, justamente porque se subtrai o ICMS próprio (FGV, SEFAZ/RJ 2009, item certo).</li>
+        <li><b>Retirada em veículo próprio não é frete.</b> O combustível gasto pelo adquirente não entra na base (FCC, SEFAZ/PE 2015).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 5 ========== -->
+<section class="sec purple" id="s5">
+  <div class="sec-head"><span class="num">5</span><div><h2>Restituição do ICMS recolhido antecipadamente</h2><div class="ref">LC 87/96, art. 10, caput, §1º e §2º · CF art. 150, §7º · STF, RE 593.849 (Tema 201)</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>Se o fato gerador presumido não acontece, o substituído recupera o imposto pago antecipadamente; e, desde 2016, o STF também admite restituir a diferença quando o preço real fica abaixo da base presumida.</p></div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 10</span>
+      <p>“É assegurado ao contribuinte <mark>SUBSTITUÍDO</mark> o direito à <mark>restituição do valor do imposto pago por força da substituição tributária</mark>, correspondente ao <mark>fato gerador presumido que não se realizar</mark>.</p>
+      <p>§ 1º Formulado o pedido de restituição e não havendo deliberação no prazo de <mark>noventa dias</mark>, o contribuinte substituído <mark>poderá se creditar</mark>, em sua escrita fiscal, do valor objeto do pedido, devidamente atualizado segundo os mesmos critérios aplicáveis ao tributo.</p>
+      <p>§ 2º Na hipótese do parágrafo anterior, sobrevindo <mark>decisão contrária irrecorrível</mark>, o contribuinte substituído, no prazo de <mark>quinze dias</mark> da respectiva notificação, procederá ao <mark>estorno dos créditos lançados</mark>, também devidamente atualizados, com o pagamento dos acréscimos legais cabíveis.”</p>
+    </blockquote>
+
+    <div class="concept">
+      <h3>Quem recolhe e quem recebe de volta</h3>
+      <p>O substituto recolhe antecipadamente o imposto que seria devido pelo substituído. Esse recolhimento se apoia na <b>presunção</b> de que a operação subsequente tributada vai ocorrer. Se ela não ocorre, o direito à restituição é do <b>contribuinte substituído</b>, porque foi ele quem sofreu o ônus do imposto antecipado.</p>
+      <p>Exemplo: um contribuinte compra mercadorias para revenda, já sujeitas à ST. O substituto recolheu o ICMS da operação própria e o ICMS-ST da revenda futura. Depois, o adquirente resolve usar os produtos no próprio estabelecimento. A revenda presumida não ocorreu, então ele tem direito à restituição do ICMS recolhido antecipadamente.</p>
+    </div>
+
+    <div class="dg purple">
+      <h4>O caminho do pedido e dos prazos</h4>
+      <div class="flow">
+        <div class="fs"><span class="n">1</span><b>Pedido</b><br>O substituído pede a restituição do imposto do fato gerador presumido que não ocorreu.</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">2</span><b>90 dias</b><br>O Fisco não delibera no prazo.</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">3</span><b>Crédito</b><br>O substituído pode se creditar na escrita fiscal, com valor atualizado.</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">4</span><b>Decisão contrária irrecorrível</b><br>O Fisco nega o pedido em definitivo.</div>
+        <span class="fa">→</span>
+        <div class="fs"><span class="n">5</span><b>15 dias</b><br>Contados da notificação, estorna o crédito, atualizado, mais acréscimos legais.</div>
+      </div>
+      <p class="cap">O prazo de 90 dias evita que o contribuinte fique à mercê do Fisco; a lei presume a sua boa-fé.</p>
+    </div>
+
+    <h3 class="sub">Preço real diferente do presumido</h3>
+    <div class="concept">
+      <h3>Três situações possíveis quando o imposto é retido antecipadamente</h3>
+      <ol>
+        <li><b>O fato gerador presumido não ocorre.</b> A Lei Kandir trata: art. 10, restituição.</li>
+        <li><b>A base presumida é igual à real.</b> Situação ideal, imposto recolhido corretamente; nada a fazer.</li>
+        <li><b>A base presumida é diferente da real.</b> O imposto antecipado ficou maior ou menor do que o devido. A Lei Kandir não trata este caso.</li>
+      </ol>
+      <p>Antes de 2016 o STF entendia que a diferença entre base real e presumida não gerava consequência: sem restituição se a venda fosse por valor menor, sem cobrança complementar se fosse por valor maior. Em 2016 mudou de posição para admitir a restituição do imposto pago a maior.</p>
+    </div>
+
+    <blockquote class="norm">
+      <span class="src">STF · RE 593.849 · Tema 201 (repercussão geral) · tese</span>
+      <p>“É devida a restituição da diferença do Imposto sobre Circulação de Mercadorias e Serviços (ICMS) <mark>pago a mais</mark> no regime de substituição tributária para a frente <mark>se a base de cálculo efetiva da operação for inferior à presumida</mark>.”</p>
+    </blockquote>
+
+    <div class="tw purple"><table>
+      <caption class="hint" style="text-align:left;padding:8px 12px;caption-side:top">Restituição e complementação no regime de substituição tributária</caption>
+      <thead><tr><th>Situação prática</th><th>Tratamento tributário</th><th>Consequência</th></tr></thead>
+      <tbody>
+        <tr><th>Operação subsequente não ocorre</th><td>Presunção não confirmada</td><td><b>Restituição integral</b> do ICMS-ST</td></tr>
+        <tr><th>Venda ao consumidor final por valor <b>inferior</b> ao presumido</th><td>ICMS pago a maior</td><td><b>Restituição da diferença</b></td></tr>
+        <tr><th>Venda ao consumidor final por valor <b>superior</b> ao presumido</th><td>ICMS pago a menor</td><td><b>Exigência de complementação</b>, se a legislação estadual previr</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">Deslize a tabela para o lado se estiver em tela pequena.</p>
+
+    <div class="two">
+      <div class="concept">
+        <h3>Complementação: depende do Estado</h3>
+        <p>A complementação do ICMS quando o preço real supera o presumido <b>não está prevista na Lei Kandir</b> e não foi objeto da tese do Tema 201. Ela decorre de legislações estaduais editadas depois do julgamento, que usam os mesmos fundamentos do RE 593.849. A exigência depende de previsão na legislação de cada UF.</p>
+      </div>
+      <div class="concept">
+        <h3>Quem pede e como prova</h3>
+        <p>Só o <b>contribuinte substituído que vende ao consumidor final</b> pode pedir a restituição da diferença, porque é ele quem tem os elementos da operação real.</p>
+        <p>A restituição depende de <b>comprovação do preço efetivo</b> e pode exigir <b>recomposição da apuração normal</b> do imposto do período.</p>
+      </div>
+    </div>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>Titular do direito.</b> A restituição é do <b>substituído</b>, não do substituto: "é assegurado ao responsável substituto o direito à restituição" está errado (CESPE, PGE/PI 2014). O regime de ST <b>não</b> afasta o direito à restituição (FGV, SEFAZ-PR 2025, alternativa e errada).</li>
+        <li><b>Os prazos.</b> 90 dias para o crédito, 15 dias para o estorno. O de 15 dias conta da notificação da decisão contrária <b>irrecorrível</b>. Crédito e estorno são atualizados, e o estorno vem com acréscimos legais.</li>
+        <li><b>Mudança de 2016.</b> Hoje o STF admite restituição do ICMS pago a maior quando a base efetiva é inferior à presumida (CESPE, SEFAZ/AL adaptada; FGV, ALERJ/RJ 2017, alternativa b certa; FGV, Câmara dos Deputados 2023, item verdadeiro). Dizer que a tributação é "definitiva" e não admite restituição é a posição antiga.</li>
+        <li><b>Complementação.</b> Não está na Lei Kandir; vem de lei estadual. Se a questão limita a Lei Kandir, a complementação não está prevista.</li>
+        <li><b>Uso próprio.</b> Loja que compra tintas com ST e as usa na reforma das suas instalações: não há fato gerador, <b>não emite nota fiscal</b> e tem direito ao ressarcimento do ICMS retido a favor do Estado de SP, mas <b>não se credita</b> do imposto próprio do fabricante, porque o art. 21, III, da LC 87/96 manda estornar o crédito quando a mercadoria é usada em fim alheio à atividade (FCC, SEFAZ/SP 2009, alternativa e).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 6 ========== -->
+<section class="sec red" id="s6">
+  <div class="sec-head"><span class="num">6</span><div><h2>Substituição tributária em operações interestaduais</h2><div class="ref">LC 87/96, art. 9º, caput, §1º e §2º</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>Para a substituição valer entre dois Estados é preciso acordo específico entre eles; petróleo, derivados e energia elétrica vendidos a consumidor final têm regra própria: imposto ao Estado do adquirente, pago pelo remetente.</p></div>
+
+    <blockquote class="norm">
+      <span class="src">LC 87/96, art. 9º</span>
+      <p>“A adoção do regime de substituição tributária <mark>em operações interestaduais</mark> <mark>dependerá de acordo específico celebrado pelos Estados interessados</mark>.</p>
+      <p>§ 1º A responsabilidade a que se refere o art. 6º <b>poderá ser atribuída</b>:</p>
+      <p>I - ao contribuinte que realizar operação interestadual com <mark>petróleo</mark>, inclusive lubrificantes, combustíveis líquidos e gasosos dele derivados, em relação às operações subsequentes;</p>
+      <p>II - às empresas geradoras ou distribuidoras de <mark>energia elétrica</mark>, nas operações internas e interestaduais, na condição de contribuinte ou de substituto tributário, pelo pagamento do imposto, desde a produção ou importação até a última operação, sendo seu cálculo efetuado sobre o preço praticado na operação final, assegurado seu recolhimento ao Estado onde deva ocorrer essa operação.</p>
+      <p>§ 2º Nas operações interestaduais com as mercadorias de que tratam os incisos I e II do parágrafo anterior, que tenham como destinatário <mark>consumidor final</mark>, o imposto incidente na operação será <mark>devido ao Estado onde estiver localizado o adquirente</mark> e será <mark>pago pelo remetente</mark>.”</p>
+    </blockquote>
+
+    <div class="concept">
+      <h3>O que o art. 9º diz, em ordem</h3>
+      <ol>
+        <li><b>Condição:</b> sem acordo específico entre os Estados interessados, não há ST interestadual.</li>
+        <li><b>Quem pode ser responsável:</b> o contribuinte que faz operação interestadual com petróleo (e lubrificantes e combustíveis dele derivados), em relação às operações subsequentes; e as empresas geradoras ou distribuidoras de energia elétrica.</li>
+        <li><b>Regra de destino:</b> com essas mercadorias, se o destinatário é consumidor final, o imposto é devido ao Estado onde está o adquirente, seja ele contribuinte ou não, e quem paga é o remetente.</li>
+      </ol>
+    </div>
+
+    <div class="dg red">
+      <h4>Dois impostos, duas alíquotas, dois Estados</h4>
+      <div class="two">
+        <div class="concept"><h3>Estado de origem</h3><p><b>ICMS próprio</b> = BC própria × <b>alíquota interestadual</b> da operação.</p></div>
+        <div class="concept"><h3>Estado de destino</h3><p><b>ICMS-ST</b> = BC-ST × <b>alíquota interna do destino</b> − ICMS próprio.</p></div>
+      </div>
+      <p class="cap">Caso da aula (FCC, SEFAZ/PE 2014): indústria de SP vende a revendedor de PE por R$ 15.000 mais IPI de R$ 3.000. MVA de 60%. Alíquota interestadual de 7%; alíquota interna de PE, 17%.</p>
+      <div class="key" style="margin-top:12px"><span style="--k:var(--blue)">Fica com o Estado de origem (SP)</span><span style="--k:var(--amber)">Vai ao Estado de destino (PE)</span></div>
+      <div class="sbars">
+        <div class="brow"><span class="l">Total</span><div><div class="sb"><i class="p" style="width:21.45%">1.050</i><i class="s" style="width:78.55%">3.846</i></div><div class="d">28.800 × 17% = 4.896 de ICMS sobre a BC-ST. Desse total, 1.050 é o ICMS próprio, e 3.846 é o ICMS-ST.</div></div></div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>Alíquotas interestaduais que a aula lembra</h3>
+      <p>As questões costumam informar a alíquota, mas a aula recorda que, <b>em regra</b>, a interestadual é de <b>12%</b>; de <b>7%</b> quando a mercadoria vai das regiões Sul e Sudeste para Norte, Nordeste, Centro-Oeste e Espírito Santo; e de <b>4%</b> para mercadoria proveniente do exterior.</p>
+    </div>
+
+    <div class="trap">
+      <h3>Pegadinhas</h3>
+      <ul>
+        <li><b>O que autoriza.</b> Acordo específico <b>celebrado pelos Estados interessados</b>. Não é lei complementar mais resolução do Senado (CESPE, CL/DF 2018, item errado) e não exige participação da União (Fundatec, PGE/SP 2023, alternativa e errada). O enunciado "conforme convênio firmado entre os dois Estados" está de acordo com o art. 9º (FGV, SEFAZ-PR 2025).</li>
+        <li><b>Quem recolhe.</b> Na ST para frente interestadual, o remetente (indústria, substituto) recolhe. O destinatário atacadista é o substituído (FGV, SEFAZ-PR 2025).</li>
+        <li><b>Duas alíquotas.</b> A do ICMS próprio é a interestadual (7% no caso); a do ICMS-ST é a interna do destino (17%). Usar a interna da origem (18%) na ST leva a 4.134, uma alternativa-isca (FCC, SEFAZ/PE 2014).</li>
+        <li><b>IPI.</b> Fora da base do ICMS próprio, dentro da BC-ST.</li>
+        <li><b>Não é restrita a operações internas.</b> Dizer que o ICMS-ST "não se aplica às operações interestaduais" está errado, desde que haja acordo.</li>
+        <li><b>Petróleo e energia.</b> Consumidor final: imposto ao Estado do adquirente, <b>pago pelo remetente</b>.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== SEÇÃO 7 ========== -->
+<section class="sec teal" id="s7">
+  <div class="sec-head"><span class="num">7</span><div><h2>Contas no estilo da banca, resolvidas</h2><div class="ref">Questões da aula, recalculadas passo a passo · fórmulas da seção 4</div></div></div>
+  <div class="sec-body">
+
+    <div class="one"><small>Em uma frase</small><p>A conta é sempre a mesma, em três passos; o que a banca muda são o IPI, o frete, a alíquota e os dados que não entram.</p></div>
+
+    <div class="formula teal">
+      <span class="fl">Roteiro fixo</span>
+      <div class="eq">1) ICMS<sub>próprio</sub> = BC<sub>própria</sub> × alíq<sub>da operação</sub><br>2) BC-ST = (BC<sub>própria</sub> + encargos) × (1 + MVA)<br>3) ICMS-ST = BC-ST × alíq<sub>interna do destino</sub> − ICMS<sub>próprio</sub></div>
+    </div>
+
+    <ol class="check teal">
+      <li><span><b>Qual alíquota em cada imposto?</b> Própria: a da operação (interestadual, se for interestadual). ST: a interna do destino.</span></li>
+      <li><span><b>IPI.</b> Fora da base própria se as 3 condições do art. 13, §2º forem atendidas; sempre dentro da BC-ST.</span></li>
+      <li><span><b>Frete e seguro.</b> Cobrados do adquirente: entram. Enunciado omisso sobre o frete: considerar que entra na base própria.</span></li>
+      <li><span><b>Dados de enfeite.</b> Encargo não cobrado do adquirente e combustível de retirada em veículo próprio não entram em base nenhuma.</span></li>
+    </ol>
+
+    <article class="calc teal">
+      <header><h3>Conta 1 · Base simples pela MVA</h3><span class="meta">FGV · SEFAZ-PR 2025 · gabarito A</span></header>
+      <div class="cb">
+        <p class="stmt">Indústria vende a R$ 10.000,00 a uma sociedade que ela substitui; MVA de 40%; alíquota de 15%. Qual a base de cálculo do imposto devido como substituta?</p>
+        <ol>
+          <li><span>Fórmula da base: <span class="m">BC-ST = valor da operação × (1 + MVA)</span>.</span></li>
+          <li><span>Substitui: <span class="m">10.000 × (1 + 0,40) = 10.000 × 1,4 = 14.000</span>.</span></li>
+        </ol>
+        <div class="result"><span>Base de cálculo</span><span class="big">R$ 14.000,00</span></div>
+        <div class="err"><b>Erro clássico:</b> responder o imposto em vez da base. <span class="m">14.000 × 15% = 2.100</span> é o ICMS total sobre a base, e 4.000 é só a parcela da MVA.</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 2 · IPI na base da ST</h3><span class="meta">FCC · SEFAZ/PI 2015 · gabarito C</span></header>
+      <div class="cb">
+        <p class="stmt">Comerciante de São Raimundo Nonato-PI compra, para revender a supermercados, mercadoria sujeita à ST remetida por indústria de Barras-PI. Valor da operação R$ 30.000,00; IPI de R$ 6.000,00 (total R$ 36.000,00). Alíquota interna de 25%; MVA de 35%. Quanto a indústria retém?</p>
+        <ol>
+          <li><span><b>ICMS próprio.</b> O IPI fica fora (art. 13, §2º): <span class="m">30.000 × 25% = 7.500</span>.</span></li>
+          <li><span><b>BC-ST.</b> O IPI entra: <span class="m">(1 + 0,35) × (30.000 + 6.000) = 1,35 × 36.000 = 48.600</span>.</span></li>
+          <li><span><b>ICMS-ST.</b> <span class="m">48.600 × 25% − 7.500 = 12.150 − 7.500 = 4.650</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS retido</span><span class="big">R$ 4.650,00</span></div>
+        <div class="err"><b>Erro clássico:</b> pôr o IPI na base própria (<span class="m">36.000 × 25% = 9.000</span>) dá <span class="m">12.150 − 9.000 = 3.150</span>, a alternativa d. Parar em 12.150 é esquecer de subtrair o ICMS próprio (alternativa b).</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 3 · Sem encargos</h3><span class="meta">ESAF · SEFAZ/CE 2007 (adaptada) · gabarito E</span></header>
+      <div class="cb">
+        <p class="stmt">Estabelecimento X, responsável pela retenção nas operações subsequentes, vende ao estabelecimento Y, no mesmo Estado. Margem de agregação de 20%. Operação de R$ 30.000,00; alíquota de 20%. Quanto X retém?</p>
+        <ol>
+          <li><span><b>ICMS próprio:</b> <span class="m">30.000 × 20% = 6.000</span>.</span></li>
+          <li><span><b>BC-ST</b> (sem encargos do adquirente): <span class="m">(1 + 0,20) × 30.000 = 36.000</span>.</span></li>
+          <li><span><b>ICMS-ST:</b> <span class="m">36.000 × 20% − 6.000 = 7.200 − 6.000 = 1.200</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS retido</span><span class="big">R$ 1.200,00</span></div>
+        <div class="err"><b>Erro clássico:</b> responder 7.200 (esqueceu de subtrair o ICMS próprio, alternativa b) ou 6.000 (é só o ICMS próprio, alternativa a).</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 4 · Venda FOB e combustível</h3><span class="meta">FCC · SEFAZ/PE 2015 · gabarito B</span></header>
+      <div class="cb">
+        <p class="stmt">Mercadoria com alíquota interna de 25%, vendida por substituto a revendedor no mesmo Estado. Mercadoria R$ 25.000,00 e IPI R$ 2.500,00 (total R$ 27.500,00). MVA de 60%. Venda FOB: o destinatário retirou a mercadoria com veículo próprio, com custo de combustível de R$ 200,00. Quanto é retido?</p>
+        <ol>
+          <li><span><b>ICMS próprio.</b> IPI fora; venda FOB, então não há frete na base: <span class="m">25.000 × 25% = 6.250</span>.</span></li>
+          <li><span><b>BC-ST.</b> O IPI entra; o combustível de retirada em veículo próprio <b>não é frete</b> e não entra: <span class="m">1,6 × (25.000 + 2.500) = 44.000</span>.</span></li>
+          <li><span><b>ICMS-ST.</b> <span class="m">44.000 × 25% − 6.250 = 11.000 − 6.250 = 4.750</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS retido</span><span class="big">R$ 4.750,00</span></div>
+        <div class="err"><b>Erro clássico:</b> somar o combustível: <span class="m">1,6 × 27.700 = 44.320</span>, que dá <span class="m">11.080 − 6.250 = 4.830</span>, a alternativa d.</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 5 · IPI e frete já incluso</h3><span class="meta">FCC · SEFAZ/SP 2009 · gabarito C</span></header>
+      <div class="cb">
+        <p class="stmt">Loja de Socorro-SP compra de fabricante de São Bernardo do Campo-SP: R$ 20.000,00 mais IPI de R$ 3.000,00; frete de R$ 1.000,00 já incluso no preço. IVA-ST de 35%; alíquotas internas de SP e MG de 18%; sem isenção nem redução de base. Quanto a fábrica retém?</p>
+        <ol>
+          <li><span><b>ICMS próprio.</b> Frete já está nos R$ 20.000 e o IPI fica fora: <span class="m">20.000 × 18% = 3.600</span>.</span></li>
+          <li><span><b>BC-ST.</b> <span class="m">1,35 × (20.000 + 3.000) = 31.050</span>.</span></li>
+          <li><span><b>ICMS-ST.</b> <span class="m">31.050 × 18% − 3.600 = 5.589 − 3.600 = 1.989</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS retido</span><span class="big">R$ 1.989,00</span></div>
+        <div class="err"><b>Erros clássicos:</b> IPI na base própria (<span class="m">23.000 × 18% = 4.140</span>) leva a <span class="m">5.589 − 4.140 = 1.449</span>; IPI fora da BC-ST (<span class="m">1,35 × 20.000 = 27.000</span>) leva a <span class="m">4.860 − 3.600 = 1.260</span>. Recalculei esses dois valores; eles não aparecem na aula.</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 6 · Frete e seguro na base própria</h3><span class="meta">UEPA · SEPA/PA 2013 · gabarito D</span></header>
+      <div class="cb">
+        <p class="stmt">Fabricante de pneus no Pará vende 100 pneus a R$ 50,00 cada a contribuinte do Pará, para comercialização. IPI de R$ 1.000,00; frete de R$ 300,00 e seguro de R$ 200,00 cobrados do destinatário. Sem tabela oficial de preço final. MVA de 60%; alíquota interna de 17%. Quanto a fábrica recolhe por ST?</p>
+        <ol>
+          <li><span><b>ICMS próprio.</b> Base = <span class="m">100 × 50 + 300 + 200 = 5.500</span> (IPI fora). <span class="m">5.500 × 17% = 935</span>.</span></li>
+          <li><span><b>BC-ST.</b> O IPI entra: <span class="m">1,6 × (5.500 + 1.000) = 10.400</span>.</span></li>
+          <li><span><b>ICMS-ST.</b> <span class="m">10.400 × 17% − 935 = 1.768 − 935 = 833</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS-ST</span><span class="big">R$ 833,00</span></div>
+        <div class="err"><b>Erro clássico:</b> parar em 935 (só o ICMS próprio, alternativa a) ou em 1.768 (ICMS total, sem descontar o próprio, alternativa c).</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 7 · Operação interestadual</h3><span class="meta">FCC · SEFAZ/PE 2014 · gabarito B</span></header>
+      <div class="cb">
+        <p class="stmt">Indústria paulista remete a revendedor pernambucano mercadoria de R$ 15.000,00 mais IPI de R$ 3.000,00 (total R$ 18.000,00). Há acordo de ST entre os dois Estados. Alíquota interna de 18% em SP e de 17% em PE; MVA de 60%; ambas no regime normal. Quanto se retém do destinatário?</p>
+        <ol>
+          <li><span><b>ICMS próprio</b> (interestadual para o Nordeste: 7%). IPI fora: <span class="m">15.000 × 7% = 1.050</span>.</span></li>
+          <li><span><b>BC-ST.</b> <span class="m">1,6 × (15.000 + 3.000) = 28.800</span>.</span></li>
+          <li><span><b>ICMS-ST</b> com a alíquota interna <b>de PE</b>: <span class="m">28.800 × 17% − 1.050 = 4.896 − 1.050 = 3.846</span>.</span></li>
+        </ol>
+        <div class="result"><span>ICMS-ST</span><span class="big">R$ 3.846,00</span></div>
+        <div class="err"><b>Erro clássico:</b> usar os 18% de SP na ST: <span class="m">28.800 × 18% − 1.050 = 4.134</span>, a alternativa c. Parar em 4.896 é esquecer de descontar o ICMS próprio (alternativa a).</div>
+      </div>
+    </article>
+
+    <article class="calc teal">
+      <header><h3>Conta 8 · Interestadual com redução de base</h3><span class="meta">FCC · SEFAZ/SP 2013, itens II e III · gabarito A</span></header>
+      <div class="cb">
+        <p class="stmt">Margem de valor agregado de 40%, mercadorias nacionais, alíquota interna de SP de 18%. <b>Item II:</b> atacadista mineiro vende a varejista paulista 3 unidades a R$ 50,00, com frete já incluso no preço. <b>Item III:</b> fabricante paulista vende a varejista paulista 3 unidades a R$ 40,00, mais frete de R$ 12,00 e seguro de R$ 8,00, com redução de base de 2/3 nas operações internas. O enunciado não diz quem faz o frete, então ele integra a base.</p>
+        <ol>
+          <li><span><b>Item II, ICMS próprio</b> (MG para SP, interestadual de 12%): <span class="m">150 × 12% = 18,00</span>.</span></li>
+          <li><span><b>Item II, ST:</b> <span class="m">BC-ST = 1,4 × 150 = 210</span>; <span class="m">210 × 18% − 18 = 37,80 − 18,00 = 19,80</span>.</span></li>
+          <li><span><b>Item III, base própria:</b> <span class="m">3 × 40 + 12 + 8 = 140</span>. Redução de 2/3 deixa 1/3: <span class="m">140 ÷ 3 ≈ 46,67</span>. ICMS próprio: <span class="m">46,67 × 18% = 8,40</span>.</span></li>
+          <li><span><b>Item III, ST:</b> <span class="m">BC-ST = 1,4 × 46,67 ≈ 65,33</span>; <span class="m">65,33 × 18% − 8,40 = 11,76 − 8,40 = 3,36</span>.</span></li>
+        </ol>
+        <div class="result"><span>Item II</span><span class="big">R$ 19,80</span><span>Item III</span><span class="big">R$ 3,36</span></div>
+        <div class="err"><b>Erros clássicos:</b> no item II, usar 18% na operação própria (<span class="m">150 × 18% = 27</span>) dá <span class="m">37,80 − 27 = 10,80</span>; no item III, esquecer a redução dá <span class="m">196 × 18% − 25,20 = 35,28 − 25,20 = 10,08</span>. Recalculei esses dois valores; eles não aparecem na aula.</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== QUADROS ========== -->
+<section class="blk" id="quadros">
+  <h2 class="t">Quadros comparativos</h2>
+  <p class="lead">Os conceitos que a banca mais gosta de confundir, lado a lado.</p>
+  <div class="sec-body">
+
+    <div class="tw blue"><table>
+      <caption class="hint" style="text-align:left;padding:8px 12px;caption-side:top"><b>As três modalidades</b></caption>
+      <thead><tr><th></th><th>Para trás</th><th>Pura</th><th>Para frente</th></tr></thead>
+      <tbody>
+        <tr><th>Também chamada</th><td>Regressiva; diferimento</td><td>Concomitante</td><td>Progressiva</td></tr>
+        <tr><th>Operações alcançadas</th><td>Antecedentes</td><td>Concomitantes</td><td>Subsequentes</td></tr>
+        <tr><th>Imposto recolhido</th><td>Depois do fato gerador</td><td>No momento do fato gerador</td><td>Antes do fato gerador (presumido)</td></tr>
+        <tr><th>Quem recolhe</th><td>Destinatário (cooperativa, laticínio)</td><td>Tomador (serviço de transporte)</td><td>Remetente (indústria)</td></tr>
+        <tr><th>Exemplo da aula</th><td>Cooperativa e produtores rurais</td><td>Tomador do serviço de transporte</td><td>Indústria de bebidas, distribuidoras e bares</td></tr>
+        <tr><th>Base de cálculo (art. 8º)</th><td>Valor da operação do substituído (inciso I)</td><td>Valor da operação do substituído (inciso I)</td><td>Soma com MVA (inciso II), ou preço fixado, sugerido ou de mercado (§§2º, 3º e 6º)</td></tr>
+        <tr><th>Ponto de atenção</th><td>Pagamento na entrada, na saída ou em evento que impeça o FG (art. 8º, §1º)</td><td>Sem MVA</td><td>Previsão expressa na CF, art. 150, §7º; restituição se o FG presumido não ocorre (art. 10)</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="tw amber"><table>
+      <caption class="hint" style="text-align:left;padding:8px 12px;caption-side:top"><b>As quatro formas de base nas operações subsequentes</b></caption>
+      <thead><tr><th>Forma</th><th>Onde está</th><th>Obrigatória?</th><th>Detalhe</th></tr></thead>
+      <tbody>
+        <tr><th>Operação própria + seguro, frete e outros encargos + MVA</th><td>Art. 8º, II</td><td>Regra geral</td><td>MVA por levantamento de preços, com média ponderada (§4º)</td></tr>
+        <tr><th>Preço final ao consumidor, único ou máximo, fixado por órgão público</th><td>Art. 8º, §2º</td><td>Sim: “é o referido preço”</td><td>Única forma com preferência sobre as demais</td></tr>
+        <tr><th>Preço final ao consumidor sugerido pelo fabricante ou importador</th><td>Art. 8º, §3º</td><td>Não: “poderá a lei estabelecer”</td><td>Depende de a lei estadual adotar</td></tr>
+        <tr><th>Preço ao consumidor final usualmente praticado no mercado</th><td>Art. 8º, §6º</td><td>Não: “poderá ser”</td><td>Livre concorrência; apuração pelas regras do §4º</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="tw green"><table>
+      <caption class="hint" style="text-align:left;padding:8px 12px;caption-side:top"><b>Pares que se confundem</b></caption>
+      <thead><tr><th>Par</th><th>Diferença</th></tr></thead>
+      <tbody>
+        <tr><th>Substituto × substituído</th><td>Substituto: eleito para recolher. Substituído: teria a obrigação, arca com o ônus e é dele o direito à restituição.</td></tr>
+        <tr><th>ICMS próprio × ICMS-ST</th><td>Próprio: BC própria × alíquota da operação (interestadual, se for o caso). ST: BC-ST × alíquota interna do destino, menos o próprio.</td></tr>
+        <tr><th>Base antecedente × base subsequente</th><td>Antecedente e concomitante: valor da operação do substituído, sem MVA. Subsequente: soma da operação própria, encargos e MVA (ou outra forma do art. 8º).</td></tr>
+        <tr><th>ST interna × ST interestadual</th><td>Interna: instituída por lei estadual (art. 6º). Interestadual: depende de acordo específico entre os Estados interessados (art. 9º).</td></tr>
+        <tr><th>Diferimento × isenção ou suspensão</th><td>Diferimento: o pagamento continua devido, só que depois e por outro; não é benefício fiscal. Isenção e não incidência dispensam o pagamento.</td></tr>
+        <tr><th>Restituição do art. 10 × Tema 201</th><td>Art. 10: o fato gerador presumido não se realizou. Tema 201: o fato gerador ocorreu, mas a base efetiva ficou abaixo da presumida; restitui-se a diferença.</td></tr>
+        <tr><th>Restituição × complementação</th><td>Restituição: imposto pago a maior. Complementação: pago a menor; não está na Lei Kandir e depende de lei estadual.</td></tr>
+        <tr><th>IPI na base própria × na BC-ST</th><td>Fica fora da base própria se as 3 condições do art. 13, §2º forem atendidas; integra sempre a BC-ST como encargo cobrado do adquirente.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">Deslize as tabelas para o lado se estiver em tela pequena.</p>
+  </div>
+</section>
+
+<!-- ========== GLOSSÁRIO ========== -->
+<section class="blk" id="glossario">
+  <h2 class="t">Glossário rápido</h2>
+  <p class="lead">Termo e definição curta.</p>
+  <dl class="gl">
+    <div><dt>Substituto tributário</dt><dd>Terceiro eleito por lei estadual para recolher o imposto do substituído: contribuinte do imposto ou depositário a qualquer título.</dd></div>
+    <div><dt>Substituído</dt><dd>Quem teria a obrigação de pagar o tributo e arca com o ônus. É dele o direito à restituição.</dd></div>
+    <div><dt>ST para trás</dt><dd>Regressiva, diferimento. Imposto de operação anterior pago depois do fato gerador. Operações antecedentes.</dd></div>
+    <div><dt>ST para frente</dt><dd>Progressiva. Imposto de operações futuras pago antecipadamente, com base em fato gerador presumido. Operações subsequentes.</dd></div>
+    <div><dt>ST pura</dt><dd>Concomitante. O responsável recolhe no mesmo momento do fato gerador.</dd></div>
+    <div><dt>Fato gerador presumido</dt><dd>O que se supõe que ocorrerá na operação subsequente. Se não ocorrer, há restituição (art. 10; CF, art. 150, §7º).</dd></div>
+    <div><dt>Operações antecedentes, concomitantes e subsequentes</dt><dd>Operações que vêm antes, junto ou depois, na cadeia, da operação do substituto.</dd></div>
+    <div><dt>ICMS próprio</dt><dd>Imposto da operação do próprio substituto, calculado como se não houvesse ST. É subtraído no cálculo do ICMS-ST.</dd></div>
+    <div><dt>ICMS-ST</dt><dd>Imposto retido por substituição: BC-ST × alíquota interna do destino − ICMS próprio.</dd></div>
+    <div><dt>BC-ST</dt><dd>Base de cálculo para fins de substituição tributária.</dd></div>
+    <div><dt>MVA</dt><dd>Margem de valor agregado, inclusive lucro. Fixada a partir de levantamento de preços, com média ponderada, e critérios previstos em lei.</dd></div>
+    <div><dt>Substituído intermediário</dt><dd>O contribuinte substituído que fica no meio da cadeia, comprando para revender. Sua operação própria também pode compor a base (art. 8º, II, a).</dd></div>
+    <div><dt>Depositário a qualquer título</dt><dd>Quem tem a mercadoria em depósito. Pode ser eleito substituto (art. 6º).</dd></div>
+    <div><dt>DIFAL</dt><dd>Diferença entre alíquota interna e interestadual na operação destinada a consumidor final contribuinte. Em regra, o destinatário recolhe; a lei pode atribuir ao remetente.</dd></div>
+    <div><dt>Preço sugerido</dt><dd>Preço final ao consumidor sugerido pelo fabricante ou importador. A lei poderá adotá-lo como base (art. 8º, §3º).</dd></div>
+    <div><dt>Preço usualmente praticado</dt><dd>Preço ao consumidor final no mercado, em livre concorrência (art. 8º, §6º).</dd></div>
+    <div><dt>Acordo específico</dt><dd>Ajuste entre os Estados interessados, exigido para a ST interestadual (art. 9º).</dd></div>
+    <div><dt>Complementação</dt><dd>Exigência do imposto pago a menor quando o preço real supera o presumido. Depende da lei estadual.</dd></div>
+    <div><dt>Estorno de crédito</dt><dd>Anulação de crédito lançado. No art. 10, §2º, em 15 dias da notificação da decisão contrária irrecorrível.</dd></div>
+    <div><dt>Tema 201</dt><dd>Repercussão geral do STF (RE 593.849): restituição da diferença quando a base efetiva é inferior à presumida.</dd></div>
+  </dl>
+</section>
+
+<!-- ========== SIMULADO ========== -->
+<section class="blk" id="simulado">
+  <h2 class="t">Simulado</h2>
+  <p class="lead">20 questões de múltipla escolha, elaboradas a partir da aula. Toque em uma alternativa: ela marca certo ou errado e abre a explicação. O placar fica fixo no rodapé.</p>
+  <div id="quiz"></div>
+  <div id="final"></div>
+</section>
+
+<footer class="foot">
+  <p><b>Origem do material.</b> Aula 05 do curso Legislação Tributária Facilitada (LTF) para a SEFAZ RS, Prof. Rabelo: Lei Kandir (Parte 04), ICMS, substituição tributária. Os trechos em caixa cinza são os textos da norma reproduzidos na aula; foram conferidos com o texto da LC 87/96 no Planalto apenas por trechos curtos. As bancas e os anos citados nas pegadinhas e nas contas seguem a identificação do próprio material.</p>
+  <p>O simulado foi elaborado a partir do conteúdo da aula e não reproduz questões de prova. Guia de estudo; confirme na legislação do seu Estado antes de provas que cobrem a norma estadual.</p>
+</footer>
+
+</div><!-- /wrap -->
+
+<div class="score" role="status" aria-live="polite">
+  <span class="st">Acertos <b id="sc">0</b>/<span id="tot">20</span></span>
+  <span class="pb" aria-hidden="true"><i id="sbar"></i></span>
+  <span class="an" id="an">0 de 20 respondidas</span>
+  <button type="button" id="rs">Recomeçar</button>
+</div>
+
+<script>
+(function(){
+  var L=['A','B','C','D'];
+  var Q=[
+    {r:1,q:`Na substituição tributária, o contribuinte <b>substituído</b> é aquele que`,
+     o:[`foi eleito pela lei para recolher o imposto devido.`,
+        `teria a obrigação de pagar o tributo e arca com o ônus do imposto, sem efetuar o recolhimento.`,
+        `recolhe o ICMS-ST aos cofres do Estado.`,
+        `é sempre o consumidor final da mercadoria.`],c:1,
+     e:`O <b>substituto</b> é o eleito para recolher; o <b>substituído</b> teria a obrigação de pagar e arca com o ônus. A alternativa C descreve o substituto.`},
+    {r:1,q:`Um laticínio é obrigado por lei a recolher o ICMS devido pelos produtores de quem adquire o leite. Essa substituição é`,
+     o:[`para frente (progressiva), pelas operações subsequentes.`,
+        `pura (concomitante), pelas operações concomitantes.`,
+        `para trás (regressiva, ou diferimento), pelas operações antecedentes.`,
+        `vetorial, pois concentra a responsabilidade em um único ator.`],c:2,
+     e:`O laticínio recolhe o imposto devido por quem vem antes na cadeia, o produtor: substituição <b>para trás</b>, também chamada regressiva ou diferimento, pelas operações antecedentes. Progressiva é a para frente, e "vetorial" não existe na legislação.`},
+    {r:1,q:`A substituição tributária para frente tem fundamento no art. 150, §7º, da CF/88. Sobre ela, é correto afirmar:`,
+     o:[`A lei pode atribuir a condição de responsável por imposto cujo fato gerador deva ocorrer depois, assegurada a imediata e preferencial restituição se o fato gerador presumido não se realizar, e o STF reconhece a legitimidade do regime.`,
+        `É inconstitucional, porque antecipa o pagamento antes do fato gerador.`,
+        `Depende, em todas as hipóteses, de resolução do Senado Federal.`,
+        `Só é válida se houver convênio no âmbito do CONFAZ.`],c:0,
+     e:`O art. 150, §7º, autoriza a lei a atribuir a responsabilidade por imposto cujo fato gerador deve ocorrer depois, com restituição se o fato gerador presumido não se realizar. O STF (RE 194.382) e o STJ (REsp 89.630/PR) reconhecem a legitimidade do regime.`},
+    {r:2,q:`Nos termos do art. 6º da LC 87/96, a atribuição da condição de substituto tributário`,
+     o:[`é feita por convênio do CONFAZ.`,
+        `é feita diretamente pela lei complementar, valendo da mesma forma em todos os Estados.`,
+        `só pode recair sobre o industrial ou o importador.`,
+        `é feita por lei estadual e pode recair sobre contribuinte do imposto ou depositário a qualquer título.`],c:3,
+     e:`O art. 6º diz que <b>lei estadual</b> poderá atribuir a contribuinte do imposto ou a depositário a qualquer título a responsabilidade pelo pagamento. A Lei Kandir dá as regras gerais (CF, art. 155, §2º, XII, b); a instituição é feita pela lei de cada Estado (art. 6º, §2º).`},
+    {r:2,q:`Segundo o STJ (EREsp 1.119.205/MG), citado na aula, o diferimento tributário`,
+     o:[`é isenção, pois dispensa o pagamento do tributo.`,
+        `é benefício fiscal e depende de convênio do CONFAZ.`,
+        `não é benefício fiscal: não dispensa o pagamento, sendo técnica de arrecadação que otimiza a fiscalização e a arrecadação.`,
+        `é hipótese de não incidência do ICMS.`],c:2,
+     e:`O STJ afirmou que o diferimento não é benefício fiscal: não há dispensa do pagamento (como na isenção ou na não incidência), mas técnica de arrecadação.`},
+    {r:3,q:`<b>NÃO</b> é momento de pagamento do imposto diferido previsto no art. 8º, §1º, da LC 87/96:`,
+     o:[`a entrada ou o recebimento da mercadoria, do bem ou do serviço.`,
+        `a saída subsequente promovida pelo responsável, ainda que isenta ou não tributada.`,
+        `qualquer saída ou evento que impossibilite a ocorrência do fato determinante do pagamento do imposto.`,
+        `somente a saída subsequente que seja tributada.`],c:3,
+     e:`O art. 8º, §1º, prevê três momentos: entrada, saída subsequente <b>ainda que isenta ou não tributada</b>, e saída ou evento que impossibilite o fato determinante do pagamento. Limitar à saída tributada contradiz o inciso II.`},
+    {r:4,q:`Uma cooperativa, substituta pelas operações antecedentes, compra a safra de um produtor rural por R$ 30.000,00. Considerando uma MVA de 50% prevista na legislação, a base de cálculo para fins de ST é`,
+     o:[`R$ 45.000,00, aplicando a MVA de 50%.`,
+        `R$ 30.000,00, o valor da operação praticado pelo contribuinte substituído.`,
+        `R$ 15.000,00, a margem de valor agregado.`,
+        `zero, porque o diferimento dispensa base de cálculo.`],c:1,
+     e:`Nas operações antecedentes e concomitantes a base é o valor da operação praticado pelo contribuinte <b>substituído</b> (art. 8º, I), sem MVA. A MVA só entra nas operações subsequentes.`},
+    {r:4,q:`Indústria vende por R$ 10.000,00 e cobra R$ 2.000,00 de seguro do adquirente, contribuinte que vai revender. MVA de 50%; alíquota de 25% na venda e na revenda, no mesmo Estado. O ICMS-ST a recolher é`,
+     o:[`R$ 1.500,00.`,`R$ 3.000,00.`,`R$ 4.500,00.`,`R$ 1.250,00.`],c:0,
+     e:`ICMS próprio: base 12.000 (o seguro integra) × 25% = 3.000. BC-ST: 12.000 × 1,5 = 18.000. ICMS-ST: 18.000 × 25% − 3.000 = <b>1.500</b>. A alternativa B é só o ICMS próprio; C esquece de subtrair o próprio; D (1.250) esquece o seguro.`},
+    {r:4,q:`<b>NÃO</b> é forma de definir a base de cálculo do ICMS-ST nas operações subsequentes:`,
+     o:[`a soma da operação própria, dos encargos cobrados do adquirente e da MVA.`,
+        `o preço final ao consumidor, único ou máximo, fixado por órgão público competente.`,
+        `o preço final ao consumidor sugerido pelo fabricante ou importador, se a lei estabelecer.`,
+        `o preço mínimo fixado em pauta pela Secretaria da Fazenda.`],c:3,
+     e:`As formas são: soma com MVA, preço fixado por órgão público (§2º), preço sugerido (§3º, se a lei estabelecer) e preço usual de mercado (§6º). Preço mínimo de pauta da Secretaria da Fazenda não está previsto.`},
+    {r:4,q:`Existem, para a mesma mercadoria, um preço final ao consumidor máximo fixado por órgão público competente e um preço sugerido pelo fabricante. Para o ICMS-ST nas operações subsequentes,`,
+     o:[`a lei estadual pode escolher livremente entre os dois.`,
+        `a base é a soma da operação própria com a MVA.`,
+        `a base é obrigatoriamente o preço fixado pelo órgão público, que tem preferência.`,
+        `a base é o preço sugerido pelo fabricante.`],c:2,
+     e:`Havendo preço final, único ou máximo, fixado por órgão público, a base <b>é</b> esse preço (§2º). O preço sugerido só <b>poderá</b> ser adotado pela lei (§3º). A única forma com preferência é a fixada por órgão público.`},
+    {r:4,q:`Sobre a margem de valor agregado (MVA), é correto afirmar:`,
+     o:[`É uma das quatro bases de cálculo alternativas do ICMS-ST.`,
+        `É estabelecida com base em preços usualmente praticados no mercado, obtidos por levantamento (ainda que por amostragem), adotando-se a média ponderada dos preços coletados, com critérios previstos em lei.`,
+        `É calculada pela média dos maiores valores praticados no mercado.`,
+        `Exclui o lucro do substituído.`],c:1,
+     e:`A MVA integra a primeira forma de base, não é uma base alternativa. Vem de preços usualmente praticados, por levantamento, com média ponderada e critérios previstos em lei (§4º), e inclui o lucro.`},
+    {r:4,q:`De acordo com o art. 8º, §5º, da LC 87/96, o imposto a ser pago por substituição tributária nas operações subsequentes corresponde`,
+     o:[`à diferença entre a alíquota interna do Estado de destino aplicada à base de cálculo e o imposto da operação própria do substituto.`,
+        `à base de cálculo multiplicada pela alíquota interestadual.`,
+        `à soma da alíquota interna do destino aplicada à base com o imposto da operação própria.`,
+        `ao valor da operação própria multiplicado pela MVA.`],c:0,
+     e:`O imposto é a diferença entre a alíquota das operações internas do Estado de destino aplicada à BC-ST e o imposto da operação própria. Por isso a não cumulatividade é respeitada.`},
+    {r:4,q:`Indústria vende por R$ 10.000,00, mais IPI de R$ 2.000,00, a comerciante contribuinte que vai revender. A operação configura fato gerador de IPI e de ICMS e o produto é destinado à comercialização. MVA de 50%; alíquota de 25% na venda e na revenda. O ICMS-ST é`,
+     o:[`R$ 1.500,00.`,`R$ 4.500,00.`,`R$ 2.000,00.`,`R$ 2.500,00.`],c:2,
+     e:`ICMS próprio: o IPI fica fora (art. 13, §2º), então 10.000 × 25% = 2.500. BC-ST: o IPI entra, 1,5 × (10.000 + 2.000) = 18.000. ICMS-ST: 18.000 × 25% − 2.500 = <b>2.000</b>. Pôr o IPI na base própria daria 1.500 (alternativa A).`},
+    {r:2,q:`Em operação interestadual destinada a consumidor final contribuinte do ICMS, quanto ao diferencial de alíquotas (DIFAL), o art. 6º, §1º, da LC 87/96 permite que`,
+     o:[`o remetente seja sempre o responsável, sem necessidade de previsão na legislação.`,
+        `a legislação atribua ao remetente a responsabilidade como substituto tributário, embora a regra geral seja o próprio destinatário contribuinte recolher.`,
+        `nunca haja substituição tributária sobre o DIFAL.`,
+        `o DIFAL seja devido ao Estado de origem.`],c:1,
+     e:`O art. 6º, §1º, admite ST sobre o DIFAL. A regra geral é o destinatário contribuinte recolher; a exceção é a legislação atribuir ao remetente, na condição de substituto.`},
+    {r:5,q:`Quando o fato gerador presumido não se realiza, o direito à restituição do imposto pago por força da substituição tributária (art. 10) pertence ao`,
+     o:[`substituto tributário.`,`consumidor final.`,`Estado de origem da mercadoria.`,`contribuinte substituído.`],c:3,
+     e:`O art. 10 assegura a restituição ao contribuinte <b>substituído</b>, porque foi ele quem arcou com o ônus do imposto antecipado. Dizer que o direito é do substituto é a pegadinha clássica.`},
+    {r:5,q:`Formulado o pedido de restituição e passados noventa dias sem deliberação, o contribuinte substituído`,
+     o:[`poderá se creditar, em sua escrita fiscal, do valor objeto do pedido, devidamente atualizado.`,
+        `perde o direito, por decadência.`,
+        `tem o pedido deferido em definitivo e não poderá ser obrigado a estornar o crédito.`,
+        `deverá ajuizar ação, pois o crédito administrativo é vedado.`],c:0,
+     e:`Art. 10, §1º: sem deliberação em noventa dias, o substituído poderá se creditar, na escrita fiscal, do valor pedido, atualizado como o tributo.`},
+    {r:5,q:`Depois de se creditar do valor objeto do pedido, o contribuinte substituído é notificado de decisão contrária irrecorrível. Ele deve estornar os créditos lançados`,
+     o:[`imediatamente, sem atualização.`,
+        `em noventa dias, sem acréscimos.`,
+        `no prazo de quinze dias da respectiva notificação, com atualização e pagamento dos acréscimos legais cabíveis.`,
+        `em trinta dias do pedido original.`],c:2,
+     e:`Art. 10, §2º: sobrevindo decisão contrária irrecorrível, o substituído estorna os créditos lançados em quinze dias da notificação, atualizados, com os acréscimos legais.`},
+    {r:5,q:`No regime de ST para frente, a base de cálculo efetiva da operação ficou inferior à presumida. Segundo o STF (RE 593.849, Tema 201),`,
+     o:[`não há restituição, pois a tributação por ST é definitiva.`,
+        `é devida a restituição da diferença do ICMS pago a mais.`,
+        `só o substituto, e não o substituído, pode pedir a restituição.`,
+        `o contribuinte só tem direito à restituição se o fato gerador presumido não ocorrer.`],c:1,
+     e:`O STF fixou que é devida a restituição da diferença do ICMS pago a mais na ST para frente quando a base efetiva é inferior à presumida. A tributação não é "definitiva", e quem pede é o substituído que vende ao consumidor final.`},
+    {r:6,q:`De acordo com o art. 9º da LC 87/96, a adoção do regime de substituição tributária em operações interestaduais depende de`,
+     o:[`lei complementar e resolução do Senado Federal.`,
+        `decreto do Presidente da República.`,
+        `acordo específico celebrado pelos Estados interessados e pela União.`,
+        `acordo específico celebrado pelos Estados interessados.`],c:3,
+     e:`Art. 9º: a adoção da ST em operações interestaduais depende de acordo específico celebrado pelos Estados interessados. Não exige lei complementar com resolução do Senado, nem participação da União.`},
+    {r:6,q:`Em operação interestadual com petróleo, combustíveis dele derivados ou energia elétrica, destinada a consumidor final, o art. 9º, §2º, determina que o imposto`,
+     o:[`é devido ao Estado onde estiver localizado o adquirente e é pago pelo remetente.`,
+        `é devido ao Estado de origem e pago pelo destinatário.`,
+        `é dividido em partes iguais entre origem e destino.`,
+        `não pode ser objeto de ST, por falta de previsão na Lei Kandir.`],c:0,
+     e:`Art. 9º, §2º: com essas mercadorias, destinadas a consumidor final, o imposto é devido ao Estado onde está o adquirente e é pago pelo remetente.`}
+  ];
+
+  var box=document.getElementById('quiz'), fin=document.getElementById('final');
+  var sc=document.getElementById('sc'), an=document.getElementById('an'), bar=document.getElementById('sbar');
+  var rs=document.getElementById('rs'), tot=document.getElementById('tot');
+  var state=[];
+  tot.textContent=Q.length;
+
+  function build(){
+    box.innerHTML=Q.map(function(x,i){
+      return '<article class="q" id="q'+(i+1)+'"><h3><span class="qn">'+(i+1)+'</span><span>'+x.q+'</span></h3>'+
+        '<div class="opts">'+x.o.map(function(t,k){
+          return '<button type="button" class="opt" data-i="'+i+'" data-k="'+k+'"><span class="l">'+L[k]+'</span><span>'+t+'</span></button>';
+        }).join('')+'</div><div class="ex" hidden></div></article>';
+    }).join('');
+    state=Q.map(function(){return null;});
+    update();
+  }
+
+  function update(){
+    var n=0, ok=0;
+    state.forEach(function(v,i){ if(v!==null){ n++; if(v===Q[i].c) ok++; } });
+    sc.textContent=ok;
+    an.textContent=n+' de '+Q.length+' respondidas';
+    bar.style.width=(n/Q.length*100)+'%';
+    bar.className=(n>0 && ok/n<0.6)?'bad':'';
+    if(n===Q.length){ finish(ok); } else { fin.innerHTML=''; }
+  }
+
+  function finish(ok){
+    var pct=Math.round(ok/Q.length*100), secs={};
+    state.forEach(function(v,i){ if(v!==Q[i].c) secs[Q[i].r]=1; });
+    var ks=Object.keys(secs).sort();
+    var h='<h3>Resultado: '+ok+' de '+Q.length+' ('+pct+'%)</h3>';
+    if(ks.length){
+      h+='<p>Revise: '+ks.map(function(k){return '<a href="#s'+k+'">seção '+k+'</a>';}).join(', ')+'.</p>';
+    } else {
+      h+='<p>Nenhum erro. Refaça as contas da <a href="#s7">seção 7</a> para fixar.</p>';
+    }
+    fin.innerHTML='<div class="final">'+h+'</div>';
+  }
+
+  box.addEventListener('click',function(ev){
+    var b=ev.target.closest?ev.target.closest('.opt'):null;
+    if(!b || b.disabled) return;
+    var i=+b.getAttribute('data-i'), k=+b.getAttribute('data-k'), x=Q[i];
+    if(state[i]!==null) return;
+    state[i]=k;
+    var card=document.getElementById('q'+(i+1));
+    var btns=card.querySelectorAll('.opt');
+    for(var j=0;j<btns.length;j++){
+      btns[j].disabled=true;
+      if(j===x.c) btns[j].classList.add('right');
+      else if(j===k) btns[j].classList.add('wrong');
+      else btns[j].classList.add('dim');
+    }
+    var ok=(k===x.c), ex=card.querySelector('.ex');
+    ex.className='ex '+(ok?'ok':'no');
+    ex.innerHTML='<b class="v">'+(ok?'Certo.':'Errado. Gabarito: '+L[x.c]+'.')+'</b>'+x.e;
+    ex.hidden=false;
+    update();
+  });
+
+  rs.addEventListener('click',function(){
+    build();
+    var s=document.getElementById('simulado');
+    if(s && s.scrollIntoView) s.scrollIntoView();
+  });
+
+  build();
+
+  /* destaca o chip da seção visível */
+  try{
+    var chips={}, ids=[];
+    var list=document.querySelectorAll('.chip');
+    for(var a=0;a<list.length;a++){ var t=list[a].getAttribute('data-t'); chips[t]=list[a]; ids.push(t); }
+    var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        ids.forEach(function(k){ chips[k].classList.toggle('on',k===e.target.id); });
+        var c=chips[e.target.id], p=c&&c.parentNode;
+        if(p && p.scrollTo) p.scrollTo({left:Math.max(0,c.offsetLeft-16),behavior:reduce?'auto':'smooth'});
+      });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    ids.forEach(function(k){ var el=document.getElementById(k); if(el) io.observe(el); });
+  }catch(err){}
+})();
+</script>
+
+</body></html>

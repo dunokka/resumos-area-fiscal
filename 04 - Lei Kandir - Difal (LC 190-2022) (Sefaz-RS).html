@@ -1,0 +1,460 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Guia Difal LC 190</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: coluna única de leitura (máx. 860px), nav fixa no topo, placar fixo no rodapé; cada seção tem a sua cor */
+:root{
+  --bg:#f6f7fb; --fg:#1c2233; --muted:#5a6275; --card:#ffffff; --line:#d9dded;
+  --blue:#1f5fd1; --blue-l:#e3ecfc;
+  --green:#14833f; --green-l:#dff3e6;
+  --olive:#6b7a12; --olive-l:#eef1d2;
+  --amber:#b86a00; --amber-l:#fdecc9;
+  --purple:#7a3fc2; --purple-l:#eee3fa;
+  --red:#c42b2b; --red-l:#fbe0e0;
+  --pink-l:#fde4ee; --pink:#b8235f;
+  --quote-bg:#eceef3;
+  --ok:#14833f; --bad:#c42b2b;
+  --f-title:'Bricolage Grotesque',system-ui,sans-serif;
+  --f-body:'Atkinson Hyperlegible',system-ui,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f131d; --fg:#e6e9f2; --muted:#a0a8bc; --card:#171c29; --line:#2b3347;
+  --blue:#6ea0ff; --blue-l:#17274a;
+  --green:#4cc57a; --green-l:#12301e;
+  --olive:#b4c43c; --olive-l:#2a3010;
+  --amber:#f0a73a; --amber-l:#3a2808;
+  --purple:#b88af0; --purple-l:#2b1c45;
+  --red:#ff7b7b; --red-l:#401717;
+  --pink-l:#431a2e; --pink:#ff8fba;
+  --quote-bg:#202637; --ok:#4cc57a; --bad:#ff7b7b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f131d; --fg:#e6e9f2; --muted:#a0a8bc; --card:#171c29; --line:#2b3347;
+  --blue:#6ea0ff; --blue-l:#17274a;
+  --green:#4cc57a; --green-l:#12301e;
+  --olive:#b4c43c; --olive-l:#2a3010;
+  --amber:#f0a73a; --amber-l:#3a2808;
+  --purple:#b88af0; --purple-l:#2b1c45;
+  --red:#ff7b7b; --red-l:#401717;
+  --pink-l:#431a2e; --pink:#ff8fba;
+  --quote-bg:#202637; --ok:#4cc57a; --bad:#ff7b7b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 96px}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-title);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:.6em 0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-16px;padding:8px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin}
+nav a{flex:none;text-decoration:none;font-weight:700;font-size:14px;padding:6px 12px;border-radius:99px;background:var(--cl);color:var(--c);border:1px solid var(--c)}
+nav a:focus-visible,button:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+.s1{--c:var(--blue);--cl:var(--blue-l)}.s2{--c:var(--green);--cl:var(--green-l)}.s3{--c:var(--olive);--cl:var(--olive-l)}
+.s4{--c:var(--amber);--cl:var(--amber-l)}.s5{--c:var(--purple);--cl:var(--purple-l)}.s6{--c:var(--red);--cl:var(--red-l)}
+header{padding-block:36px 24px}
+.selo{display:inline-block;font-family:var(--f-mono);font-size:13px;font-weight:600;padding:5px 10px;border-radius:6px;background:var(--quote-bg);color:var(--muted)}
+h1{font-size:clamp(34px,7vw,58px);font-weight:800;margin-block:14px 12px}
+.grad{background:linear-gradient(90deg,var(--blue),var(--green),var(--amber),var(--purple),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.legenda{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:14px}
+.legenda span{padding:4px 10px;border-radius:6px;border:2px solid transparent}
+.lg-ok{background:var(--green-l);color:var(--ok);border-color:var(--ok)!important}
+.lg-bad{background:var(--red-l);color:var(--bad);border-color:var(--bad)!important}
+.lg-con{border-color:var(--blue)!important;color:var(--blue)}
+.lg-peg{background:var(--pink-l);color:var(--pink)}
+.lg-q{background:var(--quote-bg);color:var(--muted);font-style:italic}
+h2.bloco{font-size:26px;margin-block:36px 14px}
+.pontos{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.ponto{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:10px;padding:12px 14px;min-width:0}
+.ponto b{display:block;font-family:var(--f-title);font-size:23px;line-height:1.1;color:var(--c);margin-bottom:6px;overflow-wrap:anywhere}
+.ponto span{font-size:15px;color:var(--muted);line-height:1.4}
+section.sec{margin-block:44px;scroll-margin-top:70px}
+.sec-head{display:flex;gap:14px;align-items:flex-start;border-bottom:3px solid var(--c);padding-bottom:10px;margin-bottom:16px}
+.num{font-family:var(--f-title);font-weight:800;font-size:64px;line-height:.9;color:var(--c)}
+.sec-head h2{font-size:28px;color:var(--fg)}
+.sec-head small{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+.frase{background:var(--cl);color:var(--fg);border-radius:10px;padding:12px 16px;font-weight:700}
+.frase i{display:block;font-style:normal;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin-bottom:2px}
+.conceito{border:2px solid var(--c);border-radius:10px;padding:12px 16px;margin-block:14px;background:var(--card)}
+.conceito h3{font-size:18px;color:var(--c);margin-bottom:4px}
+blockquote{margin:14px 0;background:var(--quote-bg);border-left:6px solid var(--c);padding:10px 16px;border-radius:0 8px 8px 0;font-style:italic}
+blockquote cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--c);margin-bottom:4px}
+blockquote p{margin:.4em 0}
+.peg{background:var(--pink-l);border-radius:10px;padding:12px 16px;margin-block:16px}
+.peg h3{font-size:18px;color:var(--pink);margin-bottom:4px}
+.peg ul{margin:.3em 0;padding-left:20px}
+.peg li{margin-block:4px}
+.tick{color:var(--ok);font-weight:700}.cross{color:var(--bad);font-weight:700}
+.tab{overflow-x:auto;margin-block:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--cl);color:var(--c);font-family:var(--f-title)}
+tr:last-child td{border-bottom:0}
+.fluxo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-block:14px}
+.fluxo div{background:var(--card);border:2px solid var(--c);border-radius:10px;padding:10px 12px;font-size:15px;min-width:0}
+.fluxo b{display:block;color:var(--c);font-family:var(--f-title);font-size:17px;margin-bottom:2px}
+@media(max-width:560px){.fluxo{grid-template-columns:1fr}.num{font-size:48px}.sec-head h2{font-size:23px}}
+.barra{margin-block:12px}
+.barra .linha{display:grid;grid-template-columns:minmax(90px,150px) 1fr;gap:10px;align-items:center;margin-block:6px;font-size:14px}
+.barra .trilho{background:var(--quote-bg);border-radius:6px;height:26px;position:relative;overflow:hidden}
+.barra .fill{height:100%;background:var(--c);border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:var(--bg);font-family:var(--f-mono);font-weight:600;font-size:13px;white-space:nowrap}
+.barra .fill.bad{background:var(--bad)}.barra .fill.ok{background:var(--ok)}
+.conta{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-block:16px}
+.conta h3{font-size:20px;margin-bottom:6px}
+.conta ol{padding-left:22px;margin:.4em 0}
+.conta li{margin-block:5px}
+.erro{background:var(--pink-l);color:var(--fg);border-radius:8px;padding:8px 12px;margin-top:10px;font-size:15px}
+.erro b{color:var(--pink)}
+.eq{font-family:var(--f-mono);font-size:15px;background:var(--quote-bg);padding:2px 6px;border-radius:5px;overflow-wrap:anywhere}
+dl.glos{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:0;margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+dl.glos dt,dl.glos dd{margin:0;padding:9px 12px;border-bottom:1px solid var(--line)}
+dl.glos dt{font-weight:700;font-family:var(--f-title);color:var(--blue)}
+@media(max-width:560px){dl.glos{grid-template-columns:1fr}dl.glos dt{border-bottom:0;padding-bottom:0}}
+#simulado .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-block:14px}
+.q .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-bottom:6px;letter-spacing:.04em}
+.q .enun{font-weight:700;margin:0 0 10px}
+.q .opts{display:grid;gap:8px}
+.q button.opt{font:inherit;text-align:left;background:var(--bg);color:var(--fg);border:2px solid var(--line);border-radius:8px;padding:9px 12px;cursor:pointer;display:flex;gap:10px}
+.q button.opt:hover:not(:disabled){border-color:var(--blue)}
+.q button.opt b{font-family:var(--f-mono);flex:none}
+.q button.opt.certa{background:var(--green-l);border-color:var(--ok)}
+.q button.opt.errada{background:var(--red-l);border-color:var(--bad)}
+.q button.opt:disabled{cursor:default}
+.q .exp{margin-top:10px;background:var(--quote-bg);border-radius:8px;padding:9px 12px;font-size:15px}
+.placar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:2px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+.placar .n{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums}
+.placar .n.ok{color:var(--ok)}.placar .n.bad{color:var(--bad)}
+.placar button{font:inherit;font-weight:700;border:2px solid var(--fg);background:transparent;color:var(--fg);border-radius:8px;padding:5px 14px;cursor:pointer}
+footer{border-top:1px solid var(--line);padding-block:20px;color:var(--muted);font-size:15px}
+footer ul{padding-left:20px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap">
+<nav aria-label="Seções">
+  <a class="s1" href="#s1">Fundamento</a><a class="s2" href="#s2">Local e contribuintes</a><a class="s3" href="#s3">Fato gerador</a>
+  <a class="s4" href="#s4">Base de cálculo</a><a class="s5" href="#s5">Portal</a><a class="s6" href="#s6">Essenciais</a>
+  <a class="s1" href="#contas">Contas</a><a class="s2" href="#comparativo">Comparativo</a><a class="s3" href="#glossario">Glossário</a><a class="s6" href="#simulado">Simulado</a>
+</nav>
+
+<header>
+  <span class="selo">Prof. Rabelo · LTF Sefaz RS · Aula 04 · Lei Kandir (Parte 03)</span>
+  <h1>Difal e <span class="grad">bens essenciais</span> na Lei Kandir</h1>
+  <p>Leia as seções na ordem, confira as pegadinhas em rosa e feche com o simulado no fim da página. O placar fica fixo embaixo.</p>
+  <div class="legenda">
+    <span class="lg-ok">verde = subiu / correto</span><span class="lg-bad">vermelho = caiu / errado</span>
+    <span class="lg-con">caixa com borda = conceito</span><span class="lg-peg">caixa rosa = pegadinha</span><span class="lg-q">caixa cinza com aspas = texto da norma</span>
+  </div>
+</header>
+
+<h2 class="bloco">Os 12 pontos para decorar</h2>
+<div class="pontos">
+  <div class="ponto s1"><b>LC 190/22</b><span>Regulamenta o Difal nas operações para consumidor final não contribuinte.</span></div>
+  <div class="ponto s1"><b>Tema 1.093</b><span>STF: cobrar o Difal da EC 87/15 exige lei complementar com normas gerais.</span></div>
+  <div class="ponto s2"><b>Remetente</b><span>É o contribuinte do Difal quando o destinatário não é contribuinte.</span></div>
+  <div class="ponto s2"><b>Destinatário</b><span>É o contribuinte do Difal quando ele próprio é contribuinte.</span></div>
+  <div class="ponto s2"><b>Entrada física</b><span>Não contribuinte: o Difal vai ao Estado onde o bem entra ou o serviço termina (§ 7º).</span></div>
+  <div class="ponto s2"><b>Passageiros: sem Difal</b><span>Tomador não contribuinte: alíquota interna do Estado do início da prestação (§ 8º).</span></div>
+  <div class="ponto s3"><b>Entrada</b><span>Fato gerador do Difal para destinatário contribuinte: entrada no território do Estado.</span></div>
+  <div class="ponto s3"><b>Saída</b><span>Para não contribuinte: saída do estabelecimento de contribuinte (ou início do transporte).</span></div>
+  <div class="ponto s4"><b>Valor da operação</b><span>Base de cálculo para origem e destino quando o destinatário não é contribuinte.</span></div>
+  <div class="ponto s4"><b>Interna − interestadual</b><span>É o que se paga ao Estado de destino.</span></div>
+  <div class="ponto s5"><b>Art. 24-A</b><span>Portal com informações, alíquotas, benefícios, obrigações acessórias e guias.</span></div>
+  <div class="ponto s6"><b>Teto = alíquota geral</b><span>Combustíveis, gás natural, energia, comunicações e transporte coletivo.</span></div>
+</div>
+
+<!-- 1 -->
+<section class="sec s1" id="s1">
+  <div class="sec-head"><div class="num">1</div><div><h2>Por que a LC 190/2022 existe</h2><small>EC 87/2015 · ADI 5469 · RE 1287019 (Tema 1.093)</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Sem lei complementar federal, estado nenhum podia cobrar o Difal de consumidor final não contribuinte; a LC 190/22 alterou a Lei Kandir para resolver isso.</div>
+  <div class="conceito"><h3>Passo a passo</h3>
+    <p><b>Antes da EC 87/15:</b> numa venda interestadual para consumidor final não contribuinte, o imposto ficava todo com o Estado de origem.</p>
+    <p><b>Depois:</b> o imposto é dividido entre dois sujeitos ativos. A origem fica com o ICMS calculado pela alíquota interestadual. O destino fica com o diferencial entre a alíquota interna e a interestadual.</p>
+    <p><b>O problema:</b> os estados cobraram por convênio e por leis próprias. O STF disse que isso não basta e exigiu lei complementar. As leis estaduais editadas depois da EC 87/15 são válidas, mas só produzem efeitos quando a lei complementar federal existir.</p>
+  </div>
+  <blockquote><cite>RE 1287019 · Tese do Tema 1.093</cite>“A cobrança do diferencial de alíquota alusivo ao ICMS, conforme introduzido pela Emenda Constitucional nº 87/2015, pressupõe edição de lei complementar veiculando normas gerais”.</blockquote>
+  <blockquote><cite>RE 1287019 · item 2 da ementa</cite>“Convênio interestadual não pode suprir a ausência de lei complementar dispondo sobre obrigação tributária, contribuintes, bases de cálculo/alíquotas e créditos de ICMS nas operações ou prestações interestaduais com consumidor final não contribuinte do imposto […]”.</blockquote>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>“A EC 87/15 só mudou a repartição de receita”: errado. Ela criou nova relação jurídico-tributária entre o remetente e o Estado de destino.</li>
+    <li>“Convênio do Confaz ou lei estadual bastam”: errado. É preciso lei complementar federal.</li>
+    <li>Na prova de 2021, dizer que a Lei Kandir já permitia extrair todos os aspectos da relação estava errado. A regulamentação só veio em 2022, com a LC 190.</li></ul></div>
+</section>
+
+<!-- 2 -->
+<section class="sec s2" id="s2">
+  <div class="sec-head"><div class="num">2</div><div><h2>Local da operação e contribuintes</h2><small>Lei Kandir, art. 11, V, “a” e “b”, §§ 7º e 8º · art. 4º, § 2º</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Quem paga o Difal depende de o destinatário ser contribuinte: se for, paga ele; se não for, paga o remetente ou prestador.</div>
+  <div class="conceito"><h3>Duas situações</h3>
+    <div class="fluxo">
+      <div><b>Destinatário contribuinte</b>Local: estabelecimento do destinatário. Contribuinte do Difal: o destinatário.</div>
+      <div><b>Destinatário não contribuinte</b>Local: estabelecimento do remetente (ou onde começa a prestação). Contribuinte do Difal: o remetente ou prestador.</div>
+    </div>
+    <p>Hoje há incidência do ICMS nas operações interestaduais para consumidor final, contribuinte ou não. O que muda é quem recolhe o Difal.</p>
+  </div>
+  <blockquote><cite>Art. 11, V</cite><p>“tratando-se de operações ou prestações interestaduais destinadas a consumidor final, em relação à diferença entre a alíquota interna do Estado de destino e a alíquota interestadual:</p><p>a) o estabelecimento do destinatário, quando o destinatário ou o tomador for contribuinte do imposto;</p><p>b) o estabelecimento do remetente ou onde tiver início a prestação, quando o destinatário ou tomador não for contribuinte do imposto.”</p></blockquote>
+  <blockquote><cite>Art. 4º, § 2º</cite><p>“É ainda contribuinte do imposto nas operações ou prestações que destinem mercadorias, bens e serviços a consumidor final domiciliado ou estabelecido em outro Estado, em relação à diferença entre a alíquota interna do Estado de destino e a alíquota interestadual:</p><p>I - o destinatário da mercadoria, bem ou serviço, na hipótese de contribuinte do imposto;</p><p>II - o remetente da mercadoria ou bem ou o prestador de serviço, na hipótese de o destinatário não ser contribuinte do imposto.”</p></blockquote>
+  <div class="conceito"><h3>Para onde vai o Difal: entrada física</h3>
+    <p>Se o destino final do bem estiver em Estado diferente do domicílio do adquirente, vale o lugar da entrada física. Exemplo da aula: comprador domiciliado no RS compra de loja em SP e pede entrega de presente em Goiás. O Difal é de Goiás. O RS não recebe nada, porque o consumo ocorre em Goiás.</p></div>
+  <blockquote><cite>Art. 11, § 7º</cite>“Na hipótese da alínea "b" do inciso V do caput deste artigo (destinatário ou tomador não for contribuinte do imposto), quando o destino final da mercadoria, bem ou serviço ocorrer em Estado diferente daquele em que estiver domiciliado ou estabelecido o adquirente ou o tomador, o imposto correspondente à diferença entre a alíquota interna e a interestadual será devido ao Estado no qual efetivamente ocorrer a entrada física da mercadoria ou bem ou o fim da prestação do serviço.”</blockquote>
+  <div class="conceito"><h3>Transporte interestadual de passageiros, tomador não contribuinte</h3>
+    <p>O passageiro é consumidor final. O fato gerador ocorre onde começa a prestação (ou onde está o transportador irregular). Não se aplica o Difal: a prestação é tributada pela alíquota interna desse Estado, que fica com o imposto inteiro.</p>
+    <p>Exemplo da aula: ônibus de Campinas (SP) a Curitiba (PR). Todo o ICMS é de SP; o PR não recebe parcela alguma.</p></div>
+  <blockquote><cite>Art. 11, § 8º</cite><p>“Na hipótese de serviço de transporte interestadual de passageiros cujo tomador não seja contribuinte do imposto:</p><p>I - o passageiro será considerado o consumidor final do serviço, e o fato gerador considerar-se-á ocorrido no Estado referido nas alíneas "a" (onde tenha início a prestação) ou "b" (onde se encontre o transportador, quando em situação irregular pela falta de documentação fiscal ou quando acompanhada de documentação inidônea, como dispuser a legislação tributária) do inciso II do caput deste artigo, conforme o caso, não se aplicando o disposto no inciso V do caput e no § 7º deste artigo; e</p><p>II - o destinatário do serviço considerar-se-á localizado no Estado da ocorrência do fato gerador, e a prestação ficará sujeita à tributação pela sua alíquota interna.”</p></blockquote>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Prestador de serviço (ISS) que compra papel de outro Estado para consumo: é <b>não contribuinte de ICMS</b>. O remetente recolhe a interestadual para a origem e o Difal para o destino (caso da Casa Praiana, PI × PB).</li>
+    <li>Domicílio do comprador não decide nada no § 7º: manda a <b>entrada física</b>.</li>
+    <li>Passageiros: <b>não há rateio por quilometragem</b>, nem parcela para o Estado de trânsito (SC) ou de destino (PR). Porto Alegre → Curitiba pagando tudo ao RS.</li>
+    <li>Destinatário contribuinte: o Difal é obrigação <b>dele</b>. O remetente não soma esse valor ao seu ICMS.</li>
+    <li>Prova de 2021 sobre comunicação (partilha em “um terço e dois terços”): a aula corrige para partes iguais. Cuidado com fração inventada.</li></ul></div>
+</section>
+
+<!-- 3 -->
+<section class="sec s3" id="s3">
+  <div class="sec-head"><div class="num">3</div><div><h2>Momento do fato gerador</h2><small>Lei Kandir, art. 12, XIII a XVI</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Destinatário contribuinte: o fato gerador é a entrada (ou a utilização do serviço). Destinatário não contribuinte: é a saída (ou o início do transporte).</div>
+  <div class="tab"><table><thead><tr><th>Destinatário</th><th>Mercadoria / bem</th><th>Serviço</th></tr></thead><tbody>
+    <tr><td><b>Contribuinte</b></td><td>Entrada no território do Estado (inc. XV)</td><td>Utilização do serviço iniciado em outra UF (inc. XIII)</td></tr>
+    <tr><td><b>Não contribuinte</b></td><td>Saída de estabelecimento de contribuinte (inc. XVI)</td><td>Início da prestação de transporte interestadual (inc. XIV)</td></tr></tbody></table></div>
+  <blockquote><cite>Art. 12, XIII e XV</cite><p>“XIII - da utilização, por contribuinte, de serviço cuja prestação se tenha iniciado em outro Estado e não esteja vinculada a operação ou prestação subseqüente.</p><p>XV - da entrada no território do Estado de bem ou mercadoria oriundos de outro Estado adquiridos por contribuinte do imposto e destinados ao seu uso ou consumo ou à integração ao seu ativo imobilizado;”</p></blockquote>
+  <blockquote><cite>Art. 12, XIV e XVI</cite><p>“XIV - do início da prestação de serviço de transporte interestadual, nas prestações não vinculadas a operação ou prestação subsequente, cujo tomador não seja contribuinte do imposto domiciliado ou estabelecido no Estado de destino;</p><p>XVI - da saída, de estabelecimento de contribuinte, de bem ou mercadoria destinados a consumidor final não contribuinte do imposto domiciliado ou estabelecido em outro Estado.”</p></blockquote>
+  <div class="conceito"><h3>Macete</h3><p>Contribuinte “recebe o benefício” da operação: o marco é a <b>chegada</b>. Não contribuinte: o marco é a <b>saída</b> do remetente, porque é o remetente quem recolhe.</p></div>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Supermercado do ES compra computadores de SP para uso próprio: o fato gerador do Difal no ES <b>não</b> é a saída em SP, é a <b>entrada</b> no ES. A base também não é o valor em SP: é o valor da operação no Estado de destino.</li>
+    <li>Os incisos XIII e XV falam em <b>contribuinte</b>; XIV e XVI em <b>não contribuinte</b>. A troca de um pelo outro é a casca de banana.</li></ul></div>
+</section>
+
+<!-- 4 -->
+<section class="sec s4" id="s4">
+  <div class="sec-head"><div class="num">4</div><div><h2>Base de cálculo do Difal</h2><small>Lei Kandir, art. 13, IX e X, §§ 3º, 6º e 7º</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Destinatário contribuinte: base própria de cada Estado. Não contribuinte: uma só base, o valor da operação ou preço do serviço.</div>
+  <div class="conceito"><h3>Fórmulas da aula</h3>
+    <p>Destinatário <b>contribuinte</b>:</p>
+    <p><span class="eq">ICMS origem = valor da operação na origem × alíquota interestadual</span></p>
+    <p><span class="eq">Difal = valor da operação no destino × (alíquota interna do destino − alíquota interestadual)</span></p>
+    <p>A aula observa que as bases de origem e de destino podem diferir.</p>
+    <p>Destinatário <b>não contribuinte</b>: a mesma base (valor da operação ou preço do serviço) para os dois Estados.</p>
+    <p><span class="eq">ICMS origem = valor × interestadual</span> &nbsp; <span class="eq">Difal = valor × (interna do destino − interestadual)</span></p>
+  </div>
+  <blockquote><cite>Art. 13, IX</cite><p>“nas hipóteses dos incisos XIII (da utilização, por contribuinte, de serviço cuja prestação se tenha iniciado em outro Estado e não esteja vinculada a operação ou prestação subseqüente) e XV (da entrada no território do Estado de bem ou mercadoria oriundos de outro Estado adquiridos por contribuinte do imposto e destinados ao seu uso ou consumo ou à integração ao seu ativo imobilizado) do caput do art. 12 desta Lei Complementar:</p><p>a) o valor da operação ou prestação no Estado de origem, para o cálculo do imposto devido a esse Estado;</p><p>b) o valor da operação ou prestação no Estado de destino, para o cálculo do imposto devido a esse Estado;”</p></blockquote>
+  <blockquote><cite>Art. 13, X</cite>“nas hipóteses dos incisos XIV (…) e XVI (…) do caput do art. 12 desta Lei Complementar, o valor da operação ou o preço do serviço, para o cálculo do imposto devido ao Estado de origem e ao de destino.”</blockquote>
+  <blockquote><cite>Art. 13, § 3º</cite>“No caso da alínea "b" do inciso IX e do inciso X do caput deste artigo, o imposto a pagar ao Estado de destino será o valor correspondente à diferença entre a alíquota interna do Estado de destino e a interestadual.”</blockquote>
+  <blockquote><cite>Art. 13, § 6º (para o inciso IX)</cite><p>“I - a alíquota prevista para a operação ou prestação interestadual, para estabelecer a base de cálculo da operação ou prestação no Estado de origem;</p><p>II - a alíquota prevista para a operação ou prestação interna, para estabelecer a base de cálculo da operação ou prestação no Estado de destino.”</p></blockquote>
+  <blockquote><cite>Art. 13, § 7º (para o inciso X)</cite>“Utilizar-se-á, para os efeitos do inciso X do caput deste artigo, a alíquota prevista para a operação ou prestação interna no Estado de destino para estabelecer a base de cálculo da operação ou prestação.”</blockquote>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>O Difal incide sobre o valor <b>no Estado de destino</b>, não sobre o valor em São Paulo (questão FGV-ES).</li>
+    <li>Imposto devido ao destino é a <b>diferença</b> de alíquotas, não a alíquota interna inteira.</li>
+    <li>Não confunda os parágrafos: § 6º é para o inciso IX (contribuinte); § 7º é para o X (não contribuinte).</li></ul></div>
+</section>
+
+<!-- 5 -->
+<section class="sec s5" id="s5">
+  <div class="sec-head"><div class="num">5</div><div><h2>Portal nacional do Difal</h2><small>Lei Kandir, art. 24-A · Convênio ICMS 235/2021</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Estados e DF divulgam em portal próprio tudo o que o contribuinte precisa para cumprir as obrigações do Difal, inclusive a apuração e as guias.</div>
+  <div class="conceito"><h3>O que o portal deve ter (§§ 1º e 2º)</h3>
+    <div class="fluxo">
+      <div><b>Legislação</b>Aplicável à operação, com soluções de consulta e decisões administrativas vinculantes.</div>
+      <div><b>Alíquotas</b>Interestadual e interna aplicáveis.</div>
+      <div><b>Benefícios</b>Fiscais ou financeiros e regimes especiais que alterem o valor a recolher.</div>
+      <div><b>Obrigações acessórias</b>As devidas em razão da operação.</div>
+    </div>
+    <p>Mais: ferramenta de <b>apuração centralizada</b> pelo contribuinte do art. 4º, § 2º, II, e <b>emissão das guias</b> para cada ente federado.</p>
+    <p>Exemplo da aula: contribuinte de SC vende a consumidor final não contribuinte no Pará. Consulta no portal a alíquota interna do PA, a interestadual, benefícios e obrigações acessórias, e recolhe o Difal ao PA.</p></div>
+  <blockquote><cite>Art. 24-A, caput</cite>“Os Estados e o Distrito Federal divulgarão, em portal próprio, as informações necessárias ao cumprimento das obrigações tributárias, principais e acessórias, nas operações e prestações interestaduais, conforme o tipo.”</blockquote>
+  <blockquote><cite>Art. 24-A, § 4º</cite>“Para a adaptação tecnológica do contribuinte, o inciso II do § 2º do art. 4º, a alínea "b" do inciso V do caput do art. 11 e o inciso XVI do caput do art. 12 desta Lei Complementar somente produzirão efeito no primeiro dia útil do terceiro mês subsequente ao da disponibilização do portal de que trata o caput deste artigo.”</blockquote>
+  <blockquote><cite>Art. 24-A, § 5º</cite>“A apuração e o recolhimento do imposto devido nas operações e prestações interestaduais de que trata a alínea "b" do inciso V do caput do art. 11 desta Lei Complementar observarão o definido em convênio celebrado nos termos da Lei Complementar nº 24, de 7 de janeiro de 1975, e, naquilo que não lhe for contrário, nas respectivas legislações tributárias estaduais.”</blockquote>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Portal “atualizado trimestralmente” e “só com alíquotas interestaduais”: inventado. A lei não fixa periodicidade e exige muito mais conteúdo.</li>
+    <li>O § 4º dá prazo de adaptação ao contribuinte: contado do portal, não da publicação da lei.</li>
+    <li>Quem recolhe e como: § 5º manda seguir convênio (LC 24/75) e, no que não contrariar, a legislação estadual.</li></ul></div>
+</section>
+
+<!-- 6 -->
+<section class="sec s6" id="s6">
+  <div class="sec-head"><div class="num">6</div><div><h2>Bens e serviços essenciais</h2><small>LC 194/2022 · CTN art. 18-A · Lei Kandir art. 32-A · RE 714.139/SC</small></div></div>
+  <div class="frase"><i>Em uma frase</i>Combustíveis, gás natural, energia elétrica, comunicações e transporte coletivo são essenciais e não podem ter alíquota maior que a das operações em geral.</div>
+  <div class="conceito"><h3>Seletividade e essencialidade</h3>
+    <p>O ICMS <b>pode</b> ser seletivo (CF, art. 155, § 2º, III). É faculdade dos Estados. Mas, se adotarem a seletividade, o critério é a <b>essencialidade</b>.</p>
+    <p><b>Alíquota geral (residual ou modal):</b> a que vale para tudo o que a lei não trata expressamente (normalmente 17% ou 18%, conforme o Estado). Ela é o <b>teto</b> para os essenciais. Alíquota menor é permitida.</p></div>
+  <blockquote><cite>RE 714.139/SC · tese de repercussão geral</cite>“Adotada, pelo legislador estadual, a técnica da seletividade em relação ao Imposto sobre Circulação de Mercadorias e Serviços — ICMS, discrepam do figurino constitucional alíquotas sobre as operações de energia elétrica e serviços de telecomunicação em patamar superior ao das operações em geral, considerada a essencialidade dos bens e serviços”.</blockquote>
+  <blockquote><cite>CTN, art. 18-A (LC 194/22, art. 1º)</cite><p>“Para fins da incidência do imposto de que trata o inciso II do caput do art. 155 da Constituição Federal, os combustíveis, o gás natural, a energia elétrica, as comunicações e o transporte coletivo são considerados bens e serviços essenciais e indispensáveis, que não podem ser tratados como supérfluos.</p><p>Parágrafo único. […] I - é vedada a fixação de alíquotas sobre as operações referidas no caput deste artigo em patamar superior ao das operações em geral, considerada a essencialidade dos bens e serviços;</p><p>II - é facultada ao ente federativo competente a aplicação de alíquotas reduzidas em relação aos bens referidos no caput deste artigo, como forma de beneficiar os consumidores em geral;”</p></blockquote>
+  <blockquote><cite>Lei Kandir, art. 32-A, § 2º (LC 194/22, art. 2º)</cite>“No que se refere aos combustíveis, a alíquota definida conforme o disposto no § 1º deste artigo servirá como limite máximo para a definição das alíquotas específicas (ad rem) a que se refere a alínea b do inciso V do caput do art. 3º da Lei Complementar nº 192, de 11 de março de 2022.”</blockquote>
+  <div class="conceito"><h3>Ad rem: o teto em reais</h3>
+    <p>Alíquota específica (ad rem) é um valor fixo por unidade (litro, kg, m³), não um percentual. A LC 192/22 manda os combustíveis monofásicos usarem ad rem. A LC 194/22 limita: <span class="eq">teto = alíquota modal × preço médio</span>.</p>
+    <div class="barra">
+      <div class="linha"><span>Teto (18% × R$ 6,00)</span><div class="trilho"><div class="fill ok" style="width:90%">R$ 1,08</div></div></div>
+      <div class="linha"><span>Proposta do Estado</span><div class="trilho"><div class="fill bad" style="width:100%">R$ 1,20</div></div></div>
+    </div>
+    <p>A barra mais comprida passa do teto: R$ 1,20 &gt; R$ 1,08, portanto não é permitido.</p></div>
+  <div class="peg"><h3>Pegadinhas</h3><ul>
+    <li>Essencial <b>não</b> obriga a reduzir a alíquota. O que é vedado é cobrar acima da geral.</li>
+    <li>Não existe alíquota fixa de 18% para todos: o teto é a alíquota geral <b>de cada Estado</b>.</li>
+    <li>A lista tem cinco itens: combustíveis, gás natural, energia, comunicações, transporte coletivo. Nenhum fica de fora.</li>
+    <li>Alíquota reduzida abaixo da geral é facultada, não vedada, e “tributação diferenciada” não é proibida.</li>
+    <li>Aviso do professor (Q14): a vedação de elevar alíquota reduzida acima do percentual vigente na publicação da LC 194, que constava do art. 32-A, § 1º, III, foi revogada pela LC 201/2023. Hoje o Estado pode subir até o teto da alíquota geral.</li></ul></div>
+</section>
+
+<!-- Contas -->
+<section class="sec s1" id="contas">
+  <div class="sec-head"><div class="num" style="font-size:44px">R$</div><div><h2>Contas no estilo da banca, resolvidas</h2><small>Questão FCC/SEFAZ-SP 2026 e exercícios da aula</small></div></div>
+
+  <div class="conta"><h3>Conta 1 · ICMS total das três vendas (empresa ABC, Campinas/SP)</h3>
+    <p>Alíquotas: interna SP 18%, SC 19%, PR 17%; interestadual de saída 12%. Vendas: R$ 1.000 a restaurante em SP; R$ 1.500 a sorveteria em SC (contribuinte); R$ 2.000 a escritório de contabilidade no PR (não contribuinte).</p>
+    <ol>
+      <li>Venda 1 é interna: R$ 1.000 × 18% = <b class="mono">R$ 180</b>.</li>
+      <li>Venda 2 é interestadual para contribuinte: a ABC só recolhe a interestadual. R$ 1.500 × 12% = <b class="mono">R$ 180</b>. O Difal de SC é do destinatário.</li>
+      <li>Venda 3 é interestadual para não contribuinte: interestadual R$ 2.000 × 12% = <b class="mono">R$ 240</b>.</li>
+      <li>Difal do PR: R$ 2.000 × (17% − 12%) = R$ 2.000 × 5% = <b class="mono">R$ 100</b>, também recolhido pela ABC.</li>
+      <li>Total: 180 + 180 + 240 + 100 = <b class="mono">R$ 700</b> (letra E).</li>
+    </ol>
+    <div class="barra s4">
+      <div class="linha"><span>Venda 1 (SP)</span><div class="trilho"><div class="fill" style="width:25.7%">180</div></div></div>
+      <div class="linha"><span>Venda 2 (SC)</span><div class="trilho"><div class="fill" style="width:25.7%">180</div></div></div>
+      <div class="linha"><span>Venda 3, origem</span><div class="trilho"><div class="fill" style="width:34.3%">240</div></div></div>
+      <div class="linha"><span>Venda 3, Difal PR</span><div class="trilho"><div class="fill ok" style="width:14.3%">100</div></div></div>
+    </div>
+    <div class="erro"><b>Erro clássico:</b> somar R$ 1.500 × (19% − 12%) = R$ 105 à conta da ABC na venda 2 (dá R$ 805, letra C), ou esquecer o Difal na venda 3 (dá R$ 600).</div>
+  </div>
+
+  <div class="conta"><h3>Conta 2 · Teto da alíquota ad rem</h3>
+    <ol>
+      <li>Alíquota modal sobre combustíveis: 18%. Preço médio do litro: R$ 6,00.</li>
+      <li>Teto = 18% × R$ 6,00 = <b class="mono">R$ 1,08 por litro</b>.</li>
+      <li>Proposta de R$ 1,20 por litro: ultrapassa R$ 1,08, não pode.</li>
+    </ol>
+    <div class="erro"><b>Erro clássico:</b> tratar o valor fixo como se fosse percentual, ou esquecer que o teto vem de modal × preço médio.</div>
+  </div>
+
+  <div class="conta"><h3>Conta 3 · Essencial dentro do teto? (Estado com alíquota geral de 17%)</h3>
+    <ol>
+      <li>Energia elétrica a 15%: 15% ≤ 17%, conforme.</li>
+      <li>Transporte coletivo a 19% antes da LC 194: 19% &gt; 17%, não conforme.</li>
+      <li>Transporte coletivo a 17% depois: 17% = 17%, conforme (no teto).</li>
+      <li>Conclusão: ambas estão dentro do limite (letra A).</li>
+    </ol>
+    <div class="erro"><b>Erro clássico:</b> achar que a energia “deveria subir para 17%” ou que alíquota abaixo da geral viola a LC. A aula também dá o exemplo de energia a 20% quando a geral é 18%: aí sim há violação.</div>
+  </div>
+</section>
+
+<!-- Comparativo -->
+<section class="sec s2" id="comparativo">
+  <div class="sec-head"><div class="num" style="font-size:44px">≠</div><div><h2>Quadro comparativo</h2><small>O que se confunde: destinatário contribuinte × não contribuinte</small></div></div>
+  <div class="tab"><table><thead><tr><th>Ponto</th><th>Destinatário contribuinte</th><th>Destinatário não contribuinte</th></tr></thead><tbody>
+    <tr><td>Contribuinte do Difal</td><td>Destinatário (art. 4º, § 2º, I)</td><td>Remetente ou prestador (art. 4º, § 2º, II)</td></tr>
+    <tr><td>Local (art. 11, V)</td><td>Estabelecimento do destinatário (a)</td><td>Estabelecimento do remetente ou início da prestação (b)</td></tr>
+    <tr><td>Fato gerador, mercadoria</td><td>Entrada no território do Estado (XV)</td><td>Saída de estabelecimento de contribuinte (XVI)</td></tr>
+    <tr><td>Fato gerador, serviço</td><td>Utilização do serviço iniciado em outra UF (XIII)</td><td>Início do transporte interestadual (XIV)</td></tr>
+    <tr><td>Base de cálculo</td><td>Valor da operação na origem (p/ origem) e no destino (p/ destino) (IX)</td><td>Valor da operação ou preço do serviço, para ambos (X)</td></tr>
+    <tr><td>Imposto ao destino</td><td>Interna − interestadual (§ 3º)</td><td>Interna − interestadual (§ 3º)</td></tr>
+    <tr><td>Parágrafo da base</td><td>§ 6º</td><td>§ 7º</td></tr>
+  </tbody></table></div>
+  <div class="tab"><table><thead><tr><th>Ponto</th><th>Essencial (LC 194/22)</th><th>Não essencial</th></tr></thead><tbody>
+    <tr><td>Alíquota máxima</td><td>Alíquota geral (modal) do Estado</td><td>Sem esse teto pela LC 194</td></tr>
+    <tr><td>Alíquota reduzida</td><td>Facultada</td><td>—</td></tr>
+    <tr><td>Combustíveis com ad rem</td><td>Teto = modal × preço médio</td><td>—</td></tr></tbody></table></div>
+</section>
+
+<!-- Glossário -->
+<section class="sec s3" id="glossario">
+  <div class="sec-head"><div class="num" style="font-size:44px">Aa</div><div><h2>Glossário rápido</h2><small>Termos da aula</small></div></div>
+  <dl class="glos">
+    <dt>Difal</dt><dd>Diferencial de alíquota: diferença entre a alíquota interna do Estado de destino e a interestadual.</dd>
+    <dt>Consumidor final</dt><dd>Quem adquire o bem ou serviço para uso e consumo, sem revenda ou industrialização.</dd>
+    <dt>Contribuinte do ICMS</dt><dd>Quem pratica operações com habitualidade ou volume, nos termos da lei. Prestador de serviço de ISS é não contribuinte.</dd>
+    <dt>Alíquota interestadual</dt><dd>Fixada pelo Senado Federal; fica com o Estado de origem.</dd>
+    <dt>Alíquota interna</dt><dd>A do Estado de destino para operações dentro do seu território.</dd>
+    <dt>Alíquota geral / modal</dt><dd>A que vale para o que não tem alíquota específica na lei do Estado.</dd>
+    <dt>Ad rem</dt><dd>Alíquota específica, em reais por unidade de medida.</dd>
+    <dt>Seletividade</dt><dd>Variação da carga conforme a essencialidade do bem ou serviço.</dd>
+    <dt>Monofásico</dt><dd>Tributado em uma única etapa da cadeia (caso dos combustíveis na LC 192/22).</dd>
+    <dt>Tema 1.093</dt><dd>Repercussão geral do STF sobre o Difal e a exigência de lei complementar.</dd>
+    <dt>Portal do Difal</dt><dd>Portal dos Estados e do DF com informações, apuração e guias (art. 24-A).</dd>
+  </dl>
+</section>
+
+<!-- Simulado -->
+<section class="sec s6" id="simulado">
+  <div class="sec-head"><div class="num" style="font-size:44px">✓</div><div><h2>Simulado</h2><small>20 questões · clique na alternativa para ver o gabarito e a explicação</small></div></div>
+  <p style="color:var(--muted);font-size:15px">Questões de concursos e inéditas da aula, com o gabarito da própria aula. As questões marcadas “nossa” foram montadas a partir dos trechos da norma desta página.</p>
+  <div id="quiz"></div>
+</section>
+
+<footer>
+  <p><b>Origem do material:</b> apostila “LTF – Sefaz RS – Lei Kandir (Parte 03)”, Aula 04, Prof. Rabelo (Rabelo Concursos). Conteúdo: LC 190/2022 (Difal), LC 194/2022 (bens e serviços essenciais), jurisprudência do STF (Tema 1.093; RE 714.139/SC) e questões comentadas.</p>
+  <p><b>Limites da conferência:</b></p>
+  <ul>
+    <li>Todo o PDF foi lido. Os trechos de lei vêm só das caixas reproduzidas na aula; não foram comparados com o texto oficial.</li>
+    <li>A data de vigência/eficácia da LC 190/22 não aparece na aula e não foi incluída.</li>
+    <li>A aula cita endereços diferentes para o portal do Difal; não usei nenhum.</li>
+    <li>Questões de 2021 (CEBRASPE e FGV) foram feitas antes da regulamentação da LC 190/22. Usei o gabarito da aula.</li>
+    <li>A revogação do art. 32-A, § 1º, III (LC 201/2023) é informação do professor, não conferida em fonte oficial.</li>
+  </ul>
+</footer>
+</div>
+
+<div class="placar" role="status" aria-live="polite">
+  <span>Respondidas <span class="n" id="pAns">0</span>/<span class="n" id="pTot">20</span></span>
+  <span class="n ok">Certas <span id="pOk">0</span></span>
+  <span class="n bad">Erradas <span id="pBad">0</span></span>
+  <button type="button" id="reset">Recomeçar</button>
+</div>
+
+<script>
+var Q=[
+{o:"FCC · SEFAZ-SP 2026 (adaptada)",t:"Empresa ABC (Campinas/SP): alíquota interna 18% em SP, 19% em SC, 17% no PR; interestadual de saída 12%. Vendas: R$ 1.000 a restaurante em SP; R$ 1.500 a sorveteria em SC; R$ 2.000 a escritório de contabilidade (não contribuinte) no PR. Qual o ICMS global devido pela ABC?",a:["R$ 540,00","R$ 600,00","R$ 805,00","R$ 810,00","R$ 700,00"],c:4,e:"180 (venda interna) + 180 (R$ 1.500 × 12%) + 240 (R$ 2.000 × 12%) + 100 (Difal PR: R$ 2.000 × 5%) = R$ 700. O Difal da venda a contribuinte (SC) é do destinatário."},
+{o:"FCC · SEFAZ-SP 2026 (adaptada)",t:"Em operações interestaduais destinadas a consumidor final não contribuinte do ICMS, segundo a Lei Kandir:",a:["só o Estado de origem recebe, pela alíquota interna","o remetente paga ao Estado de origem (alíquota interestadual) e também ao de destino (diferença entre a interna do destino e a interestadual)","o destinatário recolhe o Difal ao Estado de destino","o imposto é rateado em partes iguais entre origem e destino","não há incidência de ICMS"],c:1,e:"Art. 4º, § 2º, II: o remetente é contribuinte do Difal quando o destinatário não é contribuinte, e recolhe as duas parcelas."},
+{o:"FGV · SEFAZ-PR 2025 (adaptada)",t:"Pessoa física não contribuinte, residente em Curitiba/PR, compra um eletrodoméstico pela internet de empresa de São Paulo, com entrega no PR. Quanto ao ICMS:",a:["é devido integralmente a SP","é devido exclusivamente ao PR","não incide, pois o comprador não é contribuinte","incide e é partilhado entre origem e destino, cabendo ao PR o Difal","incide apenas se o bem estiver sujeito à substituição tributária"],c:3,e:"Origem (SP) fica com o ICMS pela alíquota interestadual; o PR fica com o Difal. O remetente paulista recolhe os dois."},
+{o:"FCC · SEFAZ-PI 2025 (adaptada)",t:"A Casa Praiana (Parnaíba/PI), que só presta serviço de fotocópias, compra caixas de papel de fornecedor de João Pessoa/PB. Quanto ao ICMS:",a:["a interestadual é devida à PB e o Difal ao PI, ambos tendo como contribuinte o remetente paraibano","tudo é devido ao PI, pela alíquota interna, e o contribuinte é o destinatário","tudo é devido à PB, pela alíquota interna, e o contribuinte é o remetente","a interestadual é devida à PB e o Difal ao PI, sendo contribuinte do Difal o destinatário piauiense","tudo é devido ao PI e o contribuinte é o remetente paraibano"],c:0,e:"A Casa Praiana é contribuinte de ISS, não de ICMS. Logo o remetente (PB) recolhe a interestadual à PB e o Difal ao PI."},
+{o:"CEBRASPE · PGE-MS 2021 (adaptada)",t:"São Paulo vende um aparelho celular a consumidor do Mato Grosso do Sul. Quanto ao ICMS:",a:["incide só a alíquota interna do MS","incide a interestadual, mas o Difal é devido a SP","incide a interestadual (origem) e o Difal é devido ao MS, onde está o consumidor","incidem a interestadual e a interna, ambas para SP","não incide ICMS: operação entre contribuinte e não contribuinte"],c:2,e:"Alíquota interestadual para SP e diferencial (interna do MS − interestadual) para o MS, onde está o destinatário. Gabarito da aula: C."},
+{o:"CEBRASPE · TCE-RJ 2021 (adaptada) · Certo ou errado",t:"Em fornecimento de bens entre consumidor final não contribuinte do RJ e estabelecimento fornecedor no ES, o ICMS é devido integralmente ao RJ, com base apenas na alíquota interna do RJ.",a:["Certo","Errado"],c:1,e:"Errado. O ES recebe pela alíquota interestadual e o RJ recebe o Difal. Não é tudo do RJ."},
+{o:"CEBRASPE · SEFAZ-AL 2021 (adaptada) · Certo ou errado",t:"Contribuinte de AL vende a consumidor final não contribuinte de Sergipe. Quanto à venda a Sergipe, será adotada a alíquota interna a incidir na operação.",a:["Certo","Errado"],c:1,e:"Errado. Adota-se a alíquota interestadual (origem) e, para Sergipe, o Difal: interna de Sergipe − interestadual. Gabarito da aula: errada."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"Prestação de transporte interestadual de passageiros, tomador não contribuinte, iniciada em Goiás com destino final no Mato Grosso. Quanto ao ICMS:",a:["sujeita ao Difal, com o MT recolhendo a diferença","não há incidência, pois o tomador não é contribuinte","integralmente devido ao MT, destino final","o passageiro é consumidor final; o fato gerador é no Estado do início da prestação, com alíquota interna de GO, sem Difal","partilhada entre GO e MT pela quilometragem"],c:3,e:"Art. 11, § 8º: sem Difal e sem partilha; vale a alíquota interna do Estado onde começa a prestação (Goiás)."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"João, não contribuinte domiciliado em Goiás, compra um bem pela internet de estabelecimento em São Paulo e pede entrega como presente à mãe, no Rio Grande do Sul. Quanto ao ICMS:",a:["devido exclusivamente a SP","devido integralmente a Goiás, domicílio do adquirente","partilhado entre GO e RS em partes iguais","partilhado entre SP (origem) e o RS, onde ocorre a entrada física","não há incidência"],c:3,e:"Art. 11, § 7º: o Difal vai ao Estado da entrada física (RS). A origem (SP) fica com a parcela da alíquota interestadual."},
+{o:"Inédita da aula (Prof. Rabelo) · assinale a INCORRETA",t:"Sobre o portal que Estados e DF devem divulgar (art. 24-A da Lei Kandir):",a:["deve incluir informações sobre benefícios fiscais ou regimes especiais que alterem o valor a recolher","deve conter a legislação aplicável, com soluções de consulta e decisões administrativas vinculantes","deve ser atualizado trimestralmente e conter exclusivamente alíquotas interestaduais","deve disponibilizar as alíquotas internas e interestaduais aplicáveis","deve permitir a apuração centralizada e a emissão de guias de recolhimento"],c:2,e:"O portal não se limita às alíquotas interestaduais e a lei não fixa atualização trimestral."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"Passageira não contribuinte compra passagem rodoviária de Porto Alegre/RS a Curitiba/PR, passando por Santa Catarina. O ICMS:",a:["é rateado entre RS, SC e PR pela quilometragem","é devido exclusivamente ao PR","é devido exclusivamente a SC","é devido integralmente ao RS, pela alíquota interna, sem repartição com SC ou PR","é recolhido ao RS e ao PR em partes iguais"],c:3,e:"Fato gerador onde se inicia a prestação (RS). Sem Difal, sem rateio por quilometragem."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"Estado com alíquota geral de 17%. Antes da LC 194/22: transporte coletivo a 19% e energia elétrica a 15%. Depois: transporte coletivo a 17% e energia a 15%. Quanto à LC 194/22:",a:["ambas as alíquotas estão em conformidade","só a do transporte coletivo está em conformidade","só a da energia está em conformidade","nenhuma está em conformidade","a energia deveria subir para 17%"],c:0,e:"O limite é a alíquota geral. 15% e 17% não a superam. Alíquota menor é permitida."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"Segundo a LC 194/2022, sobre os bens e serviços essenciais:",a:["a alíquota foi definida em 18%, limite obrigatório para todos os Estados","energia elétrica, combustíveis, comunicações e transporte coletivo são essenciais e não podem ter alíquota acima da geral de cada Estado","os Estados são obrigados a reduzir as alíquotas abaixo da geral","há vedação de tributação diferenciada, só se admitindo alíquotas fixas","só combustíveis e energia são essenciais"],c:1,e:"O teto é a alíquota geral de cada Estado. Reduzir é facultado, não obrigatório. O gás natural também entra na lista."},
+{o:"Inédita da aula (Prof. Rabelo)",t:"I. Os essenciais devem ser tributados com alíquota inferior à geral. II. A LC 194/22 veda alíquotas superiores às das operações em geral para os essenciais. III. A alíquota ad rem dos combustíveis tem como teto a alíquota geral do Estado. Está correto o que se afirma em:",a:["apenas III","apenas II","apenas II e III","todas","nenhuma"],c:2,e:"I é falsa: o limite é a alíquota geral, não há dever de reduzir. II e III estão corretas."},
+{o:"Nossa · art. 12",t:"O fato gerador do Difal em compra por contribuinte, para uso ou consumo, de mercadoria vinda de outro Estado ocorre no momento:",a:["da saída do estabelecimento remetente","da entrada no território do Estado de destino","do início da prestação de serviço de transporte","do pagamento ao fornecedor"],c:1,e:"Art. 12, XV: entrada no território do Estado. A saída é o marco do destinatário não contribuinte (XVI)."},
+{o:"Nossa · art. 12",t:"Mercadoria destinada a consumidor final não contribuinte, domiciliado em outro Estado. O fato gerador do imposto ocorre na:",a:["entrada no território do Estado do destinatário","utilização do serviço pelo destinatário","saída de estabelecimento de contribuinte","emissão da guia no portal"],c:2,e:"Art. 12, XVI: saída, de estabelecimento de contribuinte."},
+{o:"Nossa · art. 13",t:"Destinatário não contribuinte. A base de cálculo do imposto devido à origem e ao destino é:",a:["valor da operação na origem para ambos, mais frete","valor da operação ou preço do serviço, para os dois Estados","valor da operação no destino apenas","a alíquota interna do destino"],c:1,e:"Art. 13, X. Uma só base para origem e destino."},
+{o:"Nossa · ad rem",t:"Estado com alíquota modal de 18% e preço médio da gasolina de R$ 6,00 por litro. O valor máximo da alíquota ad rem é:",a:["R$ 1,20 por litro","R$ 1,80 por litro","R$ 1,08 por litro","R$ 0,18 por litro"],c:2,e:"18% × R$ 6,00 = R$ 1,08. Valores acima disso ultrapassam o teto."},
+{o:"Nossa · art. 24-A, § 4º",t:"Os dispositivos do Difal ligados ao não contribuinte produzem efeito:",a:["na data de publicação da LC","no primeiro dia útil do terceiro mês subsequente ao da disponibilização do portal","em 1º de janeiro do ano seguinte ao do portal","no mesmo dia da disponibilização do portal"],c:1,e:"Art. 24-A, § 4º: prazo de adaptação contado da disponibilização do portal."},
+{o:"Nossa · art. 4º, § 2º",t:"Venda interestadual a destinatário que é contribuinte do ICMS e consumidor final. Quem é contribuinte do Difal?",a:["o remetente, sempre","o destinatário","o transportador","o Estado de origem"],c:1,e:"Art. 4º, § 2º, I: o destinatário, na hipótese de contribuinte do imposto."}
+];
+var L="ABCDE",st={};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function render(){
+  var h="";
+  Q.forEach(function(q,i){
+    h+='<div class="q" id="q'+i+'"><div class="meta">QUESTÃO '+(i+1)+' · '+esc(q.o)+'</div><p class="enun">'+esc(q.t)+'</p><div class="opts">';
+    q.a.forEach(function(a,j){h+='<button type="button" class="opt" data-q="'+i+'" data-o="'+j+'"><b>'+L[j]+')</b><span>'+esc(a)+'</span></button>'});
+    h+='</div><div class="exp" hidden></div></div>';
+  });
+  document.getElementById("quiz").innerHTML=h;
+  document.getElementById("pTot").textContent=Q.length;
+  st={};score();
+}
+function score(){
+  var ok=0,bad=0;
+  Object.keys(st).forEach(function(k){if(st[k]===Q[k].c)ok++;else bad++});
+  document.getElementById("pAns").textContent=ok+bad;
+  document.getElementById("pOk").textContent=ok;
+  document.getElementById("pBad").textContent=bad;
+}
+document.getElementById("quiz").addEventListener("click",function(ev){
+  var b=ev.target.closest("button.opt");if(!b)return;
+  var i=+b.dataset.q,j=+b.dataset.o;if(st[i]!==undefined)return;
+  st[i]=j;var box=document.getElementById("q"+i);
+  box.querySelectorAll("button.opt").forEach(function(x,k){
+    x.disabled=true;
+    if(k===Q[i].c)x.classList.add("certa");
+    else if(k===j)x.classList.add("errada");
+  });
+  var e=box.querySelector(".exp");
+  e.innerHTML="<b>"+(j===Q[i].c?"Certo.":"Errado.")+"</b> Gabarito: "+(Q[i].a.length===2?Q[i].a[Q[i].c]:L[Q[i].c])+". "+esc(Q[i].e);
+  e.hidden=false;score();
+});
+document.getElementById("reset").addEventListener("click",function(){render();window.scrollTo(0,document.getElementById("simulado").offsetTop-60)});
+render();
+</script>
+
+</body></html>
